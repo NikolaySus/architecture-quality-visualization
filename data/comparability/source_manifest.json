@@ -1,0 +1,458 @@
+[
+  {
+    "paper_id": "P09",
+    "files": [
+      {
+        "path": "tmp/source_audit/P09.html",
+        "sha256": "06e5c8f517c0e0183d06b64a07275c25803b3ed51df393f30ee00e7581bf3692"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M16",
+        "locator": "P09 §3, Tables 1-4"
+      }
+    ]
+  },
+  {
+    "paper_id": "P12",
+    "files": [
+      {
+        "path": "tmp/source_audit/P12.html",
+        "sha256": "854e1aae601796c93f5a775148d2cbd6d2c4a10624dde8ad3fae5a40eda58f25"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "graf_NAS-Bench-101_CIFAR-10_32",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T6",
+        "locator": "Appendix F, A6.T6",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-101_CIFAR-10_128",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T6",
+        "locator": "Appendix F, A6.T6",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-101_CIFAR-10_1024",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T6",
+        "locator": "Appendix F, A6.T6",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_CIFAR-10_32",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7 + Appendix L, Table 28",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_CIFAR-10_128",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7 + Appendix L, Table 28",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_CIFAR-10_1024",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7 + Appendix L, Table 28",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_CIFAR-100_32",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_CIFAR-100_128",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_CIFAR-100_1024",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_ImageNet16-120_32",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7 + Appendix L, Table 28",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_ImageNet16-120_128",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7 + Appendix L, Table 28",
+        "tier": "direct"
+      },
+      {
+        "id": "graf_NAS-Bench-201_ImageNet16-120_1024",
+        "url": "https://arxiv.org/html/2404.16551v2#A6.T7",
+        "locator": "Appendix F, A6.T7 + Appendix L, Table 28",
+        "tier": "direct"
+      }
+    ],
+    "excluded_reviews": []
+  },
+  {
+    "paper_id": "P14",
+    "files": [
+      {
+        "path": "tmp/narrow_sources/P14.pdf",
+        "sha256": "d84a5f3b7b980334ea0cf878389c498755bd803b250c240e0fd516ccb951ca9f"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "old_G6",
+        "url": "https://proceedings.mlr.press/v293/qin25a.html",
+        "locator": "Table 1 + Appendix Table 7 (same CIFAR-10 evaluation set)",
+        "tier": "direct"
+      }
+    ],
+    "excluded_reviews": [],
+    "version_note": "Official AutoML 2025 / PMLR 293; PDF Tables 1 and 7 visually checked"
+  },
+  {
+    "paper_id": "P15",
+    "files": [
+      {
+        "path": "tmp/comparability/P15.pdf",
+        "sha256": "debf9e982674136d439a04cb388756944cf1b563f5c22666b4cbd5a90aa2cf2d"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M41",
+        "locator": "P15 §4.4 / Fig.9; pp.13-14"
+      }
+    ]
+  },
+  {
+    "paper_id": "P17",
+    "files": [
+      {
+        "path": "tmp/comparability/P17.pdf",
+        "sha256": "b720f3c2aaaeacc9c656ba8c78df71bfebf9ebbfe2aa027f58270c8947cd24df"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M43",
+        "locator": "P17 arXiv v3, §5-6 / Fig.5.1-6.1"
+      }
+    ],
+    "version_note": "arXiv:1910.11858v3"
+  },
+  {
+    "paper_id": "P21",
+    "files": [
+      {
+        "path": "tmp/source_audit/P21.pdf",
+        "sha256": "48fa8c30f640c36485bb576113f61cee029ce7217a23161466f3f95e6c88d462"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M54",
+        "locator": "P21 §3.3 / Table 1"
+      }
+    ]
+  },
+  {
+    "paper_id": "P27",
+    "files": [
+      {
+        "path": "tmp/source_audit/P27.pdf",
+        "sha256": "2fc25d034881318d284571b98a76e2869bf06fc56147ad0af8d5f37727276d00"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "rnn_reported",
+        "url": "https://aclanthology.org/2023.acl-long.142.pdf",
+        "locator": "Figure 1 / PDF p.6, printed p.2527",
+        "tier": "auxiliary"
+      }
+    ],
+    "excluded_reviews": [],
+    "version_note": "Official ACL 2023 PDF, Fig.1 p.6 visually checked; reported sign convention unresolved, auxiliary only"
+  },
+  {
+    "paper_id": "P28",
+    "files": [
+      {
+        "path": "tmp/source_audit/P28.pdf",
+        "sha256": "ab4e5b012f484b43b3f6768c642cec902a80e60beb62db67d36b5d03ab238534"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "old_G1",
+        "url": "https://aclanthology.org/2024.findings-emnlp.502.pdf",
+        "locator": "Table 2, printed p.8596 / PDF p.5",
+        "tier": "direct"
+      }
+    ],
+    "excluded_reviews": []
+  },
+  {
+    "paper_id": "P29",
+    "files": [
+      {
+        "path": "tmp/source_audit/P29.html",
+        "sha256": "bb6753228a1e0beb9b7dd351bec917eebc8e144421473cd82de5bf2d4dc38daf"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "old_G2",
+        "url": "https://arxiv.org/html/2503.18646v1",
+        "locator": "Table I; IV-A",
+        "tier": "direct"
+      },
+      {
+        "id": "gpt2_wikitext",
+        "url": "https://arxiv.org/html/2503.18646v1#S4.T2",
+        "locator": "Table II; §IV-C",
+        "tier": "author_comparison"
+      }
+    ],
+    "excluded_reviews": [
+      {
+        "method_id": "M26",
+        "locator": "P29 §III-D, Table I/II, Figures 7-9"
+      },
+      {
+        "method_id": "M27",
+        "locator": "P29 §III-D, Table I/II, Figures 7-9"
+      }
+    ]
+  },
+  {
+    "paper_id": "P32",
+    "files": [
+      {
+        "path": "tmp/narrow_sources/P32.html",
+        "sha256": "c9162ba636e6305eb4f496ffe62161767839f7f619da5d2239f3afa28551c424"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "old_G4",
+        "url": "https://arxiv.org/html/2605.07378v1",
+        "locator": "Table I; IV-B",
+        "tier": "direct"
+      }
+    ],
+    "excluded_reviews": []
+  },
+  {
+    "paper_id": "P33",
+    "files": [
+      {
+        "path": "tmp/source_audit/P33.html",
+        "sha256": "55cb80cc5c965905ad309bee9af006c0da00c25059429c3c281631cbad5a2580"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M31",
+        "locator": "P33 Table 1/2/5; Appendix A.3"
+      }
+    ]
+  },
+  {
+    "paper_id": "P34",
+    "files": [
+      {
+        "path": "tmp/narrow_sources/P34.pdf",
+        "sha256": "27d29a7e533ff2c28c550cfe32b2ff5aa8662bbd1bb7e71a64d8d9dac8e46281"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "onnx_darts",
+        "url": "https://arxiv.org/pdf/2510.04938v2",
+        "locator": "Table 2 / PDF p.5",
+        "tier": "auxiliary"
+      },
+      {
+        "id": "onnx_einspace",
+        "url": "https://arxiv.org/pdf/2510.04938v2",
+        "locator": "Appendix C, Table 8 / PDF p.14",
+        "tier": "auxiliary"
+      }
+    ],
+    "excluded_reviews": [],
+    "version_note": "arXiv:2510.04938v2, 26 Aug 2026; PDF Tables 2 and 8 visually checked"
+  },
+  {
+    "paper_id": "P35",
+    "files": [
+      {
+        "path": "tmp/source_audit/P35.html",
+        "sha256": "cf5f7bf071c544e388bec68cc3c3ff37f0a7ff2df9bfef565a726ce79dcc5154"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M49",
+        "locator": "P35 §4.1, Tables 1/3/4/5"
+      }
+    ]
+  },
+  {
+    "paper_id": "P36",
+    "files": [
+      {
+        "path": "tmp/source_audit/P36.pdf",
+        "sha256": "c6889b0edb8bbbde0d9791bc176871d57c6e7e87b7ca96b606390093838e18f8"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M35",
+        "locator": "P36 §4.2-4.3, Table 1 / Fig.2"
+      }
+    ]
+  },
+  {
+    "paper_id": "P37",
+    "files": [
+      {
+        "path": "tmp/source_audit/P37.html",
+        "sha256": "6c7469267ec72bf7cc1fbf8a95d65b3bc7fdbea35d84198e29403ef7843ec7a0"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M50",
+        "locator": "P37 Tables 7-9"
+      }
+    ]
+  },
+  {
+    "paper_id": "P38",
+    "files": [
+      {
+        "path": "tmp/source_audit/P38.html",
+        "sha256": "ccf1247e12fa05519ddde83eca56fe5cbb267c5364c9dd9c758815b18fe3cce4"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "cora_nb201_0",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T2",
+        "locator": "Table 2; §4; Appendix A",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_nb201_1",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T2",
+        "locator": "Table 2; §4; Appendix A",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_nb201_2",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T2",
+        "locator": "Table 2; §4; Appendix A",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_7",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_8",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_9",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_10",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_11",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_12",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      },
+      {
+        "id": "cora_vit_13",
+        "url": "https://arxiv.org/html/2609.11884v1#S4.T10",
+        "locator": "Table 10; §4.3",
+        "tier": "direct"
+      }
+    ],
+    "excluded_reviews": []
+  },
+  {
+    "paper_id": "P47",
+    "files": [
+      {
+        "path": "tmp/source_audit/P47.html",
+        "sha256": "111427fb4ae7461bba9f6465df3a5c950e1ccb74ac0ce9e91e25f9de73bb81af"
+      },
+      {
+        "path": "tmp/comparability/P47.pdf",
+        "sha256": "abd77f87b813801a5902bc67c5b5a798b4ac2f5a364f07973bd9517521468aea"
+      }
+    ],
+    "protocols": [],
+    "excluded_reviews": [
+      {
+        "method_id": "M67",
+        "locator": "P47 §4-5 / Figures 1-4; P12 §4.3"
+      }
+    ],
+    "version_note": "arXiv:2307.09365v1, not final IJCV article"
+  },
+  {
+    "paper_id": "P50",
+    "files": [
+      {
+        "path": "tmp/source_audit/P50.html",
+        "sha256": "d4034a4eb9e0629a9ac0b1c7a56e8a19240c5ac4c5e69f8b734c1531c0c9c629"
+      }
+    ],
+    "protocols": [
+      {
+        "id": "wrcor_nb201_full",
+        "url": "https://arxiv.org/html/2507.08841v2#S4.T2",
+        "locator": "Table 2, real column; §4.1.3",
+        "tier": "author_comparison"
+      }
+    ],
+    "excluded_reviews": []
+  }
+]

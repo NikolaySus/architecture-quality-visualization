@@ -1,0 +1,11 @@
+{
+  "pages": 26,
+  "retained_records": 100,
+  "primary_method_count": 18,
+  "groups": 11,
+  "same_orders_including_ties": true,
+  "filter_exact_match": true,
+  "numbers_in_correct_context": true,
+  "text_bounds": "pass",
+  "sha256": "6b635b677f7758f0c02ed4a975ddf6546c181ebc8d4fee02520f090b963f55c3"
+}

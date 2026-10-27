@@ -1,0 +1,17 @@
+{
+  "corpus_version": "0.2-import.1",
+  "generated_at": "2026-10-13T09:43:27.219613+00:00",
+  "selection": {
+    "plot": "metric",
+    "group": "qin2025_cifar10_t1",
+    "metric": "spearman_rho"
+  },
+  "ids": [
+    "G6_052",
+    "G6_053",
+    "G6_055",
+    "G6_056",
+    "G6_057",
+    "G6_054"
+  ]
+}

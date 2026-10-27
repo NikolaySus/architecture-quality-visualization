@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-10-13",
+  "visual_experiments": 14,
+  "reports": [
+    {
+      "id": "01_mechanisms",
+      "pdf": "output/pdf/variants/01_mechanisms.pdf",
+      "pages": 26,
+      "catalog_method_ids": 69,
+      "registry_observations": 43,
+      "main_visual_blocks": 4,
+      "bookmarks": 24,
+      "links": 95,
+      "text_bounds": "passed",
+      "pdf_sha256": "752e2421eec06d773cfa5725400c284eca0deff4c82e849c8b7d57ac1a82be69"
+    },
+    {
+      "id": "02_constraints",
+      "pdf": "output/pdf/variants/02_constraints.pdf",
+      "pages": 24,
+      "catalog_method_ids": 69,
+      "registry_observations": 43,
+      "main_visual_blocks": 4,
+      "bookmarks": 21,
+      "links": 95,
+      "text_bounds": "passed",
+      "pdf_sha256": "9c3a0dec2c7d28b61a4dc936269fd02b537c64138501166447ecb13f1f7b4544"
+    },
+    {
+      "id": "03_family_atlas",
+      "pdf": "output/pdf/variants/03_family_atlas.pdf",
+      "pages": 25,
+      "catalog_method_ids": 69,
+      "registry_observations": 43,
+      "main_visual_blocks": 4,
+      "bookmarks": 23,
+      "links": 95,
+      "text_bounds": "passed",
+      "pdf_sha256": "53181f6edb46629485bb7b2640ba0ceae8307ca19eae29e9628c04fe436be5b9"
+    }
+  ],
+  "visual_review": {
+    "status": "reviewed",
+    "scope": "All pages rendered at 1100px; contact sheets reviewed, main numerical panels inspected individually; table orphan pages and detached sources corrected.",
+    "render_directory": "tmp/pdfs/variants"
+  },
+  "requirements_audit": [
+    {
+      "requirement": "Несколько вариантов категоризации и отчётов",
+      "evidence": "Three full PDFs, three partitions (6 operation / 3 access / 5 family), 14 exported trials."
+    },
+    {
+      "requirement": "Учитывать все визуализации, не только D",
+      "evidence": "D alternatives; B/F combined; three E layouts; two accepted G6 layouts; A/C explicitly lack full quantitative costs."
+    },
+    {
+      "requirement": "Пробовать разные приёмы, включая 3D при пользе",
+      "evidence": "D_3d compared with D_evidence_facets; rejected/diagnostic decisions in 00_design_comparison.pdf."
+    },
+    {
+      "requirement": "Не перегружать число визуализаций",
+      "evidence": "Exactly four main visual blocks in each report; all 43 observations covered once."
+    },
+    {
+      "requirement": "Без двусмысленных категорий",
+      "evidence": "Exhaustive disjoint membership; explicit N/U/T definitions, variant-level access exceptions, separate setup examples, no mixed/unknown comparison category."
+    },
+    {
+      "requirement": "Сохранить исключения и расшифровки",
+      "evidence": "PDF text catalog contains all 69 IDs once before numerical panels; final page lists M28/M40/M72; numerical exclusions archived."
+    },
+    {
+      "requirement": "PDF и uv",
+      "evidence": "Build commands in README; final PDFs and render checks generated using uv scripts."
+    }
+  ],
+  "comparison_pdf": "output/pdf/variants/00_design_comparison.pdf"
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "T01",
+    "x": "N",
+    "y": "fixed",
+    "method_ids": [
+      "M01",
+      "M02",
+      "M03",
+      "M04",
+      "M12",
+      "M14",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M35",
+      "M70"
+    ],
+    "count": 12
+  },
+  {
+    "id": "T02",
+    "x": "U",
+    "y": "fixed",
+    "method_ids": [
+      "M09",
+      "M10",
+      "M11",
+      "M13",
+      "M22",
+      "M23",
+      "M24",
+      "M29",
+      "M32",
+      "M68"
+    ],
+    "count": 10
+  },
+  {
+    "id": "T03",
+    "x": "T",
+    "y": "fixed",
+    "method_ids": [
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M17",
+      "M33",
+      "M34",
+      "M71"
+    ],
+    "count": 8
+  },
+  {
+    "id": "T04",
+    "x": "N",
+    "y": "distribution",
+    "method_ids": [
+      "M27"
+    ],
+    "count": 1
+  },
+  {
+    "id": "T05",
+    "x": "U",
+    "y": "distribution",
+    "method_ids": [
+      "M16",
+      "M30",
+      "M51"
+    ],
+    "count": 3
+  },
+  {
+    "id": "T06",
+    "x": "U",
+    "y": "search",
+    "method_ids": [
+      "M15",
+      "M25"
+    ],
+    "count": 2
+  },
+  {
+    "id": "T07",
+    "x": "N",
+    "y": "calibration",
+    "method_ids": [
+      "M26"
+    ],
+    "count": 1
+  },
+  {
+    "id": "T08",
+    "x": "N",
+    "y": "fit",
+    "method_ids": [
+      "M36",
+      "M41",
+      "M42",
+      "M43",
+      "M44",
+      "M45",
+      "M46",
+      "M48",
+      "M49",
+      "M69"
+    ],
+    "count": 10
+  },
+  {
+    "id": "T09",
+    "x": "T",
+    "y": "fit",
+    "method_ids": [
+      "M31",
+      "M37",
+      "M38",
+      "M39",
+      "M50",
+      "M67"
+    ],
+    "count": 6
+  },
+  {
+    "id": "T10",
+    "x": "N",
+    "y": "curves",
+    "method_ids": [
+      "M54"
+    ],
+    "count": 1
+  },
+  {
+    "id": "T11",
+    "x": "U",
+    "y": "curves",
+    "method_ids": [
+      "M52"
+    ],
+    "count": 1
+  },
+  {
+    "id": "T12",
+    "x": "N",
+    "y": "prompt",
+    "method_ids": [
+      "M47"
+    ],
+    "count": 1
+  }
+]

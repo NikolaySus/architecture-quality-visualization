@@ -1,0 +1,84 @@
+[
+  {
+    "paper": "P38",
+    "table": "Table 2",
+    "rows": [
+      "Fisher",
+      "Plain"
+    ],
+    "decision": "exclude_from_live_cohort",
+    "reason": "Precomputed NAS-Bench-Suite-Zero source; no identical live rerun."
+  },
+  {
+    "paper": "P38",
+    "table": "Tables 3/14",
+    "decision": "do_not_pool",
+    "reason": "Mixed sources, different sample sizes (3000/4096), and absolute rho; individual live cohorts require separate review."
+  },
+  {
+    "method_id": "M16",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P09 §3, Tables 1-4",
+    "reason": "В таблицах корреляций сравниваются компоненты, в том числе LogSynFlow; FreeREA как агрегат оценивается через результат эволюционного поиска. Нельзя присвоить корреляцию компонента всему алгоритму."
+  },
+  {
+    "method_id": "M26",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P29 §III-D, Table I/II, Figures 7-9",
+    "reason": "В строке Ours не закреплён способ выбора alpha: калибровка по качествам или эвристика. Нельзя приписать одно число M26 или M27 и скрыть различие подготовки."
+  },
+  {
+    "method_id": "M27",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P29 §III-D, Table I/II, Figures 7-9",
+    "reason": "Строка Ours не отделяет эвристический alpha от калиброванного; тот же результат нельзя дублировать для двух вариантов."
+  },
+  {
+    "method_id": "M31",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P33 Table 1/2/5; Appendix A.3",
+    "reason": "NB101/201 используют PINAT fusion, а каталог фиксирует standalone MABN. Для ViT эталон получен AutoFormer-supernet. NDS использует standalone, но схема split/подбора в Appendix A неоднозначна. Нет достаточно надёжной общей группы для данного варианта."
+  },
+  {
+    "method_id": "M35",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P36 §4.2-4.3, Table 1 / Fig.2",
+    "reason": "§4.2 называет final validation accuracy, §4.3 и Fig.2 - test accuracy; Table 1 не закрепляет эталон и одинаковую выборку baselines. Не смешивается с прозрачными live-группами. Перспективная data-free идея, но доказательство пока отдельно от основного отбора."
+  },
+  {
+    "method_id": "M41",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P15 §4.4 / Fig.9; pp.13-14",
+    "reason": "τ=0.956 получено на 10 специально выбранных архитектурах, τ=0.649 - на другом validation-наборе. Нет общего correlation cohort с остальными методами; сравнение NAS search efficiency не заменяет его."
+  },
+  {
+    "method_id": "M43",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P17 arXiv v3, §5-6 / Fig.5.1-6.1",
+    "reason": "Исследованы MAE предикторов и качество полного BO/NAS; компоненты/ансамбли меняются. Не найдено общего численного correlation cohort для итогового BANANAS и текущих кандидатов при совпадающем бюджете."
+  },
+  {
+    "method_id": "M49",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P35 §4.1, Tables 1/3/4/5",
+    "reason": "В основных NB201-таблицах не закреплён целевой dataset; сравнение ONNX-to-text - замена кодирования внутри COLE, а не сравнение с полным ONNX-Net. Нельзя использовать как общий рейтинг этих алгоритмов."
+  },
+  {
+    "method_id": "M50",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P37 Tables 7-9",
+    "reason": "P@100 измеряет попадание поиска в топ архитектур при бюджете B; это итог active search с acquisition, а не корреляция независимого оценщика. Общее сравнение с proxy-корреляциями некорректно."
+  },
+  {
+    "method_id": "M54",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P21 §3.3 / Table 1",
+    "reason": "Оценка MSE и log-likelihood предсказания кривых на 16-fold CV гиперпараметров; отличается объект и метрика от ранжирования архитектур. Оставлен вне общего сравнения."
+  },
+  {
+    "method_id": "M67",
+    "decision": "excluded_from_general_comparison",
+    "locator": "P47 §4-5 / Figures 1-4; P12 §4.3",
+    "reason": "RF для clean/robust или совместной цели: меняются attack, epsilon и target. Каталожная строка объединяет варианты, а общий эксперимент с тем же target и конфигурацией не закреплён. Не приравнивать к M37 автоматически."
+  }
+]

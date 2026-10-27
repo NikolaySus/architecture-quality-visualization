@@ -1,0 +1,72 @@
+[
+  {
+    "id": "D_matrix",
+    "records": 18,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/D_matrix.pdf"
+  },
+  {
+    "id": "D_facets",
+    "records": 18,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/D_facets.pdf"
+  },
+  {
+    "id": "D_profiles",
+    "records": 15,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/D_profiles.pdf"
+  },
+  {
+    "id": "D_3d",
+    "records": 16,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/D_3d.pdf"
+  },
+  {
+    "id": "D_evidence_facets",
+    "records": 36,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/D_evidence_facets.pdf"
+  },
+  {
+    "id": "BF_aligned",
+    "records": 25,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/BF_aligned.pdf"
+  },
+  {
+    "id": "BF_heatmap",
+    "records": 25,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/BF_heatmap.pdf"
+  },
+  {
+    "id": "BF_ranked",
+    "records": 25,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/BF_ranked.pdf"
+  },
+  {
+    "id": "E_lines",
+    "records": 12,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/E_lines.pdf"
+  },
+  {
+    "id": "E_budget_panels",
+    "records": 12,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/E_budget_panels.pdf"
+  },
+  {
+    "id": "E_matrix",
+    "records": 12,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/E_matrix.pdf"
+  },
+  {
+    "id": "G6_dots",
+    "records": 6,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/G6_dots.pdf"
+  },
+  {
+    "id": "G6_table",
+    "records": 6,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/G6_table.pdf"
+  },
+  {
+    "id": "G6_scatter",
+    "records": 6,
+    "figure": "/home/nop/Projects/architecture-quality-visualization/exports/variants/G6_scatter.pdf"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "lpzero2024_flexibert_t2",
+    "block": "G1",
+    "paper_id": "P28",
+    "source_version": "ACL_official_PDF",
+    "url": "https://aclanthology.org/2024.findings-emnlp.502.pdf",
+    "locator": "Table 2, printed p.8596 / PDF p.5",
+    "search_space": "FlexiBERT",
+    "target_eval_dataset": "GLUE",
+    "proxy_input_dataset": "OpenWebText",
+    "notes": "LPZero: FlexiBERT, OpenWebText, 500 архитектур\n\nИсточник P28, официальный PDF, Table 2, печатная с. 8596 (PDF page 5); таблица визуально сверена. Target: средний downstream GLUE; `target_direction=max`. Batch input — OpenWebText. Cost каждой строки `null`. `comparison_group_id=lpzero2024_flexibert_t2`.\nP28 §4.1, с.8597: proxy discovery — 10 GPU-hours; 50 архитектур для оценки формул. Это `scope=proxy_discovery`, не query time и не стоимость получения benchmark labels. Указаны A6000/H800; конкретное устройство данного тайминга не разделено."
+  },
+  {
+    "id": "zerolm2025_flexibert_wikitext_t1",
+    "block": "G2",
+    "paper_id": "P29",
+    "source_version": "arxiv_v1",
+    "url": "https://arxiv.org/html/2503.18646v1",
+    "locator": "Table I; IV-A",
+    "search_space": "FlexiBERT",
+    "target_eval_dataset": "GLUE",
+    "proxy_input_dataset": "WikiText-103",
+    "notes": "ZeroLM: FlexiBERT, WikiText-103, 500 архитектур\n\nИсточник P29 v1, Table I и §IV-A. Batch=128, length=256. Target=GLUE. Извлечена выборка строк с разными механизмами; в первоисточнике есть остальные baselines. `comparison_group_id=zerolm2025_flexibert_wikitext_t1`.\nTime описан как average; аппаратура и полный охват операций здесь не установлены. Хранить `cost_scope=reported_average_unresolved`, `hardware=null`, `cost_comparability=provisional`. Разрешён предварительный график с этой подписью; строгий Парето-фронт до проверки выключен. Последнюю строку не дублировать в обоих вариантах ZeroLM: временный `method_variant_id=zerolm_reported_unspecified`."
+  },
+  {
+    "id": "lpzero2024_gpt2_t3",
+    "block": "G3",
+    "paper_id": "P28",
+    "source_version": "ACL_official_PDF",
+    "url": "https://aclanthology.org/2024.findings-emnlp.502.pdf",
+    "locator": "Table 3, printed p.8597 / PDF p.6",
+    "search_space": "GPT-2",
+    "target_eval_dataset": "WikiText-103",
+    "proxy_input_dataset": "WikiText-103",
+    "notes": "LPZero: GPT-2, WikiText-103, 200 архитектур\n\nP28, Table 3, с.8597 (PDF page 6); визуально сверено. Selected rows. `comparison_group_id=lpzero2024_gpt2_t3`. Положительные корреляции приведены в ориентации статьи; точное преобразование perplexity уточнить перед совместной шкалой.\n"
+  },
+  {
+    "id": "swap2026_flexibert_t1",
+    "block": "G4",
+    "paper_id": "P32",
+    "source_version": "arxiv_v1",
+    "url": "https://arxiv.org/html/2605.07378v1",
+    "locator": "Table I; IV-B",
+    "search_space": "FlexiBERT",
+    "target_eval_dataset": "GLUE weighted",
+    "proxy_input_dataset": "OpenWebText",
+    "notes": "SWAP: FlexiBERT / GLUE, 500 архитектур\n\nP32 v1, Table I, §IV-B. `comparison_group_id=swap2026_flexibert_t1`; вход OpenWebText, random-initialized кандидаты. `cost=null`, `tau=null`. Weighted GLUE aggregation этой статьи сохранять отдельно.\n"
+  },
+  {
+    "id": "graf2024_nb101_c10_t6",
+    "block": "G5",
+    "paper_id": "P12",
+    "source_version": "arxiv_v2",
+    "url": "https://arxiv.org/html/2404.16551v2",
+    "locator": "Appendix F, Table 6",
+    "search_space": "NAS-Bench-101",
+    "target_eval_dataset": "CIFAR-10",
+    "proxy_input_dataset": null,
+    "notes": "GRAF: NB101 / CIFAR-10, зависимость от числа меток\n\nP12, arXiv:2404.16551v2, Appendix F, Table 6. Mean ± **standard deviation**, 50 runs, target validation accuracy. `comparison_group_id=graf2024_nb101_c10_t6`; каждое N — отдельный observation. RF default; OH=one-hot encoding, M69.\nТот же источник, Appendix E, Table 4: извлечение GRAF для **всей выборки** NB101 — 6.1 s / 10 000 architectures на Ryzen 7 3800X; среднее 10 повторов. Производная амортизированная величина: 0.00061 s/architecture, `scope=feature_extraction_amortized`, `status=derived`; это не полный query-time RF и не latency одиночного вызова."
+  },
+  {
+    "id": "qin2025_cifar10_t1",
+    "block": "G6",
+    "paper_id": "P14",
+    "source_version": "arxiv_v1",
+    "url": "https://arxiv.org/html/2504.12971v1",
+    "locator": "Table 1; Data paragraph",
+    "search_space": "einspace",
+    "target_eval_dataset": "CIFAR-10",
+    "proxy_input_dataset": null,
+    "notes": "Qin: einspace / CIFAR-10, различные surrogate backbones\n\nP14, arXiv:2504.12971v1, Table 1 и Data paragraph. Около 9k architecture–accuracy pairs, восемь NAS runs: 6 train / 1 validation / 1 test. `comparison_group_id=qin2025_cifar10_t1`; costs `null`.\nЭто CV-цель; использование RoBERTa/ModernBERT внутри предиктора не даёт класс N. Указанная group не объединяется с G5 и G7."
+  },
+  {
+    "id": "cole2026_nb201_base_t1",
+    "block": "G7",
+    "paper_id": "P35",
+    "source_version": "arxiv_v1",
+    "url": "https://arxiv.org/html/2605.15649v1",
+    "locator": "4.1.1-4.1.2, Table 1",
+    "search_space": "NAS-Bench-201",
+    "target_eval_dataset": "unresolved",
+    "proxy_input_dataset": null,
+    "notes": "COLE: label-efficiency, NAS-Bench-201\n\nP35 v1, §4.1.1–4.1.2, Table 1. Base: frozen CodeLlama-Python-7B, PCA128, MLP с pairwise loss. 10 folds × 10 seeds; размер выборки архитектур 15 625. `comparison_group_id=cole2026_nb201_base_t1`; точный target dataset Table 1 дополнительно уточнить — не переносить CIFAR-100 из отдельного NAS-эксперимента. Пока `dataset=unresolved`, разрешена только панель с исходной подписью.\nУказана возможность запуска на одной H100; это не измерение runtime. `cost=null`. Таблицы 1/3 не дублировать как независимые эксперименты, если повторяется Base."
+  }
+]

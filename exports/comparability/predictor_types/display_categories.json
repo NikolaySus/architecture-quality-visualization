@@ -1,0 +1,835 @@
+{
+  "predictor_types": {
+    "trees": {
+      "label": "Деревья и ансамбли деревьев",
+      "color": "#A74E69",
+      "ids": [
+        "M36",
+        "M37",
+        "M38",
+        "M39",
+        "M52",
+        "M69"
+      ]
+    },
+    "neural_representation": {
+      "label": "Нейросетевые архитектурные представления",
+      "color": "#D94701",
+      "ids": [
+        "M42",
+        "M44",
+        "M45"
+      ]
+    },
+    "language_model": {
+      "label": "Языковые модели",
+      "color": "#303030",
+      "ids": [
+        "M46",
+        "M48"
+      ]
+    }
+  },
+  "records": [
+    {
+      "protocol": "old_G1",
+      "method_id": "M12",
+      "variant": "LogSynflow",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M15",
+      "variant": "EZNAS",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M03",
+      "variant": "#FLOPs",
+      "source_category": "static",
+      "display_category": "static",
+      "color": "#487b9e"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M38",
+      "variant": "RF, ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M39",
+      "variant": "XGBRegressor, ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "RoBERTa-base",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "ModernBERT-base",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "ModernBERT-large",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "ModernBERT-large + augmentation",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "source_category": "static",
+      "display_category": "static",
+      "color": "#487b9e"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "source_category": "static",
+      "display_category": "static",
+      "color": "#487b9e"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "source_category": "static",
+      "display_category": "static",
+      "color": "#487b9e"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M70",
+      "variant": "PNorm",
+      "source_category": "weights",
+      "display_category": "weights",
+      "color": "#8e69a4"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "source_category": "static",
+      "display_category": "static",
+      "color": "#487b9e"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M33",
+      "variant": "WRCor (Ours)",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M34",
+      "variant": "SPW (Ours)",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M34",
+      "variant": "SJW (Ours)",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "source_category": "learned_static",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "RoBERTa-large",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "Llama3.2 1B",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "Llama3.2 1B Instruct",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "Llama3.2 3B",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M12",
+      "variant": "WikiText-103 implementation: LogSynflow [ 42 ]",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M15",
+      "variant": "WikiText-103 implementation: EZNAS [ 9 ]",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M15",
+      "variant": "GPT-2: EZNAS",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M12",
+      "variant": "GPT-2: LogSynflow",
+      "source_category": "derivatives",
+      "display_category": "derivatives",
+      "color": "#c58b38"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M02",
+      "variant": "GPT-2: #Decoder.Params",
+      "source_category": "static",
+      "display_category": "static",
+      "color": "#487b9e"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "onnx_darts",
+      "method_id": "M44",
+      "variant": "CATE",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "onnx_darts",
+      "method_id": "M45",
+      "variant": "Arch2Vec",
+      "source_category": "learned_static",
+      "display_category": "neural_representation",
+      "color": "#D94701"
+    },
+    {
+      "protocol": "onnx_darts",
+      "method_id": "M48",
+      "variant": "ONNX-Net",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M38",
+      "variant": "RF, ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M39",
+      "variant": "XGB, ZCP + GRAF",
+      "source_category": "learned_dynamic",
+      "display_category": "trees",
+      "color": "#A74E69"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M46",
+      "variant": "ModernBERT-large (Qin)",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M48",
+      "variant": "ONNX-Net",
+      "source_category": "learned_static",
+      "display_category": "language_model",
+      "color": "#303030"
+    }
+  ]
+}

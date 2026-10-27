@@ -1,0 +1,128 @@
+{
+  "source": "tmp/source_audit/P29.html",
+  "source_sha256": "bb6753228a1e0beb9b7dd351bec917eebc8e144421473cd82de5bf2d4dc38daf",
+  "id": "S4.T2",
+  "caption": "TABLE II: Computation of the proxy’s SPR, KT, and time-cost for randomly sampling 200 architectures on the GPT-2 benchmark when the input data is wikitext-103.",
+  "rows": [
+    [
+      "Proxy",
+      "SPR",
+      "KT",
+      "time(s)"
+    ],
+    [
+      "GraSP",
+      "0.483",
+      "0.380",
+      "202.9"
+    ],
+    [
+      "EZNAS",
+      "-0.602",
+      "-0.439",
+      "240.3"
+    ],
+    [
+      "Gradnorm",
+      "-0.754",
+      "-0.493",
+      "184.7"
+    ],
+    [
+      "SNIP",
+      "-0.779",
+      "-0.506",
+      "183.7"
+    ],
+    [
+      "Fisher",
+      "-0.782",
+      "-0.510",
+      "336.0"
+    ],
+    [
+      "Jacobian Cosine",
+      "-0.735",
+      "-0.532",
+      "181.5"
+    ],
+    [
+      "Synflow",
+      "-0.788",
+      "-0.565",
+      "299.7"
+    ],
+    [
+      "#params",
+      "-0.737",
+      "-0.582",
+      "-"
+    ],
+    [
+      "Activation distance",
+      "-0.818",
+      "-0.644",
+      "180.3"
+    ],
+    [
+      "Attention confidence",
+      "-0.851",
+      "-0.677",
+      "186.9"
+    ],
+    [
+      "Head confidence",
+      "-0.851",
+      "-0.678",
+      "186.1"
+    ],
+    [
+      "LogSynflow",
+      "-0.914",
+      "-0.753",
+      "231.0"
+    ],
+    [
+      "DSS",
+      "-0.956",
+      "-0.841",
+      "494.8"
+    ],
+    [
+      "Synaptic Diversity",
+      "-0.956",
+      "-0.841",
+      "311.9"
+    ],
+    [
+      "#Decoder.Params",
+      "-0.967",
+      "-0.847",
+      "-"
+    ],
+    [
+      "Synaptic Synaptic",
+      "-0.971",
+      "-0.861",
+      "183.0"
+    ],
+    [
+      "Head Importance",
+      "-0.971",
+      "-0.862",
+      "186.2"
+    ],
+    [
+      "Ours",
+      "-0.979",
+      "-0.871",
+      "260.0"
+    ],
+    [
+      "LPZero",
+      "-0.980",
+      "-0.886",
+      "300.0"
+    ]
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "01_signal_mechanisms",
+    "metrics": {
+      "map_points": 13,
+      "map_cells": 30,
+      "singletons": 4,
+      "largest_group": 12,
+      "matrix_profiles": 10,
+      "matrix_features": 4
+    },
+    "selected": "2D map with exact combination groups",
+    "complement": "binary feature matrix",
+    "reason": "Матрица признаков явно раскрывает состав комбинаций. 2D-карта остаётся основной: её точки имеют точные, непересекающиеся расшифровки."
+  },
+  {
+    "id": "02_candidate_requirements",
+    "metrics": {
+      "map_points": 7,
+      "map_cells": 16,
+      "singletons": 1,
+      "largest_group": 15,
+      "matrix_profiles": 8,
+      "matrix_features": 5
+    },
+    "selected": "2D map with exact combination groups",
+    "complement": "binary feature matrix",
+    "reason": "2D-карта показывает крупные режимы применения. Матрица уточняет смешение реальных и синтетических входов, которое нельзя прочесть из одного N/U/T."
+  },
+  {
+    "id": "03_estimator_preparation",
+    "metrics": {
+      "map_points": 12,
+      "map_cells": 21,
+      "singletons": 5,
+      "largest_group": 12,
+      "matrix_profiles": 6,
+      "matrix_features": 6
+    },
+    "selected": "2D map with exact combination groups",
+    "complement": "binary feature matrix",
+    "reason": "2D-карта отделяет подготовку от применения. Матрица дополнительно показывает предобучение представления и готовые LM: эти признаки пересекаются со способом использования H."
+  }
+]

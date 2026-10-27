@@ -1,0 +1,14 @@
+{
+  "corpus_version": "0.2-import.1",
+  "generated_at": "2026-10-13T09:43:26.375136+00:00",
+  "selection": {
+    "plot": "metric",
+    "group": "zerolm2025_flexibert_wikitext_t1",
+    "metric": "spearman_rho"
+  },
+  "ids": [
+    "G2_016",
+    "G2_022",
+    "G2_021"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "source": "tmp/narrow_sources/P32.html",
+  "source_sha256": "c9162ba636e6305eb4f496ffe62161767839f7f619da5d2239f3afa28551c424",
+  "id": "S4.T1",
+  "caption": "TABLE I : Spearman’s correlation coefficients between 11 zero-shot metrics (including our SWAP-Score) and GLUE score of 500 BERT-like Transformers.",
+  "rows": [
+    [
+      "",
+      "Synaptic Diversity",
+      "Synaptic Saliency",
+      "Activation Distance",
+      "Jacobian Score",
+      "Attention Confidence",
+      "Attention Importance",
+      "Attention Softmax Confidence",
+      "DSS-Indicator",
+      "#Params",
+      "#FLOPs",
+      "SWAP-Score"
+    ],
+    [
+      "Synaptic"
+    ],
+    [
+      "Diversity"
+    ],
+    [
+      "Synaptic"
+    ],
+    [
+      "Saliency"
+    ],
+    [
+      "Activation"
+    ],
+    [
+      "Distance"
+    ],
+    [
+      "Jacobian"
+    ],
+    [
+      "Score"
+    ],
+    [
+      "Attention"
+    ],
+    [
+      "Confidence"
+    ],
+    [
+      "Attention"
+    ],
+    [
+      "Importance"
+    ],
+    [
+      "Attention Softmax"
+    ],
+    [
+      "Confidence"
+    ],
+    [
+      "Spearman Coefficient",
+      "0.169",
+      "0.177",
+      "0.031",
+      "0.016",
+      "0.666",
+      "0.162",
+      "0.055",
+      "-0.071",
+      "0.653",
+      "0.652",
+      "0.711"
+    ],
+    [
+      "Spearman"
+    ],
+    [
+      "Coefficient"
+    ]
+  ]
+}

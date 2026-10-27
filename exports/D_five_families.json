@@ -1,0 +1,16 @@
+{
+  "corpus_version": "0.2-import.1",
+  "generated_at": "2026-10-13T09:43:24.580247+00:00",
+  "selection": {
+    "plot": "D",
+    "unit": "family",
+    "taxonomy": "data/report_families.json"
+  },
+  "ids": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5"
+  ]
+}

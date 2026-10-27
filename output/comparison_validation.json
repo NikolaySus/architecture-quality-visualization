@@ -1,0 +1,16 @@
+{
+  "06_promising_methods": {
+    "pages": 12,
+    "sha256": "6d37ca806197fb0947ff405d4f0e913d986e14d23e4881f865b4dd2350d0363c",
+    "text_bounds": "pass",
+    "links": 12
+  },
+  "07_comparability_tables": {
+    "pages": 59,
+    "sha256": "c3e62cceca3bbf24dcce9c92e219e2813943aa3cb2ed4df69a2f8079d57e7282",
+    "text_bounds": "pass",
+    "links": 60,
+    "numeric_records_checked": 235,
+    "method_names_checked": 56
+  }
+}

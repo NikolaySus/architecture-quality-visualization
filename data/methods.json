@@ -1,0 +1,1918 @@
+[
+  {
+    "id": "M01",
+    "name": "Total parameter count",
+    "mechanism": "Total parameter count; P01/P26/P28",
+    "origin_paper_id": "P01",
+    "evaluation_paper_ids": [
+      "P01",
+      "P26",
+      "P28",
+      "P29",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Статические признаки"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "G; без обучения предиктора",
+    "setup_data_requirements": "G; без обучения предиктора",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M02",
+    "name": "Decoder-only parameter count (LTS)",
+    "mechanism": "Decoder-only parameter count (LTS); P26",
+    "origin_paper_id": "P26",
+    "evaluation_paper_ids": [
+      "P26",
+      "P28"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Статические признаки"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "G; исключение embedding-параметров проверить по определению статьи",
+    "setup_data_requirements": "G; исключение embedding-параметров проверить по определению статьи",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M03",
+    "name": "FLOPs как baseline качества",
+    "mechanism": "FLOPs как baseline качества; P46/P32",
+    "origin_paper_id": "P46",
+    "evaluation_paper_ids": [
+      "P46",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Статические признаки"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "G + форма входа; не путать значение FLOPs модели со стоимостью вычисления proxy",
+    "setup_data_requirements": "G + форма входа; не путать значение FLOPs модели со стоимостью вычисления proxy",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M04",
+    "name": "SynFlow",
+    "mechanism": "SynFlow; P03, NAS-адаптация P01",
+    "origin_paper_id": "P03",
+    "evaluation_paper_ids": [
+      "P03",
+      "P01",
+      "P28",
+      "P29"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "W0 + искусственный вход, backward; исходный метод data-free, NLP-адаптации проверять отдельно",
+    "setup_data_requirements": "W0 + искусственный вход, backward; исходный метод data-free, NLP-адаптации проверять отдельно",
+    "history_labels_required": null,
+    "synthetic_inputs_required": true,
+    "scope_relation": "direct",
+    "input_source": "synthetic",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M05",
+    "name": "SNIP score",
+    "mechanism": "SNIP score; P04/P01",
+    "origin_paper_id": "P04",
+    "evaluation_paper_ids": [
+      "P04",
+      "P01",
+      "P28"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "W0 + X + цель, gradient sensitivity",
+    "setup_data_requirements": "W0 + X + цель, gradient sensitivity",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M06",
+    "name": "GraSP score",
+    "mechanism": "GraSP score; P05/P01",
+    "origin_paper_id": "P05",
+    "evaluation_paper_ids": [
+      "P05",
+      "P01",
+      "P28"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "W0 + X + цель, градиентные/второпорядковые операции",
+    "setup_data_requirements": "W0 + X + цель, градиентные/второпорядковые операции",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M07",
+    "name": "GradNorm",
+    "mechanism": "GradNorm; P01",
+    "origin_paper_id": "P01",
+    "evaluation_paper_ids": [
+      "P01",
+      "P28"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "W0 + X + цель, gradient norm",
+    "setup_data_requirements": "W0 + X + цель, gradient norm",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M08",
+    "name": "Fisher proxy",
+    "mechanism": "Fisher proxy; P01",
+    "origin_paper_id": "P01",
+    "evaluation_paper_ids": [
+      "P01",
+      "P28"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "W0 + X + цель; вариант Fisher и агрегацию хранить явно",
+    "setup_data_requirements": "W0 + X + цель; вариант Fisher и агрегацию хранить явно",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M09",
+    "name": "Jacobian covariance (`jacov`)",
+    "mechanism": "Jacobian covariance (`jacov`); P01/P46",
+    "origin_paper_id": "P01",
+    "evaluation_paper_ids": [
+      "P01",
+      "P46"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X; input Jacobian; не объединять с cosine без проверки реализации",
+    "setup_data_requirements": "W0 + X; input Jacobian; не объединять с cosine без проверки реализации",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M10",
+    "name": "Jacobian cosine / Jacobian score",
+    "mechanism": "Jacobian cosine / Jacobian score; P27/P28",
+    "origin_paper_id": "P27",
+    "evaluation_paper_ids": [
+      "P27",
+      "P28",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X; отдельная NLP-реализация",
+    "setup_data_requirements": "W0 + X; отдельная NLP-реализация",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M11",
+    "name": "NASWOT / activation-distance family",
+    "mechanism": "NASWOT / activation-distance family; P02",
+    "origin_paper_id": "P02",
+    "evaluation_paper_ids": [
+      "P02",
+      "P27",
+      "P28",
+      "P29",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P27/P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X, forward; ReLU/GELU-адаптации являются вариантами",
+    "setup_data_requirements": "W0 + X, forward; ReLU/GELU-адаптации являются вариантами",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M12",
+    "name": "LogSynFlow",
+    "mechanism": "LogSynFlow; P09",
+    "origin_paper_id": "P09",
+    "evaluation_paper_ids": [
+      "P09",
+      "P28"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "W0 + искусственный вход в исходной реализации; стабилизация gradient score",
+    "setup_data_requirements": "W0 + искусственный вход в исходной реализации; стабилизация gradient score",
+    "history_labels_required": null,
+    "synthetic_inputs_required": true,
+    "scope_relation": "direct",
+    "input_source": "synthetic",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M13",
+    "name": "TE-NAS: NTK condition + linear regions",
+    "mechanism": "TE-NAS: NTK condition + linear regions; P06",
+    "origin_paper_id": "P06",
+    "evaluation_paper_ids": [
+      "P06"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + входные пробы; вычисление Jacobian/NTK; точный тип проб проверить",
+    "setup_data_requirements": "W0 + входные пробы; вычисление Jacobian/NTK; точный тип проб проверить",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M14",
+    "name": "Zen-Score",
+    "mechanism": "Zen-Score; P07",
+    "origin_paper_id": "P07",
+    "evaluation_paper_ids": [
+      "P07"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "W0 + случайные синтетические входы, несколько forward",
+    "setup_data_requirements": "W0 + случайные синтетические входы, несколько forward",
+    "history_labels_required": null,
+    "synthetic_inputs_required": true,
+    "scope_relation": "direct",
+    "input_source": "synthetic",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M15",
+    "name": "EZNAS discovered proxy",
+    "mechanism": "EZNAS discovered proxy; P08",
+    "origin_paper_id": "P08",
+    "evaluation_paper_ids": [
+      "P08",
+      "P28",
+      "P29"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "при применении W0 и сигналы выбранной формулы; discovery использует H и поиск",
+    "setup_data_requirements": "при применении W0 и сигналы выбранной формулы; discovery использует H и поиск",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": true
+  },
+  {
+    "id": "M16",
+    "name": "FreeREA aggregate score",
+    "mechanism": "FreeREA aggregate score; P09",
+    "origin_paper_id": "P09",
+    "evaluation_paper_ids": [
+      "P09"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "несколько proxies; считать стоимость всей комбинации",
+    "setup_data_requirements": "несколько proxies; считать стоимость всей комбинации",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M17",
+    "name": "ZiCo",
+    "mechanism": "ZiCo; P10",
+    "origin_paper_id": "P10",
+    "evaluation_paper_ids": [
+      "P10"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "W0 + X + цель, статистика градиентов по примерам",
+    "setup_data_requirements": "W0 + X + цель, статистика градиентов по примерам",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M18",
+    "name": "AZ-NAS aggregate",
+    "mechanism": "AZ-NAS aggregate; P11",
+    "origin_paper_id": "P11",
+    "evaluation_paper_ids": [
+      "P11"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + пробы, совместный forward/backward, агрегация четырёх сигналов",
+    "setup_data_requirements": "W0 + пробы, совместный forward/backward, агрегация четырёх сигналов",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M19",
+    "name": "DSS-indicator / TF-TAS",
+    "mechanism": "DSS-indicator / TF-TAS; P30",
+    "origin_paper_id": "P30",
+    "evaluation_paper_ids": [
+      "P30",
+      "P29",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P29/P32; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + входные пробы, MSA diversity + MLP saliency",
+    "setup_data_requirements": "W0 + входные пробы, MSA diversity + MLP saliency",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M20",
+    "name": "Synaptic diversity component",
+    "mechanism": "Synaptic diversity component; P30",
+    "origin_paper_id": "P30",
+    "evaluation_paper_ids": [
+      "P30",
+      "P28",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P28; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + сигналы attention; отдельный компонент DSS",
+    "setup_data_requirements": "W0 + сигналы attention; отдельный компонент DSS",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M21",
+    "name": "Synaptic saliency component",
+    "mechanism": "Synaptic saliency component; P30/P28",
+    "origin_paper_id": "P30",
+    "evaluation_paper_ids": [
+      "P30",
+      "P28",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + сигналы FFN; не считать синонимом whole-network SynFlow",
+    "setup_data_requirements": "W0 + сигналы FFN; не считать синонимом whole-network SynFlow",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M22",
+    "name": "Attention confidence",
+    "mechanism": "Attention confidence; P27",
+    "origin_paper_id": "P27",
+    "evaluation_paper_ids": [
+      "P27",
+      "P28",
+      "P29",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X без downstream-разметки, attention statistics",
+    "setup_data_requirements": "W0 + X без downstream-разметки, attention statistics",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M23",
+    "name": "Head/attention importance",
+    "mechanism": "Head/attention importance; P27/P28",
+    "origin_paper_id": "P27",
+    "evaluation_paper_ids": [
+      "P27",
+      "P28",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + X; точный алгоритм и наличие backward определяются реализацией",
+    "setup_data_requirements": "W0 + X; точный алгоритм и наличие backward определяются реализацией",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M24",
+    "name": "Attention softmax confidence",
+    "mechanism": "Attention softmax confidence; P27/P32",
+    "origin_paper_id": "P27",
+    "evaluation_paper_ids": [
+      "P27",
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X, forward",
+    "setup_data_requirements": "W0 + X, forward",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M25",
+    "name": "LPZero discovered formula",
+    "mechanism": "LPZero discovered formula; P28",
+    "origin_paper_id": "P28",
+    "evaluation_paper_ids": [
+      "P28",
+      "P29"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + X + статистики формулы; proxy discovery требует H",
+    "setup_data_requirements": "W0 + X + статистики формулы; proxy discovery требует H",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": true
+  },
+  {
+    "id": "M26",
+    "name": "ZeroLM, benchmark-calibrated alpha",
+    "mechanism": "ZeroLM, benchmark-calibrated alpha; P29",
+    "origin_paper_id": "P29",
+    "evaluation_paper_ids": [
+      "P29"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "W0 или Wp; настройка alpha использует H",
+    "setup_data_requirements": "W0 или Wp; настройка alpha использует H",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M27",
+    "name": "ZeroLM, heuristic alpha",
+    "mechanism": "ZeroLM, heuristic alpha; P29",
+    "origin_paper_id": "P29",
+    "evaluation_paper_ids": [
+      "P29"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "W0 или Wp + выборка архитектур без quality labels; отдельный вариант",
+    "setup_data_requirements": "W0 или Wp + выборка архитектур без quality labels; отдельный вариант",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M28",
+    "name": "T-Razor evaluation proxy",
+    "mechanism": "T-Razor evaluation proxy; P31",
+    "origin_paper_id": "P31",
+    "evaluation_paper_ids": [
+      "P31"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "модульные сигналы Transformer; точный ввод/формулу уточнить по полному тексту",
+    "setup_data_requirements": "модульные сигналы Transformer; точный ввод/формулу уточнить по полному тексту",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M29",
+    "name": "SWAP-Score",
+    "mechanism": "SWAP-Score; P32",
+    "origin_paper_id": "P32",
+    "evaluation_paper_ids": [
+      "P32"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X без меток, sample-wise activation patterns",
+    "setup_data_requirements": "W0 + X без меток, sample-wise activation patterns",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M30",
+    "name": "Regularised SWAP-Score",
+    "mechanism": "Regularised SWAP-Score; P32",
+    "origin_paper_id": "P32",
+    "evaluation_paper_ids": [
+      "P32"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1; NLP-вариант отдельно проверить",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "M29 + параметрический prior размера; калибровка по выборке G",
+    "setup_data_requirements": "M29 + параметрический prior размера; калибровка по выборке G",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M31",
+    "name": "ParZC / MABN + DiffKendall",
+    "mechanism": "ParZC / MABN + DiffKendall; P33",
+    "origin_paper_id": "P33",
+    "evaluation_paper_ids": [
+      "P33"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "node-wise proxy features + H для обучения предиктора",
+    "setup_data_requirements": "node-wise proxy features + H для обучения предиктора",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M32",
+    "name": "Dextr",
+    "mechanism": "Dextr; P49",
+    "origin_paper_id": "P49",
+    "evaluation_paper_ids": [
+      "P49"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + один неразмеченный пример; feature SVD и curvature",
+    "setup_data_requirements": "W0 + один неразмеченный пример; feature SVD и curvature",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M33",
+    "name": "WRCor",
+    "mechanism": "WRCor; P50",
+    "origin_paper_id": "P50",
+    "evaluation_paper_ids": [
+      "P50"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X; корреляции ответов",
+    "setup_data_requirements": "W0 + X; корреляции ответов",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M34",
+    "name": "WRCor voting",
+    "mechanism": "WRCor voting; P50",
+    "origin_paper_id": "P50",
+    "evaluation_paper_ids": [
+      "P50"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "ансамбль proxies; точный состав и вычисления уточнить",
+    "setup_data_requirements": "ансамбль proxies; точный состав и вычисления уточнить",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M35",
+    "name": "InTrain",
+    "mechanism": "InTrain; P36",
+    "origin_paper_id": "P36",
+    "evaluation_paper_ids": [
+      "P36"
+    ],
+    "visual_class": null,
+    "application_evidence": "?; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "пока `unknown`, не достраивать механизм из названия",
+    "setup_data_requirements": "пока `unknown`, не достраивать механизм из названия",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M36",
+    "name": "GRAF + RF",
+    "mechanism": "GRAF + RF; P12",
+    "origin_paper_id": "P12",
+    "evaluation_paper_ids": [
+      "P12"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "G при применении; H для RF",
+    "setup_data_requirements": "G при применении; H для RF",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M37",
+    "name": "ZCP + RF",
+    "mechanism": "ZCP + RF; P12",
+    "origin_paper_id": "P12",
+    "evaluation_paper_ids": [
+      "P12"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "proxy-вектор; H для RF",
+    "setup_data_requirements": "proxy-вектор; H для RF",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M38",
+    "name": "GRAF + ZCP + RF",
+    "mechanism": "GRAF + ZCP + RF; P12",
+    "origin_paper_id": "P12",
+    "evaluation_paper_ids": [
+      "P12",
+      "P14"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "G + proxy-вектор; H для RF",
+    "setup_data_requirements": "G + proxy-вектор; H для RF",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M39",
+    "name": "GRAF + ZCP + XGB/XGB+",
+    "mechanism": "GRAF + ZCP + XGB/XGB+; P12/P14",
+    "origin_paper_id": "P12",
+    "evaluation_paper_ids": [
+      "P12",
+      "P14"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "те же входы; сохранить regressor_variant",
+    "setup_data_requirements": "те же входы; сохранить regressor_variant",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M40",
+    "name": "FLAN",
+    "mechanism": "FLAN; P13",
+    "origin_paper_id": "P13",
+    "evaluation_paper_ids": [
+      "P13"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "G; structural/learned/score encodings по варианту; H и возможный pretraining",
+    "setup_data_requirements": "G; structural/learned/score encodings по варианту; H и возможный pretraining",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M41",
+    "name": "GCN Neural Predictor",
+    "mechanism": "GCN Neural Predictor; P15",
+    "origin_paper_id": "P15",
+    "evaluation_paper_ids": [
+      "P15"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "G; H для регрессора",
+    "setup_data_requirements": "G; H для регрессора",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M42",
+    "name": "BRP pairwise GCN",
+    "mechanism": "BRP pairwise GCN; P16",
+    "origin_paper_id": "P16",
+    "evaluation_paper_ids": [
+      "P16"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "G; H преобразуются в пары/отношения",
+    "setup_data_requirements": "G; H преобразуются в пары/отношения",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M43",
+    "name": "BANANAS ensemble predictor",
+    "mechanism": "BANANAS ensemble predictor; P17",
+    "origin_paper_id": "P17",
+    "evaluation_paper_ids": [
+      "P17"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "structural/path encoding G; H для ансамбля",
+    "setup_data_requirements": "structural/path encoding G; H для ансамбля",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M44",
+    "name": "CATE + prediction head",
+    "mechanism": "CATE + prediction head; P18/P13",
+    "origin_paper_id": "P18",
+    "evaluation_paper_ids": [
+      "P18",
+      "P13"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "pretraining на G; H для supervised head",
+    "setup_data_requirements": "pretraining на G; H для supervised head",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M45",
+    "name": "arch2vec + prediction head",
+    "mechanism": "arch2vec + prediction head; P19/P13",
+    "origin_paper_id": "P19",
+    "evaluation_paper_ids": [
+      "P19",
+      "P13"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "unsupervised G pretraining; H для head",
+    "setup_data_requirements": "unsupervised G pretraining; H для head",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M46",
+    "name": "Fine-tuned LM surrogate (Qin)",
+    "mechanism": "Fine-tuned LM surrogate (Qin); P14",
+    "origin_paper_id": "P14",
+    "evaluation_paper_ids": [
+      "P14"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "string(G); H и pretrained LM; отдельные backbone/augmentation варианты",
+    "setup_data_requirements": "string(G); H и pretrained LM; отдельные backbone/augmentation варианты",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M47",
+    "name": "Few-shot prompted LM surrogate (Qin)",
+    "mechanism": "Few-shot prompted LM surrogate (Qin); P14",
+    "origin_paper_id": "P14",
+    "evaluation_paper_ids": [
+      "P14"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "string(G) + примеры H в prompt, готовый LM",
+    "setup_data_requirements": "string(G) + примеры H в prompt, готовый LM",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M48",
+    "name": "ONNX-Net surrogate",
+    "mechanism": "ONNX-Net surrogate; P34",
+    "origin_paper_id": "P34",
+    "evaluation_paper_ids": [
+      "P34"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "ONNX/text(G); обученный LM surrogate и H",
+    "setup_data_requirements": "ONNX/text(G); обученный LM surrogate и H",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M49",
+    "name": "COLE + PCA + MLP ranker",
+    "mechanism": "COLE + PCA + MLP ranker; P35",
+    "origin_paper_id": "P35",
+    "evaluation_paper_ids": [
+      "P35"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P0",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "none",
+    "requirements_raw": "code(G), frozen LM; H для PCA/head по протоколу",
+    "setup_data_requirements": "code(G), frozen LM; H для PCA/head по протоколу",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M50",
+    "name": "ZAPS proxy/topology active ensemble",
+    "mechanism": "ZAPS proxy/topology active ensemble; P37",
+    "origin_paper_id": "P37",
+    "evaluation_paper_ids": [
+      "P37"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "G + proxies + растущие H; paid evaluations входят в бюджет",
+    "setup_data_requirements": "G + proxies + растущие H; paid evaluations входят в бюджет",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M51",
+    "name": "CoRA-Rank",
+    "mechanism": "CoRA-Rank; P38",
+    "origin_paper_id": "P38",
+    "evaluation_paper_ids": [
+      "P38"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "признаки при инициализации, log-rank consensus; детали проб уточнить",
+    "setup_data_requirements": "признаки при инициализации, log-rank consensus; детали проб уточнить",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M52",
+    "name": "CoRA-Refine",
+    "mechanism": "CoRA-Refine; P38",
+    "origin_paper_id": "P38",
+    "evaluation_paper_ids": [
+      "P38"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "M51 + LC якорей + ExtraTrees residual model",
+    "setup_data_requirements": "M51 + LC якорей + ExtraTrees residual model",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M53",
+    "name": "Baker regression / SVR",
+    "mechanism": "Baker regression / SVR; P20",
+    "origin_paper_id": "P20",
+    "evaluation_paper_ids": [
+      "P20"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1; NLP здесь не автоматически Transformer",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "G + hyperparameters + LC; исторические завершённые кривые",
+    "setup_data_requirements": "G + hyperparameters + LC; исторические завершённые кривые",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M54",
+    "name": "LC-Net",
+    "mechanism": "LC-Net; P21",
+    "origin_paper_id": "P21",
+    "evaluation_paper_ids": [
+      "P21"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "конфигурация/бюджет + LC training corpus; BNN fitting",
+    "setup_data_requirements": "конфигурация/бюджет + LC training corpus; BNN fitting",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M55",
+    "name": "Domhan curve extrapolation",
+    "mechanism": "Domhan curve extrapolation; P22",
+    "origin_paper_id": "P22",
+    "evaluation_paper_ids": [
+      "P22"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "LC кандидата; вероятностный fit кривой",
+    "setup_data_requirements": "LC кандидата; вероятностный fit кривой",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M56",
+    "name": "SoTL / training-speed estimator",
+    "mechanism": "SoTL / training-speed estimator; P23",
+    "origin_paper_id": "P23",
+    "evaluation_paper_ids": [
+      "P23"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "реальные training steps и их losses; без отдельного surrogate fitting",
+    "setup_data_requirements": "реальные training steps и их losses; без отдельного surrogate fitting",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M57",
+    "name": "Learning-curve extrapolation framework",
+    "mechanism": "Learning-curve extrapolation framework; P25",
+    "origin_paper_id": "P25",
+    "evaluation_paper_ids": [
+      "P25"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "G/LC по выбранной реализации; различать реальную и surrogate ground truth",
+    "setup_data_requirements": "G/LC по выбранной реализации; различать реальную и surrogate ground truth",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M58",
+    "name": "Hybrid/omni predictor",
+    "mechanism": "Hybrid/omni predictor; P24",
+    "origin_paper_id": "P24",
+    "evaluation_paper_ids": [
+      "P24"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Learning curves / hybrid"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "комбинация G, zero-cost features, LC; H; конфигурацию сверить в статье",
+    "setup_data_requirements": "комбинация G, zero-cost features, LC; H; конфигурацию сверить в статье",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M59",
+    "name": "Scaling-law predictor Kaplan",
+    "mechanism": "Scaling-law predictor Kaplan; P39",
+    "origin_paper_id": "P39",
+    "evaluation_paper_ids": [
+      "P39"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P2",
+    "family_tags": [
+      "Scaling laws"
+    ],
+    "priority": "P2",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "N,D,C и исторические обучающие прогоны для fit",
+    "setup_data_requirements": "N,D,C и исторические обучающие прогоны для fit",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "conditional",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M60",
+    "name": "Chinchilla fitted loss model",
+    "mechanism": "Chinchilla fitted loss model; P40",
+    "origin_paper_id": "P40",
+    "evaluation_paper_ids": [
+      "P40"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P2",
+    "family_tags": [
+      "Scaling laws"
+    ],
+    "priority": "P2",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "N,D,C + калибровочные прогоны",
+    "setup_data_requirements": "N,D,C + калибровочные прогоны",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "conditional",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M61",
+    "name": "Architecture-conditioned scaling",
+    "mechanism": "Architecture-conditioned scaling; P41",
+    "origin_paper_id": "P41",
+    "evaluation_paper_ids": [
+      "P41"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P0",
+    "family_tags": [
+      "Scaling laws"
+    ],
+    "priority": "P0",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "семейство архитектуры + scale + результаты малых/средних запусков",
+    "setup_data_requirements": "семейство архитектуры + scale + результаты малых/средних запусков",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "conditional",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M62",
+    "name": "Dense/MoE scaling fits",
+    "mechanism": "Dense/MoE scaling fits; P42",
+    "origin_paper_id": "P42",
+    "evaluation_paper_ids": [
+      "P42"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P1",
+    "family_tags": [
+      "Scaling laws"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "активные/полные параметры, данные/compute, калибровочные прогоны",
+    "setup_data_requirements": "активные/полные параметры, данные/compute, калибровочные прогоны",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "conditional",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M63",
+    "name": "HAT inherited-weight evaluation",
+    "mechanism": "HAT inherited-weight evaluation; P43",
+    "origin_paper_id": "P43",
+    "evaluation_paper_ids": [
+      "P43"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P1",
+    "family_tags": [
+      "Общие / предсказанные веса"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "обученный SuperTransformer + validation data; дорогой setup",
+    "setup_data_requirements": "обученный SuperTransformer + validation data; дорогой setup",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M64",
+    "name": "AutoTinyBERT one-shot evaluation",
+    "mechanism": "AutoTinyBERT one-shot evaluation; P44",
+    "origin_paper_id": "P44",
+    "evaluation_paper_ids": [
+      "P44"
+    ],
+    "visual_class": "nlp_transformer",
+    "application_evidence": "N; P1",
+    "family_tags": [
+      "Общие / предсказанные веса"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "обученная общая модель/дистилляция + task evaluation",
+    "setup_data_requirements": "обученная общая модель/дистилляция + task evaluation",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M65",
+    "name": "GHN-2 predicted-weight evaluation",
+    "mechanism": "GHN-2 predicted-weight evaluation; P45",
+    "origin_paper_id": "P45",
+    "evaluation_paper_ids": [
+      "P45"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P2; indirect evaluator",
+    "family_tags": [
+      "Общие / предсказанные веса"
+    ],
+    "priority": "P2",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "G → predicted W; обученная hypernetwork и данные для проверки W",
+    "setup_data_requirements": "G → predicted W; обученная hypernetwork и данные для проверки W",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "adjacent",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M66",
+    "name": "LogME transferability score",
+    "mechanism": "LogME transferability score; P48",
+    "origin_paper_id": "P48",
+    "evaluation_paper_ids": [
+      "P48"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P2; не architecture-only",
+    "family_tags": [
+      "Transferability"
+    ],
+    "priority": "P2",
+    "data_access_at_use": "labeled_or_objective",
+    "requirements_raw": "Wp + размеченные target features; pretraining уже выполнен",
+    "setup_data_requirements": "Wp + размеченные target features; pretraining уже выполнен",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "adjacent",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M67",
+    "name": "RF clean/robustness predictor",
+    "mechanism": "RF clean/robustness predictor; P47",
+    "origin_paper_id": "P47",
+    "evaluation_paper_ids": [
+      "P47"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "ZCP/GRAF + H для конкретной clean/attack цели",
+    "setup_data_requirements": "ZCP/GRAF + H для конкретной clean/attack цели",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M68",
+    "name": "Hidden covariance",
+    "mechanism": "Hidden covariance; P27",
+    "origin_paper_id": "P27",
+    "evaluation_paper_ids": [
+      "P27"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1; NLP здесь не Transformer",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unlabeled",
+    "requirements_raw": "W0 + X; covariance скрытых состояний RNN; NAS-Bench-NLP",
+    "setup_data_requirements": "W0 + X; covariance скрытых состояний RNN; NAS-Bench-NLP",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M69",
+    "name": "One-hot architecture + RF",
+    "mechanism": "One-hot architecture + RF; P12",
+    "origin_paper_id": "P12",
+    "evaluation_paper_ids": [
+      "P12"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Surrogate models"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "G; H для RF, контрольный encoding baseline",
+    "setup_data_requirements": "G; H для RF, контрольный encoding baseline",
+    "history_labels_required": true,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M70",
+    "name": "L2-norm baseline",
+    "mechanism": "L2-norm baseline; P01/P46",
+    "origin_paper_id": "P01",
+    "evaluation_paper_ids": [
+      "P01",
+      "P46"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "none",
+    "requirements_raw": "W0; без реальных примеров; агрегацию сверить с кодом",
+    "setup_data_requirements": "W0; без реальных примеров; агрегацию сверить с кодом",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M71",
+    "name": "Plain baseline",
+    "mechanism": "Plain baseline; P01/P46",
+    "origin_paper_id": "P01",
+    "evaluation_paper_ids": [
+      "P01",
+      "P46"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + X; gradient-based baseline, формулу сверить с реализацией",
+    "setup_data_requirements": "W0 + X; gradient-based baseline, формулу сверить с реализацией",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  },
+  {
+    "id": "M72",
+    "name": "EPE-NAS",
+    "mechanism": "EPE-NAS; evaluation P46 Table 1",
+    "origin_paper_id": null,
+    "evaluation_paper_ids": [
+      "P46"
+    ],
+    "visual_class": "relevant",
+    "application_evidence": "R; P1",
+    "family_tags": [
+      "Zero-cost proxies"
+    ],
+    "priority": "P1",
+    "data_access_at_use": "unknown",
+    "requirements_raw": "W0 + X, Jacobian; требования к Y и origin paper уточнить по ссылке [20] P46",
+    "setup_data_requirements": "W0 + X, Jacobian; требования к Y и origin paper уточнить по ссылке [20] P46",
+    "history_labels_required": null,
+    "synthetic_inputs_required": null,
+    "scope_relation": "direct",
+    "input_source": "unknown",
+    "weights_state": "unknown",
+    "gradient_requirement": null,
+    "candidate_training_budget": null,
+    "proxy_discovery_required": null
+  }
+]

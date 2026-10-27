@@ -1,0 +1,3888 @@
+{
+  "filter": {
+    "minimum_spearman": 0.4,
+    "missing_spearman": "retain",
+    "exclude_category": "forward",
+    "unit": "method ID across all 235 original records, including auxiliary and green records",
+    "excluded_method_ids": [
+      "M01",
+      "M04",
+      "M05",
+      "M06",
+      "M07",
+      "M08",
+      "M09",
+      "M10",
+      "M11",
+      "M14",
+      "M18",
+      "M19",
+      "M20",
+      "M21",
+      "M23",
+      "M24",
+      "M25",
+      "M47",
+      "M51",
+      "M68",
+      "M71"
+    ],
+    "worst_case_witnesses": {
+      "M20": {
+        "protocol": "old_G4",
+        "method_id": "M20",
+        "variant": "Synaptic Diversity",
+        "name": "Synaptic diversity component",
+        "metrics": {
+          "spearman_rho": 0.169
+        },
+        "source_row": [
+          "Spearman Coefficient",
+          "0.169",
+          "0.177",
+          "0.031",
+          "0.016",
+          "0.666",
+          "0.162",
+          "0.055",
+          "-0.071",
+          "0.653",
+          "0.652",
+          "0.711"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table"
+      },
+      "M24": {
+        "protocol": "old_G4",
+        "method_id": "M24",
+        "variant": "Attention Softmax Confidence",
+        "name": "Attention softmax confidence",
+        "metrics": {
+          "spearman_rho": 0.055
+        },
+        "source_row": "G4_035",
+        "category": "forward",
+        "access_at_use": "unlabeled",
+        "origin": "existing_audited_observation"
+      },
+      "M51": {
+        "protocol": "cora_vit_13",
+        "method_id": "M51",
+        "variant": "ViT-Bench-101",
+        "name": "CoRA-Rank",
+        "metrics": {
+          "spearman_rho": 0.002
+        },
+        "source_row": [
+          "ImageNet",
+          "0.002",
+          "0.219",
+          "0.003",
+          "0.225",
+          "0.217",
+          "0.321"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table"
+      },
+      "M08": {
+        "protocol": "old_G2",
+        "method_id": "M08",
+        "variant": "WikiText-103 implementation: Fisher [ 15 ]",
+        "name": "Fisher proxy",
+        "metrics": {
+          "kendall_tau": -0.148,
+          "spearman_rho": -0.224
+        },
+        "source_row": [
+          "Fisher [ 15 ]",
+          "0.139",
+          "0.209",
+          "-0.148",
+          "-0.224",
+          "0.539",
+          "manual",
+          "A",
+          "Y",
+          "1",
+          "backward",
+          "P"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table",
+        "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+      },
+      "M05": {
+        "protocol": "old_G2",
+        "method_id": "M05",
+        "variant": "WikiText-103 implementation: SNIP [ 16 ]",
+        "name": "SNIP score",
+        "metrics": {
+          "kendall_tau": -0.112,
+          "spearman_rho": -0.167
+        },
+        "source_row": [
+          "SNIP [ 16 ]",
+          "0.119",
+          "0.173",
+          "-0.112",
+          "-0.167",
+          "0.271",
+          "manual",
+          "A",
+          "Y",
+          "1",
+          "backward",
+          "P"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table",
+        "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+      },
+      "M11": {
+        "protocol": "old_G4",
+        "method_id": "M11",
+        "variant": "Activation Distance",
+        "name": "NASWOT / activation-distance family",
+        "metrics": {
+          "spearman_rho": 0.031
+        },
+        "source_row": "G4_031",
+        "category": "forward",
+        "access_at_use": "unlabeled",
+        "origin": "existing_audited_observation"
+      },
+      "M25": {
+        "protocol": "old_G2",
+        "method_id": "M25",
+        "variant": "WikiText-103 implementation: LPZero [ 10 ]",
+        "name": "LPZero discovered formula",
+        "metrics": {
+          "kendall_tau": 0.126,
+          "spearman_rho": 0.187
+        },
+        "source_row": [
+          "LPZero [ 10 ]",
+          "0.511",
+          "0.748",
+          "0.126",
+          "0.187",
+          "2.001",
+          "auto-find",
+          "A",
+          "Y",
+          "2+",
+          "backward",
+          "Z&P"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table",
+        "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+      },
+      "M07": {
+        "protocol": "old_G2",
+        "method_id": "M07",
+        "variant": "WikiText-103 implementation: Gradnorm [ 7 ]",
+        "name": "GradNorm",
+        "metrics": {
+          "kendall_tau": -0.114,
+          "spearman_rho": -0.17
+        },
+        "source_row": [
+          "Gradnorm [ 7 ]",
+          "0.133",
+          "0.197",
+          "-0.114",
+          "-0.170",
+          "0.271",
+          "manual",
+          "A",
+          "Y",
+          "1",
+          "backward",
+          "P"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table",
+        "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+      },
+      "M21": {
+        "protocol": "rnn_reported",
+        "method_id": "M21",
+        "variant": "Synaptic Saliency",
+        "name": "Synaptic saliency component",
+        "metrics": {
+          "spearman_rho": 0.091,
+          "kendall_tau": 0.122
+        },
+        "source_row": "P27 Figure 1 / PDF p.6",
+        "category": "derivatives",
+        "orientation": "reported_only",
+        "origin": "primary_pdf_figure"
+      },
+      "M10": {
+        "protocol": "old_G2",
+        "method_id": "M10",
+        "variant": "WikiText-103 implementation: Jacobian cosine [ 40 ]",
+        "name": "Jacobian cosine / Jacobian score",
+        "metrics": {
+          "kendall_tau": -0.1,
+          "spearman_rho": -0.146
+        },
+        "source_row": [
+          "Jacobian cosine [ 40 ]",
+          "0.116",
+          "0.149",
+          "-0.100",
+          "-0.146",
+          "0.268",
+          "manual",
+          "A",
+          "Y",
+          "1",
+          "backward",
+          "P"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table",
+        "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+      },
+      "M19": {
+        "protocol": "old_G4",
+        "method_id": "M19",
+        "variant": "DSS-Indicator",
+        "name": "DSS-indicator / TF-TAS",
+        "metrics": {
+          "spearman_rho": -0.071
+        },
+        "source_row": [
+          "Spearman Coefficient",
+          "0.169",
+          "0.177",
+          "0.031",
+          "0.016",
+          "0.666",
+          "0.162",
+          "0.055",
+          "-0.071",
+          "0.653",
+          "0.652",
+          "0.711"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table"
+      },
+      "M01": {
+        "protocol": "cora_vit_11",
+        "method_id": "M01",
+        "variant": "ViT-Bench-101",
+        "name": "Total parameter count",
+        "metrics": {
+          "spearman_rho": 0.06
+        },
+        "source_row": [
+          "Chaoyang (base)",
+          "0.090",
+          "0.116",
+          "0.029",
+          "0.060",
+          "0.115",
+          "0.119"
+        ],
+        "category": "static",
+        "origin": "primary_table"
+      },
+      "M47": {
+        "protocol": "old_G6",
+        "method_id": "M47",
+        "variant": "Llama3.2 3B Instruct / 3-shot",
+        "name": "Few-shot prompted LM surrogate (Qin)",
+        "metrics": {
+          "spearman_rho": -0.087,
+          "kendall_tau": -0.067
+        },
+        "source_row": "P14 Table 1 / PDF p.7",
+        "category": "learned_static",
+        "se": [
+          0.03,
+          0.023
+        ],
+        "origin": "primary_pdf"
+      },
+      "M09": {
+        "protocol": "rnn_reported",
+        "method_id": "M09",
+        "variant": "Jacobian Covariance",
+        "name": "Jacobian covariance (`jacov`)",
+        "metrics": {
+          "spearman_rho": 0.016,
+          "kendall_tau": 0.003
+        },
+        "source_row": "P27 Figure 1 / PDF p.6",
+        "category": "derivatives",
+        "orientation": "reported_only",
+        "origin": "primary_pdf_figure"
+      },
+      "M23": {
+        "protocol": "old_G4",
+        "method_id": "M23",
+        "variant": "Attention Importance",
+        "name": "Head/attention importance",
+        "metrics": {
+          "spearman_rho": 0.162
+        },
+        "source_row": [
+          "Spearman Coefficient",
+          "0.169",
+          "0.177",
+          "0.031",
+          "0.016",
+          "0.666",
+          "0.162",
+          "0.055",
+          "-0.071",
+          "0.653",
+          "0.652",
+          "0.711"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table"
+      },
+      "M18": {
+        "protocol": "cora_vit_13",
+        "method_id": "M18",
+        "variant": "ViT-Bench-101",
+        "name": "AZ-NAS aggregate",
+        "metrics": {
+          "spearman_rho": 0.003
+        },
+        "source_row": [
+          "ImageNet",
+          "0.002",
+          "0.219",
+          "0.003",
+          "0.225",
+          "0.217",
+          "0.321"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table"
+      },
+      "M04": {
+        "protocol": "old_G2",
+        "method_id": "M04",
+        "variant": "WikiText-103 implementation: Synflow [ 17 ]",
+        "name": "SynFlow",
+        "metrics": {
+          "kendall_tau": -0.32,
+          "spearman_rho": -0.47
+        },
+        "source_row": [
+          "Synflow [ 17 ]",
+          "0.322",
+          "0.471",
+          "-0.320",
+          "-0.470",
+          "6.805",
+          "manual",
+          "A",
+          "Y",
+          "1",
+          "backward",
+          "P"
+        ],
+        "category": "derivatives",
+        "origin": "primary_table",
+        "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+      },
+      "M68": {
+        "protocol": "rnn_reported",
+        "method_id": "M68",
+        "variant": "Hidden Covariance / layer 3",
+        "name": "Hidden covariance",
+        "metrics": {
+          "spearman_rho": 0.333,
+          "kendall_tau": 0.247
+        },
+        "source_row": "P27 Figure 1 / PDF p.6",
+        "category": "forward",
+        "orientation": "reported_only",
+        "origin": "primary_pdf_figure"
+      },
+      "M71": {
+        "protocol": "old_G6",
+        "method_id": "M71",
+        "variant": "plain",
+        "name": "Plain baseline",
+        "metrics": {
+          "spearman_rho": -0.189,
+          "kendall_tau": -0.126
+        },
+        "source_row": "P14 Table 7 / PDF p.18",
+        "category": "derivatives",
+        "origin": "primary_pdf"
+      },
+      "M06": {
+        "protocol": "gpt2_wikitext",
+        "method_id": "M06",
+        "variant": "GPT-2: GraSP",
+        "name": "GraSP score",
+        "metrics": {
+          "spearman_rho": -0.483,
+          "kendall_tau": -0.38
+        },
+        "source_row": [
+          "GraSP",
+          "0.483",
+          "0.380",
+          "202.9"
+        ],
+        "category": "derivatives",
+        "raw_metrics": {
+          "spearman_rho": 0.483,
+          "kendall_tau": 0.38
+        },
+        "sign_transform": "negate_due_to_PPL_target",
+        "origin": "primary_table"
+      },
+      "M14": {
+        "protocol": "wrcor_nb201_full",
+        "method_id": "M14",
+        "variant": "Zen",
+        "name": "Zen-Score",
+        "metrics": {
+          "spearman_rho": 0.237
+        },
+        "source_row": [
+          "Zen",
+          "0.257",
+          "0.237",
+          "0.020",
+          "8.44"
+        ],
+        "category": "forward",
+        "origin": "primary_table"
+      }
+    },
+    "PPL": "use previously documented correlation with -PPL, not abs"
+  },
+  "records": [
+    {
+      "protocol": "old_G1",
+      "method_id": "M12",
+      "variant": "LogSynflow",
+      "name": "LogSynFlow",
+      "metrics": {
+        "kendall_tau": 0.334,
+        "spearman_rho": 0.491
+      },
+      "source_row": "G1_011",
+      "category": "derivatives",
+      "access_at_use": "unlabeled",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M15",
+      "variant": "EZNAS",
+      "name": "EZNAS discovered proxy",
+      "metrics": {
+        "kendall_tau": 0.483,
+        "spearman_rho": 0.698
+      },
+      "source_row": "G1_014",
+      "category": "derivatives",
+      "access_at_use": "unlabeled",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M03",
+      "variant": "#FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "spearman_rho": 0.652
+      },
+      "source_row": "G4_038",
+      "category": "static",
+      "access_at_use": "none",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M38",
+      "variant": "RF, ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "spearman_rho": 0.663,
+        "kendall_tau": 0.514
+      },
+      "source_row": "G6_052",
+      "category": "learned_dynamic",
+      "access_at_use": "labeled_or_objective",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M39",
+      "variant": "XGBRegressor, ZCP + GRAF",
+      "name": "GRAF + ZCP + XGB/XGB+",
+      "metrics": {
+        "spearman_rho": 0.6,
+        "kendall_tau": 0.449
+      },
+      "source_row": "G6_053",
+      "category": "learned_dynamic",
+      "access_at_use": "labeled_or_objective",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "RoBERTa-base",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.723,
+        "kendall_tau": 0.575
+      },
+      "source_row": "G6_054",
+      "category": "learned_static",
+      "access_at_use": "none",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "ModernBERT-base",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.746,
+        "kendall_tau": 0.597
+      },
+      "source_row": "G6_055",
+      "category": "learned_static",
+      "access_at_use": "none",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "ModernBERT-large",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.745,
+        "kendall_tau": 0.612
+      },
+      "source_row": "G6_056",
+      "category": "learned_static",
+      "access_at_use": "none",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "ModernBERT-large + augmentation",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.769,
+        "kendall_tau": 0.628
+      },
+      "source_row": "G6_057",
+      "category": "learned_static",
+      "access_at_use": "none",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "kendall_tau": 0.578,
+        "spearman_rho": 0.753
+      },
+      "source_row": [
+        "FLOPs",
+        "A",
+        "–",
+        "0.578",
+        "0.753",
+        "93.71 \\pm 0.17",
+        "0.551",
+        "0.727",
+        "70.73 \\pm 0.36",
+        "0.519",
+        "0.691",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "static",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "name": "TE-NAS: NTK condition + linear regions",
+      "metrics": {
+        "kendall_tau": 0.539,
+        "spearman_rho": 0.735
+      },
+      "source_row": [
+        "TE-NAS",
+        "B+F",
+        "400.6",
+        "0.539",
+        "0.735",
+        "92.15 \\pm 0.16",
+        "0.526",
+        "0.717",
+        "69.92 \\pm 1.99",
+        "0.494",
+        "0.685",
+        "44.55 \\pm 0.96"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 400.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "kendall_tau": 0.588,
+        "spearman_rho": 0.783
+      },
+      "source_row": [
+        "ZiCo",
+        "B",
+        "167.1",
+        "0.588",
+        "0.783",
+        "93.71 \\pm 0.17",
+        "0.603",
+        "0.797",
+        "70.73 \\pm 0.36",
+        "0.596",
+        "0.789",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 167.1,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "name": "Dextr",
+      "metrics": {
+        "kendall_tau": 0.72,
+        "spearman_rho": 0.898
+      },
+      "source_row": [
+        "Dextr",
+        "F",
+        "557.6",
+        "0.720",
+        "0.898",
+        "93.31 \\pm 0.14",
+        "0.700",
+        "0.880",
+        "70.48 \\pm 1.03",
+        "0.667",
+        "0.845",
+        "42.66 \\pm 0.70"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 557.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "name": "CoRA-Refine",
+      "metrics": {
+        "kendall_tau": 0.793,
+        "spearman_rho": 0.942
+      },
+      "source_row": [
+        "CoRA-Refine (Stage 2)",
+        "A+B+F+LC †",
+        "+1k \\times 30ep",
+        "0.793",
+        "0.942",
+        "94.24 \\pm 0.25",
+        "0.810",
+        "0.951",
+        "73.32 \\pm 0.29",
+        "0.802",
+        "0.946",
+        "46.28 \\pm 0.24"
+      ],
+      "category": "learned_dynamic",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "kendall_tau": 0.551,
+        "spearman_rho": 0.727
+      },
+      "source_row": [
+        "FLOPs",
+        "A",
+        "–",
+        "0.578",
+        "0.753",
+        "93.71 \\pm 0.17",
+        "0.551",
+        "0.727",
+        "70.73 \\pm 0.36",
+        "0.519",
+        "0.691",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "static",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "name": "TE-NAS: NTK condition + linear regions",
+      "metrics": {
+        "kendall_tau": 0.526,
+        "spearman_rho": 0.717
+      },
+      "source_row": [
+        "TE-NAS",
+        "B+F",
+        "400.6",
+        "0.539",
+        "0.735",
+        "92.15 \\pm 0.16",
+        "0.526",
+        "0.717",
+        "69.92 \\pm 1.99",
+        "0.494",
+        "0.685",
+        "44.55 \\pm 0.96"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 400.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "kendall_tau": 0.603,
+        "spearman_rho": 0.797
+      },
+      "source_row": [
+        "ZiCo",
+        "B",
+        "167.1",
+        "0.588",
+        "0.783",
+        "93.71 \\pm 0.17",
+        "0.603",
+        "0.797",
+        "70.73 \\pm 0.36",
+        "0.596",
+        "0.789",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 167.1,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "name": "Dextr",
+      "metrics": {
+        "kendall_tau": 0.7,
+        "spearman_rho": 0.88
+      },
+      "source_row": [
+        "Dextr",
+        "F",
+        "557.6",
+        "0.720",
+        "0.898",
+        "93.31 \\pm 0.14",
+        "0.700",
+        "0.880",
+        "70.48 \\pm 1.03",
+        "0.667",
+        "0.845",
+        "42.66 \\pm 0.70"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 557.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "name": "CoRA-Refine",
+      "metrics": {
+        "kendall_tau": 0.81,
+        "spearman_rho": 0.951
+      },
+      "source_row": [
+        "CoRA-Refine (Stage 2)",
+        "A+B+F+LC †",
+        "+1k \\times 30ep",
+        "0.793",
+        "0.942",
+        "94.24 \\pm 0.25",
+        "0.810",
+        "0.951",
+        "73.32 \\pm 0.29",
+        "0.802",
+        "0.946",
+        "46.28 \\pm 0.24"
+      ],
+      "category": "learned_dynamic",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "kendall_tau": 0.519,
+        "spearman_rho": 0.691
+      },
+      "source_row": [
+        "FLOPs",
+        "A",
+        "–",
+        "0.578",
+        "0.753",
+        "93.71 \\pm 0.17",
+        "0.551",
+        "0.727",
+        "70.73 \\pm 0.36",
+        "0.519",
+        "0.691",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "static",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "name": "TE-NAS: NTK condition + linear regions",
+      "metrics": {
+        "kendall_tau": 0.494,
+        "spearman_rho": 0.685
+      },
+      "source_row": [
+        "TE-NAS",
+        "B+F",
+        "400.6",
+        "0.539",
+        "0.735",
+        "92.15 \\pm 0.16",
+        "0.526",
+        "0.717",
+        "69.92 \\pm 1.99",
+        "0.494",
+        "0.685",
+        "44.55 \\pm 0.96"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 400.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "kendall_tau": 0.596,
+        "spearman_rho": 0.789
+      },
+      "source_row": [
+        "ZiCo",
+        "B",
+        "167.1",
+        "0.588",
+        "0.783",
+        "93.71 \\pm 0.17",
+        "0.603",
+        "0.797",
+        "70.73 \\pm 0.36",
+        "0.596",
+        "0.789",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 167.1,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "name": "Dextr",
+      "metrics": {
+        "kendall_tau": 0.667,
+        "spearman_rho": 0.845
+      },
+      "source_row": [
+        "Dextr",
+        "F",
+        "557.6",
+        "0.720",
+        "0.898",
+        "93.31 \\pm 0.14",
+        "0.700",
+        "0.880",
+        "70.48 \\pm 1.03",
+        "0.667",
+        "0.845",
+        "42.66 \\pm 0.70"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 557.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "name": "CoRA-Refine",
+      "metrics": {
+        "kendall_tau": 0.802,
+        "spearman_rho": 0.946
+      },
+      "source_row": [
+        "CoRA-Refine (Stage 2)",
+        "A+B+F+LC †",
+        "+1k \\times 30ep",
+        "0.793",
+        "0.942",
+        "94.24 \\pm 0.25",
+        "0.810",
+        "0.951",
+        "73.32 \\pm 0.29",
+        "0.802",
+        "0.946",
+        "46.28 \\pm 0.24"
+      ],
+      "category": "learned_dynamic",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M70",
+      "variant": "PNorm",
+      "name": "L2-norm baseline",
+      "metrics": {
+        "spearman_rho": 0.684
+      },
+      "source_row": [
+        "PNorm",
+        "0.684",
+        "0.684",
+        "0.000",
+        "0.00"
+      ],
+      "category": "weights",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "spearman_rho": 0.8
+      },
+      "source_row": [
+        "ZiCo",
+        "-",
+        "0.800",
+        "-",
+        "-"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "spearman_rho": 0.73
+      },
+      "source_row": [
+        "FLOPs",
+        "-",
+        "0.730",
+        "-",
+        "-"
+      ],
+      "category": "static",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M33",
+      "variant": "WRCor (Ours)",
+      "name": "WRCor",
+      "metrics": {
+        "spearman_rho": 0.812
+      },
+      "source_row": [
+        "WRCor (Ours)",
+        "0.811",
+        "0.812",
+        "-0.001",
+        "-0.12"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M34",
+      "variant": "SPW (Ours)",
+      "name": "WRCor voting",
+      "metrics": {
+        "spearman_rho": 0.78
+      },
+      "source_row": [
+        "SPW (Ours)",
+        "0.789",
+        "0.780",
+        "0.009",
+        "1.15"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M34",
+      "variant": "SJW (Ours)",
+      "name": "WRCor voting",
+      "metrics": {
+        "spearman_rho": 0.799
+      },
+      "source_row": [
+        "SJW (Ours)",
+        "0.851",
+        "0.799",
+        "0.052",
+        "6.51"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.24
+      },
+      "source_row": [
+        "OH",
+        "0.24^{0.09}",
+        "0.40^{0.06}",
+        "0.60^{0.02}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.09
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.54
+      },
+      "source_row": [
+        "GRAF",
+        "0.54^{0.08}",
+        "0.63^{0.04}",
+        "0.71^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.08
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.48
+      },
+      "source_row": [
+        "ZCP",
+        "0.48^{0.05}",
+        "0.56^{0.02}",
+        "0.63^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.05
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.56^{0.07}}",
+        "\\mathbf{0.66^{0.04}}",
+        "0.73^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.07
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.4
+      },
+      "source_row": [
+        "OH",
+        "0.24^{0.09}",
+        "0.40^{0.06}",
+        "0.60^{0.02}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "GRAF",
+        "0.54^{0.08}",
+        "0.63^{0.04}",
+        "0.71^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.04
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "ZCP",
+        "0.48^{0.05}",
+        "0.56^{0.02}",
+        "0.63^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.66
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.56^{0.07}}",
+        "\\mathbf{0.66^{0.04}}",
+        "0.73^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.04
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.6
+      },
+      "source_row": [
+        "OH",
+        "0.24^{0.09}",
+        "0.40^{0.06}",
+        "0.60^{0.02}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.71
+      },
+      "source_row": [
+        "GRAF",
+        "0.54^{0.08}",
+        "0.63^{0.04}",
+        "0.71^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "ZCP",
+        "0.48^{0.05}",
+        "0.56^{0.02}",
+        "0.63^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.73
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.56^{0.07}}",
+        "\\mathbf{0.66^{0.04}}",
+        "0.73^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.39
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.69
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.7
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.54
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.76
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.78
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.83
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.81
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.39
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.05
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.65
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.69
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.7
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.76
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.77
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.82
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.81
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.4
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.65
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.67
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.73
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.72
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.75
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.81
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.79
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "RoBERTa-large",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.679,
+        "kendall_tau": 0.523
+      },
+      "source_row": "P14 Table 1 / PDF p.7",
+      "category": "learned_static",
+      "se": null,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "Llama3.2 1B",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.722,
+        "kendall_tau": 0.588
+      },
+      "source_row": "P14 Table 1 / PDF p.7",
+      "category": "learned_static",
+      "se": null,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "Llama3.2 1B Instruct",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.726,
+        "kendall_tau": 0.593
+      },
+      "source_row": "P14 Table 1 / PDF p.7",
+      "category": "learned_static",
+      "se": null,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M46",
+      "variant": "Llama3.2 3B",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "spearman_rho": 0.682,
+        "kendall_tau": 0.552
+      },
+      "source_row": "P14 Table 1 / PDF p.7",
+      "category": "learned_static",
+      "se": null,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M12",
+      "variant": "WikiText-103 implementation: LogSynflow [ 42 ]",
+      "name": "LogSynFlow",
+      "metrics": {
+        "kendall_tau": 0.324,
+        "spearman_rho": 0.476
+      },
+      "source_row": [
+        "LogSynflow [ 42 ]",
+        "0.334",
+        "0.491",
+        "0.324",
+        "0.476",
+        "7.491",
+        "manual",
+        "A",
+        "Y",
+        "1",
+        "backward",
+        "P"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table",
+      "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M15",
+      "variant": "WikiText-103 implementation: EZNAS [ 9 ]",
+      "name": "EZNAS discovered proxy",
+      "metrics": {
+        "kendall_tau": 0.479,
+        "spearman_rho": 0.696
+      },
+      "source_row": [
+        "EZNAS [ 9 ]",
+        "0.483",
+        "0.698",
+        "0.479",
+        "0.696",
+        "6.680",
+        "auto-find",
+        "R,A",
+        "Y",
+        "2+",
+        "backward",
+        "Z"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table",
+      "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M15",
+      "variant": "GPT-2: EZNAS",
+      "name": "EZNAS discovered proxy",
+      "metrics": {
+        "spearman_rho": 0.602,
+        "kendall_tau": 0.439
+      },
+      "source_row": [
+        "EZNAS",
+        "-0.602",
+        "-0.439",
+        "240.3"
+      ],
+      "category": "derivatives",
+      "raw_metrics": {
+        "spearman_rho": -0.602,
+        "kendall_tau": -0.439
+      },
+      "sign_transform": "negate_due_to_PPL_target",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M12",
+      "variant": "GPT-2: LogSynflow",
+      "name": "LogSynFlow",
+      "metrics": {
+        "spearman_rho": 0.914,
+        "kendall_tau": 0.753
+      },
+      "source_row": [
+        "LogSynflow",
+        "-0.914",
+        "-0.753",
+        "231.0"
+      ],
+      "category": "derivatives",
+      "raw_metrics": {
+        "spearman_rho": -0.914,
+        "kendall_tau": -0.753
+      },
+      "sign_transform": "negate_due_to_PPL_target",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M02",
+      "variant": "GPT-2: #Decoder.Params",
+      "name": "Decoder-only parameter count (LTS)",
+      "metrics": {
+        "spearman_rho": 0.967,
+        "kendall_tau": 0.847
+      },
+      "source_row": [
+        "#Decoder.Params",
+        "-0.967",
+        "-0.847",
+        "-"
+      ],
+      "category": "static",
+      "raw_metrics": {
+        "spearman_rho": -0.967,
+        "kendall_tau": -0.847
+      },
+      "sign_transform": "negate_due_to_PPL_target",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.48
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.05
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.58
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.04
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.8
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.48
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.61
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "onnx_darts",
+      "method_id": "M44",
+      "variant": "CATE",
+      "name": "CATE + prediction head",
+      "metrics": {
+        "kendall_tau": 0.425
+      },
+      "source_row": "P34 Table 2 / PDF p.5",
+      "category": "learned_static",
+      "H": 100,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "onnx_darts",
+      "method_id": "M45",
+      "variant": "Arch2Vec",
+      "name": "arch2vec + prediction head",
+      "metrics": {
+        "kendall_tau": 0.333
+      },
+      "source_row": "P34 Table 2 / PDF p.5",
+      "category": "learned_static",
+      "H": 100,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "onnx_darts",
+      "method_id": "M48",
+      "variant": "ONNX-Net",
+      "name": "ONNX-Net surrogate",
+      "metrics": {
+        "kendall_tau": 0.546
+      },
+      "source_row": "P34 Table 2 / PDF p.5",
+      "category": "learned_static",
+      "H": 100,
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M38",
+      "variant": "RF, ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.514
+      },
+      "source_row": "P34 Appendix C Table 8 / PDF p.14",
+      "category": "learned_dynamic",
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M39",
+      "variant": "XGB, ZCP + GRAF",
+      "name": "GRAF + ZCP + XGB/XGB+",
+      "metrics": {
+        "kendall_tau": 0.449
+      },
+      "source_row": "P34 Appendix C Table 8 / PDF p.14",
+      "category": "learned_dynamic",
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M46",
+      "variant": "ModernBERT-large (Qin)",
+      "name": "Fine-tuned LM surrogate (Qin)",
+      "metrics": {
+        "kendall_tau": 0.612
+      },
+      "source_row": "P34 Appendix C Table 8 / PDF p.14",
+      "category": "learned_static",
+      "origin": "primary_pdf"
+    },
+    {
+      "protocol": "onnx_einspace",
+      "method_id": "M48",
+      "variant": "ONNX-Net",
+      "name": "ONNX-Net surrogate",
+      "metrics": {
+        "kendall_tau": 0.513
+      },
+      "source_row": "P34 Appendix C Table 8 / PDF p.14",
+      "category": "learned_static",
+      "origin": "primary_pdf"
+    }
+  ],
+  "removed": [
+    {
+      "protocol": "old_G1",
+      "method_id": "M20",
+      "variant": "Synaptic Diversity",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M23",
+      "variant": "Head Importance",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M11",
+      "variant": "Activation Distance",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M10",
+      "variant": "Jacobian Cosine",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M05",
+      "variant": "SNIP",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M06",
+      "variant": "GraSP",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M07",
+      "variant": "GradNorm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M08",
+      "variant": "Fisher",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M21",
+      "variant": "Synaptic Saliency",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M04",
+      "variant": "Synflow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M01",
+      "variant": "No.Params.",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M22",
+      "variant": "Attention Confidence",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M25",
+      "variant": "LPZero",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M11",
+      "variant": "Activation Distance",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M10",
+      "variant": "Jacobian Score",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M22",
+      "variant": "Attention Confidence",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M24",
+      "variant": "Attention Softmax Confidence",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M01",
+      "variant": "#Params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M29",
+      "variant": "SWAP-Score",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M01",
+      "variant": "#Params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M07",
+      "variant": "GradNorm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M06",
+      "variant": "Grasp",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M05",
+      "variant": "Snip",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M04",
+      "variant": "Synflow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M11",
+      "variant": "NASWOT",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M14",
+      "variant": "ZenNAS",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M18",
+      "variant": "AZ-NAS",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M30",
+      "variant": "SWAP",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M51",
+      "variant": "CoRA-Rank (Stage 1)",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M01",
+      "variant": "#Params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M07",
+      "variant": "GradNorm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M06",
+      "variant": "Grasp",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M05",
+      "variant": "Snip",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M04",
+      "variant": "Synflow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M11",
+      "variant": "NASWOT",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M14",
+      "variant": "ZenNAS",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M18",
+      "variant": "AZ-NAS",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M30",
+      "variant": "SWAP",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M51",
+      "variant": "CoRA-Rank (Stage 1)",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M01",
+      "variant": "#Params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M07",
+      "variant": "GradNorm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M06",
+      "variant": "Grasp",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M05",
+      "variant": "Snip",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M04",
+      "variant": "Synflow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M11",
+      "variant": "NASWOT",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M14",
+      "variant": "ZenNAS",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M18",
+      "variant": "AZ-NAS",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M30",
+      "variant": "SWAP",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M51",
+      "variant": "CoRA-Rank (Stage 1)",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_7",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_7",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_7",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_7",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_8",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_8",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_8",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_8",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_9",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_9",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_9",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_9",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_10",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_10",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_10",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_10",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_11",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_11",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_11",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_11",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_12",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_12",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_12",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_12",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_13",
+      "method_id": "M51",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_13",
+      "method_id": "M18",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_13",
+      "method_id": "M01",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "cora_vit_13",
+      "method_id": "M09",
+      "variant": "ViT-Bench-101",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M07",
+      "variant": "PGNorm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M05",
+      "variant": "SNIP",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M06",
+      "variant": "GraSP",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M04",
+      "variant": "SynFlow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M08",
+      "variant": "Fisher",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M09",
+      "variant": "JacCor",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M14",
+      "variant": "Zen",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M11",
+      "variant": "NASWOT",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M01",
+      "variant": "Params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M47",
+      "variant": "Llama3.2 3B Instruct / 3-shot",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M47",
+      "variant": "Qwen2.5 7B Instruct / 3-shot",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M47",
+      "variant": "Qwen2.5 14B Instruct / 3-shot",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M07",
+      "variant": "grad_norm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M05",
+      "variant": "snip",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M06",
+      "variant": "grasp",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M08",
+      "variant": "fisher",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M09",
+      "variant": "jacob_cov",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M71",
+      "variant": "plain",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M04",
+      "variant": "synflow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M01",
+      "variant": "WikiText-103 implementation: #params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M04",
+      "variant": "WikiText-103 implementation: Synflow [ 17 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M08",
+      "variant": "WikiText-103 implementation: Fisher [ 15 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M07",
+      "variant": "WikiText-103 implementation: Gradnorm [ 7 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M05",
+      "variant": "WikiText-103 implementation: SNIP [ 16 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M10",
+      "variant": "WikiText-103 implementation: Jacobian cosine [ 40 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M06",
+      "variant": "WikiText-103 implementation: GraSP [ 41 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M21",
+      "variant": "WikiText-103 implementation: Synaptic Saliency [ 17 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M25",
+      "variant": "WikiText-103 implementation: LPZero [ 10 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M19",
+      "variant": "WikiText-103 implementation: DSS [ 8 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M20",
+      "variant": "WikiText-103 implementation: Synaptic Diversity [ 8 ]",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M24",
+      "variant": "WikiText-103 implementation: Softmax Confidence [ 18 ]",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M23",
+      "variant": "WikiText-103 implementation: Head importance [ 18 ]",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M22",
+      "variant": "WikiText-103 implementation: Attention Confidence [ 18 ]",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M11",
+      "variant": "WikiText-103 implementation: Activation Distance [ 6 ]",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M20",
+      "variant": "Synaptic Diversity",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M21",
+      "variant": "Synaptic Saliency",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M23",
+      "variant": "Attention Importance",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M19",
+      "variant": "DSS-Indicator",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M06",
+      "variant": "GPT-2: GraSP",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M07",
+      "variant": "GPT-2: Gradnorm",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M05",
+      "variant": "GPT-2: SNIP",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M08",
+      "variant": "GPT-2: Fisher",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M10",
+      "variant": "GPT-2: Jacobian Cosine",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M04",
+      "variant": "GPT-2: Synflow",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M01",
+      "variant": "GPT-2: #params",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M11",
+      "variant": "GPT-2: Activation distance",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M22",
+      "variant": "GPT-2: Attention confidence",
+      "reasons": [
+        "green_forward"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M19",
+      "variant": "GPT-2: DSS",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M20",
+      "variant": "GPT-2: Synaptic Diversity",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M23",
+      "variant": "GPT-2: Head Importance",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M25",
+      "variant": "GPT-2: LPZero",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M11",
+      "variant": "Activation Distance",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M21",
+      "variant": "Synaptic Saliency",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M09",
+      "variant": "Jacobian Covariance",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M10",
+      "variant": "Jacobian Cosine",
+      "reasons": [
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M68",
+      "variant": "Hidden Covariance / layer 1",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M68",
+      "variant": "Hidden Covariance / layer 2",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    },
+    {
+      "protocol": "rnn_reported",
+      "method_id": "M68",
+      "variant": "Hidden Covariance / layer 3",
+      "reasons": [
+        "green_forward",
+        "method_has_rho_below_0.4"
+      ]
+    }
+  ],
+  "primary_method_ids": [
+    "M02",
+    "M03",
+    "M12",
+    "M13",
+    "M15",
+    "M17",
+    "M32",
+    "M33",
+    "M34",
+    "M36",
+    "M37",
+    "M38",
+    "M39",
+    "M42",
+    "M46",
+    "M52",
+    "M69",
+    "M70"
+  ],
+  "source_record_count": 235,
+  "retained_record_count": 100,
+  "primary_record_count": 93,
+  "auxiliary_record_count": 7
+}

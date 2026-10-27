@@ -1,0 +1,53 @@
+{
+  "checked_at": "2026-10-13",
+  "corpus": {
+    "papers": 50,
+    "methods": 72,
+    "observations": 68
+  },
+  "pytest": {
+    "passed": 7
+  },
+  "schema_and_references": "passed",
+  "uv_sync_locked": "passed",
+  "pdf": {
+    "pages": 39,
+    "links": 97,
+    "visual_review": "All pages rendered and reviewed; final observation tables paginated by protocol to remove orphan rows",
+    "text_checks": "passed"
+  },
+  "browser": {
+    "svg_rendering": "passed",
+    "point_click": "opens /?observation=M01 in a new tab",
+    "screenshot": "playwright/app.png",
+    "checked_at": "2026-09-29 (prior revision; not repeated for audit)"
+  },
+  "scientific_limitations": [
+    "G2 cost scope/device unresolved",
+    "G3 perplexity orientation unresolved",
+    "G7 target dataset unresolved",
+    "setup/query pairs unavailable",
+    "full author lists not extracted"
+  ],
+  "report_revision": {
+    "checked_at": "2026-10-13",
+    "families": 5,
+    "methods_in_main_tables": 69,
+    "unique_method_ids": 69,
+    "family_sizes": [
+      20,
+      34,
+      7,
+      4,
+      4
+    ],
+    "chart": "categorical 2D scatter, five family points; heterogeneous inputs are explicit",
+    "audit_resolved": 32,
+    "audit_excluded": [
+      "M28",
+      "M40",
+      "M72"
+    ],
+    "included_observations": 43
+  }
+}

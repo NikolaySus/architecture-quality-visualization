@@ -216,3 +216,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated previews and browser sessions
+tmp/
+.playwright-cli/
+
+# Rebuildable figure assets; retain JSON/CSV registries and final reports
+/exports/**/*.png
+/exports/**/*.svg
+/exports/**/*.pdf
+/output/playwright/

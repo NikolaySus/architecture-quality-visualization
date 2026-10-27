@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "methods": 56,
+  "observations": 43,
+  "checks": [
+    "scope partitions",
+    "source-backed categories",
+    "unchanged numeric records",
+    "full catalog names",
+    "PDF bounds",
+    "links and outlines",
+    "all pages rendered"
+  ],
+  "pdfs": [
+    {
+      "pdf": "00_classification_comparison.pdf",
+      "pages": 8,
+      "bounds_violations": [],
+      "pdf_sha256": "e2e6d5b3109b1f6d6b5a9a1f28593c3af28e38a7761396ca6521e88f69e5fddf"
+    },
+    {
+      "pdf": "01_signal_mechanisms.pdf",
+      "pages": 27,
+      "bounds_violations": [],
+      "pdf_sha256": "7ea97c57ca978521af0b8904699e1b9c70c971533c7ce45827feea3595d028fe"
+    },
+    {
+      "pdf": "02_candidate_requirements.pdf",
+      "pages": 26,
+      "bounds_violations": [],
+      "pdf_sha256": "032b1e3e05dd194c3a0460c9332e53dfd75344485bf0a37b16467190886540dd"
+    },
+    {
+      "pdf": "03_estimator_preparation.pdf",
+      "pages": 27,
+      "bounds_violations": [],
+      "pdf_sha256": "6c9927bd8a3357c40bd4d511490c9d295b2972d08182b73e62f7e63c69d48ee9"
+    }
+  ]
+}

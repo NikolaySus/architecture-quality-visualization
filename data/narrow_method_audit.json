@@ -1,0 +1,1763 @@
+{
+  "version": "1.0",
+  "scope_basis": "Frozen IDs of O1-O3 in 01_mechanisms.pdf",
+  "scope_ids": [
+    "M01",
+    "M02",
+    "M03",
+    "M04",
+    "M05",
+    "M06",
+    "M07",
+    "M08",
+    "M09",
+    "M10",
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15",
+    "M16",
+    "M17",
+    "M18",
+    "M19",
+    "M20",
+    "M21",
+    "M22",
+    "M23",
+    "M24",
+    "M25",
+    "M26",
+    "M27",
+    "M29",
+    "M30",
+    "M32",
+    "M33",
+    "M34",
+    "M35",
+    "M51",
+    "M68",
+    "M70",
+    "M71",
+    "M31",
+    "M36",
+    "M37",
+    "M38",
+    "M39",
+    "M41",
+    "M42",
+    "M43",
+    "M44",
+    "M45",
+    "M46",
+    "M47",
+    "M48",
+    "M49",
+    "M50",
+    "M52",
+    "M54",
+    "M67",
+    "M69"
+  ],
+  "excluded_scope_ids": [
+    "M28",
+    "M40",
+    "M72"
+  ],
+  "reviewed_on": "2026-10-13",
+  "signal_rule": "Only quantities entering the score/features directly; candidate activations and weights used solely to obtain derivatives do not add A/W. G includes sizes inside a full ZCP bank. Estimator-internal tensors are not candidate signals.",
+  "observation_access_overrides": [
+    {
+      "block": "G1",
+      "method_id": "M05",
+      "data_access": "unlabeled",
+      "source": "LPZ_SNIP",
+      "reason": "Electra/FlexiBERT uses real texts and backward from hidden states, without task targets."
+    },
+    {
+      "block": "G1",
+      "method_id": "M06",
+      "data_access": "unlabeled",
+      "source": "LPZ_GRASP",
+      "reason": "Electra/FlexiBERT uses real texts and backward from hidden states, without task targets."
+    },
+    {
+      "block": "G1",
+      "method_id": "M07",
+      "data_access": "unlabeled",
+      "source": "LPZ_GRAD_NORM",
+      "reason": "Electra/FlexiBERT uses real texts and backward from hidden states, without task targets."
+    },
+    {
+      "block": "G1",
+      "method_id": "M08",
+      "data_access": "unlabeled",
+      "source": "LPZ_FISHER",
+      "reason": "Electra/FlexiBERT uses real texts and backward from hidden states, without task targets."
+    },
+    {
+      "block": "G1",
+      "method_id": "M12",
+      "data_access": "unlabeled",
+      "source": "LPZ_SYNFLOW",
+      "reason": "Electra/FlexiBERT uses real texts and backward from hidden states, without task targets."
+    }
+  ],
+  "sources": {
+    "P01": {
+      "paper_id": "P01",
+      "url": "https://arxiv.org/html/2101.08134",
+      "locator": "§3.2.1-3.2.3; pruning-score definitions; baselines",
+      "basis": "Direct sizes, weight norms and saliency formulas; Fisher uses activation times its derivative.",
+      "sha256": "e24cea3cdeaef0334f4872ccc5771a726bed43e79600ed1a8b983f0e24016f92",
+      "review_type": "primary_source_review"
+    },
+    "P26": {
+      "paper_id": "P26",
+      "url": "https://arxiv.org/pdf/2203.02094",
+      "locator": "§3.1-3.2; Appendix A and Fig.10",
+      "basis": "Decoder parameter count excludes input embeddings and the final softmax projection.",
+      "sha256": "ee5e1a261dd1d304ebb207b28b7de33698d40815a62e33f67c201328d5dcf003",
+      "review_type": "primary_source_review"
+    },
+    "P27": {
+      "paper_id": "P27",
+      "url": "https://aclanthology.org/2023.acl-long.142.pdf",
+      "locator": "§3: Jacobian, hidden covariance and Transformer attention metrics",
+      "basis": "Jacobian is derivative-based; covariance and attention confidence are forward-response statistics.",
+      "sha256": "2fc25d034881318d284571b98a76e2869bf06fc56147ad0af8d5f37727276d00",
+      "review_type": "primary_source_review"
+    },
+    "P09": {
+      "paper_id": "P09",
+      "url": "https://arxiv.org/html/2207.05135v2",
+      "locator": "§3.1-3.1.1; LogSynflow, linear regions, skip connections and population normalization",
+      "basis": "FreeREA combines three sources and normalizes scores across candidates; no quality-label fitting.",
+      "sha256": "06e5c8f517c0e0183d06b64a07275c25803b3ed51df393f30ee00e7581bf3692",
+      "review_type": "primary_source_review"
+    },
+    "P06": {
+      "paper_id": "P06",
+      "url": "https://arxiv.org/html/2102.11535",
+      "locator": "§3; Appendix A: NTK condition and linear regions",
+      "basis": "Combines derivative and activation signals.",
+      "sha256": "5e741ab0c947e79b6fd931f7d022e6a62d91d71b49d2c9ddf0ae646f204d248c",
+      "review_type": "primary_source_review"
+    },
+    "P07": {
+      "paper_id": "P07",
+      "url": "https://openaccess.thecvf.com/content/ICCV2021/papers/Lin_Zen-NAS_A_Zero-Shot_NAS_for_High-Performance_Image_Recognition_ICCV_2021_paper.pdf",
+      "locator": "§3; Algorithm 1: Zen-Score",
+      "basis": "Gaussian inputs and forward perturbations; fixed score, no backward needed.",
+      "sha256": "4060ca7df05b1973e027ff8ca790ac17564d826f6da258988bc74f09832cd25f",
+      "review_type": "primary_source_review"
+    },
+    "P08": {
+      "paper_id": "P08",
+      "url": "https://arxiv.org/html/2209.07413",
+      "locator": "§3: genetic programming and rank-correlation fitness",
+      "basis": "Formula discovery uses architecture quality labels.",
+      "sha256": "a75a27240f21ee0f20d195d636575edd7bbfc1bdc01783847b78d5b51c43103e",
+      "review_type": "primary_source_review"
+    },
+    "P10": {
+      "paper_id": "P10",
+      "url": "https://arxiv.org/html/2301.11300",
+      "locator": "§3; zero-cost proxy definition",
+      "basis": "Per-sample parameter-gradient statistics.",
+      "sha256": "c5013b307c21adf3c862d776fb918a784f2462f9d53ce902b1a8e1fb92a0d5de",
+      "review_type": "primary_source_review"
+    },
+    "P11": {
+      "paper_id": "P11",
+      "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Lee_AZ-NAS_Assembling_Zero-Cost_Proxies_for_Network_Architecture_Search_CVPR_2024_paper.pdf",
+      "locator": "§3: expressivity, progressivity, trainability, complexity",
+      "basis": "Activations, Jacobian and FLOPs are combined.",
+      "sha256": "e51740a9cd075994743015d2e2d809cfb5fdd5cab5e8158fabd07d9bef7e6f98",
+      "review_type": "primary_source_review"
+    },
+    "P30": {
+      "paper_id": "P30",
+      "url": "https://arxiv.org/html/2203.12217",
+      "locator": "§3.2-3.4; Eqs. 4-7; all-ones input implementation",
+      "basis": "Both diversity and saliency use weights and their derivatives.",
+      "sha256": "e3c114d63f0f82426207f49c0bc40faca9982bc3fb5df77410c3bb95746067c7",
+      "review_type": "primary_source_review"
+    },
+    "P28": {
+      "paper_id": "P28",
+      "url": "https://aclanthology.org/2024.findings-emnlp.502.pdf",
+      "locator": "Appendix B, FlexiBERT proxy; Appendix D, head importance",
+      "basis": "Variant-specific signals; code determines head-tensor semantics.",
+      "sha256": "ab4e5b012f484b43b3f6768c642cec902a80e60beb62db67d36b5d03ab238534",
+      "review_type": "primary_source_review"
+    },
+    "P29": {
+      "paper_id": "P29",
+      "url": "https://arxiv.org/html/2503.18646v1",
+      "locator": "§III-C-D; Eqs. 3-10; Algorithm 1",
+      "basis": "Weight-only score; quality-calibrated and label-free alpha are separate variants.",
+      "sha256": "bb6753228a1e0beb9b7dd351bec917eebc8e144421473cd82de5bf2d4dc38daf",
+      "review_type": "primary_source_review"
+    },
+    "P32": {
+      "paper_id": "P32",
+      "url": "https://arxiv.org/html/2605.07378",
+      "locator": "§III-B-C; §IV-C2",
+      "basis": "Activation patterns; regularization uses parameter count and sampled architecture sizes.",
+      "sha256": "c9162ba636e6305eb4f496ffe62161767839f7f619da5d2239f3afa28551c424",
+      "review_type": "primary_source_review"
+    },
+    "P33": {
+      "paper_id": "P33",
+      "url": "https://arxiv.org/html/2402.02105",
+      "locator": "Appendix A-C: node-wise ZC collection and MABN predictor",
+      "basis": "Standalone MABN on node-wise ZC statistics; optional PINAT fusion is outside this row.",
+      "sha256": "55cb80cc5c965905ad309bee9af006c0da00c25059429c3c281631cbad5a2580",
+      "review_type": "primary_source_review"
+    },
+    "P49": {
+      "paper_id": "P49",
+      "url": "https://arxiv.org/pdf/2508.12977",
+      "locator": "§3.2.2, §3.3; author NASLib implementation",
+      "basis": "Feature SVD plus output curvature; derivatives along a synthetic input curve.",
+      "sha256": "064ee05e0d6fd9350d89c6b068a6d83a05eb714c730f0b9daf8891f63d509ad0",
+      "review_type": "primary_source_review"
+    },
+    "P50": {
+      "paper_id": "P50",
+      "url": "https://arxiv.org/html/2507.08841",
+      "locator": "§3.2-3.3.3",
+      "basis": "WRCor combines activation and gradient correlations; SJW/SPW add SynFlow.",
+      "sha256": "d4034a4eb9e0629a9ac0b1c7a56e8a19240c5ac4c5e69f8b734c1531c0c9c629",
+      "review_type": "primary_source_review"
+    },
+    "P36": {
+      "paper_id": "P36",
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Zhou_InTrain_Intrinsic_Trainability_for_Zero-Cost_Neural_Architecture_Search_CVPR_2026_paper.pdf",
+      "locator": "§3.2-3.3; Synthetic Loss Design",
+      "basis": "Activation geometry and gradient health on synthetic inputs and targets.",
+      "sha256": "c6889b0edb8bbbde0d9791bc176871d57c6e7e87b7ca96b606390093838e18f8",
+      "review_type": "primary_source_review"
+    },
+    "P12": {
+      "paper_id": "P12",
+      "url": "https://arxiv.org/html/2404.16551v2",
+      "locator": "§3-4; ZCP feature set and RF/XGB experiments",
+      "basis": "GRAF and one-hot are graph-only; full ZCP includes sizes, weights, activations and derivatives.",
+      "sha256": "854e1aae601796c93f5a775148d2cbd6d2c4a10624dde8ad3fae5a40eda58f25",
+      "review_type": "primary_source_review"
+    },
+    "P15": {
+      "paper_id": "P15",
+      "url": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/html/6926_ECCV_2020_paper.php",
+      "locator": "Abstract / primary publication page; architecture encoding and supervised predictor",
+      "basis": "Architecture graph to supervised quality predictor.",
+      "sha256": "a4e4948ed30e8c327a3b3fc1d006d051c7f410962b1fa91df58acf27b19e3ed0",
+      "review_type": "primary_landing_page_review"
+    },
+    "P16": {
+      "paper_id": "P16",
+      "url": "https://arxiv.org/abs/2007.08668",
+      "locator": "Abstract / primary publication page; architecture encoding and supervised predictor",
+      "basis": "Graph predictor trained on pairwise architecture performance relations.",
+      "sha256": "25804dd001db0db0b10abb3659c413beb42d7c3ed408a57ef1d7338184dbf35a",
+      "review_type": "primary_landing_page_review"
+    },
+    "P17": {
+      "paper_id": "P17",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/17233",
+      "locator": "Abstract / primary publication page; architecture encoding and supervised predictor",
+      "basis": "Structural encoding to supervised predictor ensemble.",
+      "sha256": null,
+      "review_type": "primary_landing_page_review"
+    },
+    "P18": {
+      "paper_id": "P18",
+      "url": "https://proceedings.mlr.press/v139/yan21c/yan21c.pdf",
+      "locator": "§3.3 and performance-prediction evaluation",
+      "basis": "Architecture pretraining uses computational attributes; downstream head uses qualities.",
+      "sha256": "6f56768d908505ce574c0419e57bd48e9620f073010f26e732b7264b7c9a33d5",
+      "review_type": "primary_source_review"
+    },
+    "P19": {
+      "paper_id": "P19",
+      "url": "https://arxiv.org/pdf/2006.06936",
+      "locator": "§3-4: variational graph autoencoder and downstream NAS",
+      "basis": "Unsupervised architecture representation, followed by a supervised prediction head.",
+      "sha256": "1242686307d1f84ea33efd830f7f1f569b113cb4f49a6799ba0b3be75285edbc",
+      "review_type": "primary_source_review"
+    },
+    "P14": {
+      "paper_id": "P14",
+      "url": "https://raw.githubusercontent.com/mlresearch/v293/main/assets/qin25a/qin25a.pdf",
+      "locator": "§3.2: language-model surrogates; Appendix E prompts",
+      "basis": "Fine-tuning and few-shot prompting are different ways to use historical qualities.",
+      "sha256": "d84a5f3b7b980334ea0cf878389c498755bd803b250c240e0fd516ccb951ca9f",
+      "review_type": "primary_source_review"
+    },
+    "P34": {
+      "paper_id": "P34",
+      "url": "https://arxiv.org/pdf/2510.04938",
+      "locator": "§4-5.2; Appendix H",
+      "basis": "Text of architecture in ONNX format feeds a quality-trained language model.",
+      "sha256": "27d29a7e533ff2c28c550cfe32b2ff5aa8662bbd1bb7e71a64d8d9dac8e46281",
+      "review_type": "primary_source_review"
+    },
+    "P35": {
+      "paper_id": "P35",
+      "url": "https://arxiv.org/html/2605.15649v1",
+      "locator": "§3.1-3.3",
+      "basis": "Frozen code-LM embeddings, PCA and supervised ranking head; no candidate execution.",
+      "sha256": "cf5f7bf071c544e388bec68cc3c3ff37f0a7ff2df9bfef565a726ce79dcc5154",
+      "review_type": "primary_source_review"
+    },
+    "P37": {
+      "paper_id": "P37",
+      "url": "https://arxiv.org/html/2609.14184",
+      "locator": "§3 ProxyFit; §4.1 proxy set",
+      "basis": "Offline quality supervision and active acquisition; full ZCP includes candidate execution.",
+      "sha256": "6c7469267ec72bf7cc1fbf8a95d65b3bc7fdbea35d84198e29403ef7843ec7a0",
+      "review_type": "primary_source_review"
+    },
+    "P38": {
+      "paper_id": "P38",
+      "url": "https://arxiv.org/html/2609.11884",
+      "locator": "§3.2-3.3; five-proxy bank, consensus gate and anchor residual",
+      "basis": "Rank uses label-free population agreement; Refine fits residuals from anchor validation curves.",
+      "sha256": "ccf1247e12fa05519ddde83eca56fe5cbb267c5364c9dd9c758815b18fe3cce4",
+      "review_type": "primary_source_review"
+    },
+    "P21": {
+      "paper_id": "P21",
+      "url": "https://aaronkl.github.io/assets/pdf/lcnet.pdf",
+      "locator": "§2.4 Eq.7; §3.3 footnote 2",
+      "basis": "Historical curves train the predictor; a new candidate supplies configuration and epoch only.",
+      "sha256": "48fa8c30f640c36485bb576113f61cee029ce7217a23161466f3f95e6c88d462",
+      "review_type": "primary_source_review"
+    },
+    "P47": {
+      "paper_id": "P47",
+      "url": "https://link.springer.com/article/10.1007/s11263-024-02265-7",
+      "locator": "§4.2 Tables 1-3; Tables 6-7",
+      "basis": "Quality-trained RF uses all ZCP, optionally with GRAF; robustness variant also needs attacks.",
+      "sha256": "111427fb4ae7461bba9f6465df3a5c950e1ccb74ac0ce9e91e25f9de73bb81af",
+      "review_type": "primary_source_review"
+    },
+    "LPZ_EZNAS": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/eznas.py",
+      "locator": "compute_eznas: ElectraModel branch",
+      "basis": "Author implementation; frozen commit.",
+      "sha256": "03d57a8eb667136a0e7bc8353c96e4fc973dec9f4dc4c186e2c97f1974f1e302",
+      "review_type": "author_code_review"
+    },
+    "LPZ_HEAD": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/operators/zc_inputs.py",
+      "locator": "compute_head and compute_activation: ElectraModel branches",
+      "basis": "Author implementation; frozen commit.",
+      "sha256": "8fc8c7c43bbdc90c56b8e605d6b3f5536a3577cf2cc9112fad9d5cda50cae9cc",
+      "review_type": "author_code_review"
+    },
+    "LPZ_L2": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/l2_norm.py",
+      "locator": "get_l2_norm_array",
+      "basis": "Author implementation; frozen commit.",
+      "sha256": "8fb8d388c7ed1f1ff9ea42f9c023c69a022d8e3a79f7f91ff52b0046bded81c0",
+      "review_type": "author_code_review"
+    },
+    "LPZ_SNIP": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/snip.py",
+      "locator": "ElectraModel branch; backward from hidden-state sum; synflow.py also defines compute_logsynflow_per_weight",
+      "basis": "G1 input-access correction; applies to Electra/FlexiBERT only.",
+      "sha256": "06f58f3b0be67727e9f383171df015bbd99499b35fd5dec5fab46955e8759641",
+      "review_type": "author_code_review"
+    },
+    "LPZ_GRASP": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/grasp.py",
+      "locator": "ElectraModel branch; backward from hidden-state sum; synflow.py also defines compute_logsynflow_per_weight",
+      "basis": "G1 input-access correction; applies to Electra/FlexiBERT only.",
+      "sha256": "0c717f2ee709762792866c65185a66a483686fb25798322c464c147323ab6f21",
+      "review_type": "author_code_review"
+    },
+    "LPZ_GRAD_NORM": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/grad_norm.py",
+      "locator": "ElectraModel branch; backward from hidden-state sum; synflow.py also defines compute_logsynflow_per_weight",
+      "basis": "G1 input-access correction; applies to Electra/FlexiBERT only.",
+      "sha256": "166afdf081f5ee4ded62b0aebebbf86f1e6e5f9b61ae47dd496ba52e88d4d2bd",
+      "review_type": "author_code_review"
+    },
+    "LPZ_FISHER": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/fisher.py",
+      "locator": "ElectraModel branch; backward from hidden-state sum; synflow.py also defines compute_logsynflow_per_weight",
+      "basis": "G1 input-access correction; applies to Electra/FlexiBERT only.",
+      "sha256": "4720e6521f5a1f66b1172093ad36e6b7152376e8154be8c7734d02fe0b6982fe",
+      "review_type": "author_code_review"
+    },
+    "LPZ_SYNFLOW": {
+      "paper_id": "P28",
+      "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/synflow.py",
+      "locator": "ElectraModel branch; backward from hidden-state sum; synflow.py also defines compute_logsynflow_per_weight",
+      "basis": "G1 input-access correction; applies to Electra/FlexiBERT only.",
+      "sha256": "71578b503748531311e3d5997e2dea348a90d7af0f3ec8f0d1f8ae3ba94faacb",
+      "review_type": "author_code_review"
+    },
+    "WRCOR_CODE": {
+      "paper_id": "P50",
+      "url": "https://github.com/kunjing96/ZSNAS-WRCor/blob/270ce7aecedc56538aba635754a7009c9223be15/foresight/pruners/measures/act_grad_cor_weighted.py",
+      "locator": "compute_act_grad_cor_weighted, lines 65-67: loss_fn(outputs, targets)",
+      "basis": "Supersedes U classification: author protocol uses real examples and their targets.",
+      "sha256": "228ff3711d2241392a8f0f83ec78d5d1101a96e4c83eea3ccf1b29523cd05c3c",
+      "review_type": "author_code_review"
+    },
+    "WRCOR_LOADER": {
+      "paper_id": "P50",
+      "url": "https://github.com/kunjing96/ZSNAS-WRCor/blob/270ce7aecedc56538aba635754a7009c9223be15/foresight/pruners/predictive.py",
+      "locator": "find_measures_arrays: F.cross_entropy, get_some_data, calc_measure",
+      "basis": "Supersedes U classification: author protocol uses real examples and their targets.",
+      "sha256": "f4c00539dfc7aca9d44706dfceac0f55620c0740e0c8f3f4930ba059568875d0",
+      "review_type": "author_code_review"
+    },
+    "WRCOR_RUNNER": {
+      "paper_id": "P50",
+      "url": "https://github.com/kunjing96/ZSNAS-WRCor/blob/270ce7aecedc56538aba635754a7009c9223be15/nasbench201_pred.py",
+      "locator": "lines 54, 83-87: real dataloader; default cross_entropy",
+      "basis": "Supersedes U classification: author protocol uses real examples and their targets.",
+      "sha256": "03ab1ba2788fd77922f53a464bb6ec7a486e5ff09fa1e9e5ac6475b53adf35a8",
+      "review_type": "author_code_review"
+    },
+    "DEXTR_CODE": {
+      "paper_id": "P49",
+      "url": "https://github.com/rohanasthana/Dextr/blob/55bcd4333840dd7c67f62696e5394f92978b8960/NASLib/naslib/predictors/pruners/measures/dextr_utils/no_free_lunch_architectures/length.py",
+      "locator": "get_extrinsic_curvature_opt, lines 59-97",
+      "basis": "Two autograd derivatives along theta; no real targets.",
+      "sha256": "457c87de4f14596cac0b25d512e0d5042cf66394e53d90aa242e777820bddc3c",
+      "review_type": "author_code_review"
+    }
+  },
+  "methods": [
+    {
+      "method_id": "M01",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "G; без обучения предиктора",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M02",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P26"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Параметры decoder-блоков; input embeddings и финальная softmax projection исключены (Appendix A, Fig.10).",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M03",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "FLOPs вычисляются по графу и форме входа. Профилировщик может использовать dummy forward; это не сигнал отклика и не время оценки.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M04",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + искусственный вход, backward; исходный метод data-free, NLP-адаптации проверять отдельно",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M05",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01",
+        "LPZ_SNIP"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Исходная loss-based формула: W0 + X + targets. В G1 Electra-реализация использует сумму hidden states, поэтому U.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M06",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01",
+        "LPZ_GRASP"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Исходная loss-based формула с производными второго порядка. В G1 Electra использует сумму hidden states, поэтому U.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M07",
+      "signal_profile": "D",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01",
+        "LPZ_GRAD_NORM"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Исходная норма градиента loss: X + targets. Electra-реализация G1 не использует targets, поэтому U.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M08",
+      "signal_profile": "AD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01",
+        "LPZ_FISHER"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Fisher: квадрат произведения активации и её градиента; поэтому A+D, а не только D.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M09",
+      "signal_profile": "D",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X; input Jacobian; не объединять с cosine без проверки реализации",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M10",
+      "signal_profile": "D",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P27"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X; отдельная NLP-реализация",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M11",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P27"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X, forward; ReLU/GELU-адаптации являются вариантами",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M12",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P09",
+        "LPZ_SYNFLOW"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Исходный LogSynFlow: синтетический вход. В Electra-реализации G1 передаются реальные тексты, поэтому U.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M13",
+      "signal_profile": "AD",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P06"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "TE-NAS, исходный CV-протокол",
+      "note": "Применение: Реальные изображения без меток; случайные веса; NTK и linear regions. Подготовка: Подготовка архитектур; обучение предиктора на H не требуется.",
+      "source_access_audit": {
+        "method_id": "M13",
+        "status": "resolved",
+        "paper_id": "P06",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "TE-NAS, исходный CV-протокол",
+        "use_requirements": "Реальные изображения без меток; случайные веса; NTK и linear regions.",
+        "setup_requirements": "Подготовка архитектур; обучение предиктора на H не требуется.",
+        "locator": "Appendix A, technical details",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2102.11535",
+        "source_version": "2102.11535v4",
+        "source_sha256": "5e741ab0c947e79b6fd931f7d022e6a62d91d71b49d2c9ddf0ae646f204d248c",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M14",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P07"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + случайные синтетические входы, несколько forward",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M15",
+      "signal_profile": "D",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "search",
+      "representation": "none",
+      "evidence": [
+        "P08",
+        "LPZ_EZNAS"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "EZNAS: Electra/FlexiBERT реализация LPZero",
+      "note": "Только Electra/FlexiBERT: градиент суммы hidden states; GPT-2 с loss сюда не переносится.",
+      "source_access_audit": {
+        "method_id": "M15",
+        "status": "resolved",
+        "paper_id": "P28",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "EZNAS: Electra/FlexiBERT реализация LPZero",
+        "use_requirements": "Реальные тексты; backward от суммы hidden states, без task labels.",
+        "setup_requirements": "Поиск формулы использует исторические качества; GPT-2 ветвь требует отдельной классификации.",
+        "locator": "lpzero/predictor/measures/eznas.py: compute_eznas",
+        "reviewed_on": "2026-10-13",
+        "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/eznas.py",
+        "source_version": "876432761a2ff67a77194018ebc88bdc42869974",
+        "source_sha256": null,
+        "evidence_type": "author_implementation_review"
+      }
+    },
+    {
+      "method_id": "M16",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": true,
+      "setup": "distribution",
+      "representation": "none",
+      "evidence": [
+        "P09"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "FreeREA aggregate",
+      "note": "LogSynFlow + linear regions + skip count; нормализация по популяции архитектур без H.",
+      "source_access_audit": {
+        "method_id": "M16",
+        "status": "resolved",
+        "paper_id": "P09",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "FreeREA aggregate",
+        "use_requirements": "Реальный batch для linear regions; синтетический вход LogSynflow; skip count.",
+        "setup_requirements": "Эволюционный поиск; отдельного обученного предиктора нет.",
+        "locator": "§3.1–3.1.1",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2207.05135v2",
+        "source_version": "2207.05135v2",
+        "source_sha256": "06e5c8f517c0e0183d06b64a07275c25803b3ed51df393f30ee00e7581bf3692",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M17",
+      "signal_profile": "D",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P10"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X + цель, статистика градиентов по примерам",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M18",
+      "signal_profile": "GAD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P11"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "AZ-NAS, опубликованный протокол",
+      "note": "FLOPs + forward-признаки + Jacobian; Gaussian input.",
+      "source_access_audit": {
+        "method_id": "M18",
+        "status": "resolved",
+        "paper_id": "P11",
+        "data_access_at_use": "none",
+        "variant_scope": "AZ-NAS, опубликованный протокол",
+        "use_requirements": "Случайные веса и Gaussian input; реальные данные и метки не нужны.",
+        "setup_requirements": "Фиксированная агрегация четырёх proxies.",
+        "locator": "§3; §4 experimental settings",
+        "reviewed_on": "2026-10-13",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Lee_AZ-NAS_Assembling_Zero-Cost_Proxies_for_Network_Architecture_Search_CVPR_2024_paper.pdf",
+        "source_version": "official_pdf",
+        "source_sha256": "e51740a9cd075994743015d2e2d809cfb5fdd5cab5e8158fabd07d9bef7e6f98",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M19",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P30"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "DSS / TF-TAS, исходный ViT",
+      "note": "Исходный ViT, вход из единиц; NLP-реализация является другим вариантом.",
+      "source_access_audit": {
+        "method_id": "M19",
+        "status": "resolved",
+        "paper_id": "P30",
+        "data_access_at_use": "none",
+        "variant_scope": "DSS / TF-TAS, исходный ViT",
+        "use_requirements": "Случайные веса; искусственный вход из единиц. NLP-адаптации сюда не перенесены.",
+        "setup_requirements": "Обучение по историческим качествам для формулы не требуется.",
+        "locator": "§3.2–3.4, implementation",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2203.12217",
+        "source_version": "2203.12217v1",
+        "source_sha256": "e3c114d63f0f82426207f49c0bc40faca9982bc3fb5df77410c3bb95746067c7",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M20",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P30"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "DSS: synaptic diversity, исходный ViT",
+      "note": "Nuclear norms применяются и к весам, и к их градиентам. Только исходный ViT.",
+      "source_access_audit": {
+        "method_id": "M20",
+        "status": "resolved",
+        "paper_id": "P30",
+        "data_access_at_use": "none",
+        "variant_scope": "DSS: synaptic diversity, исходный ViT",
+        "use_requirements": "Случайные веса; искусственный вход из единиц. NLP-адаптации сюда не перенесены.",
+        "setup_requirements": "Обучение по историческим качествам для формулы не требуется.",
+        "locator": "§3.2–3.4, implementation",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2203.12217",
+        "source_version": "2203.12217v1",
+        "source_sha256": "e3c114d63f0f82426207f49c0bc40faca9982bc3fb5df77410c3bb95746067c7",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M21",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P30"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "DSS: synaptic saliency, исходный ViT",
+      "note": "Weight × gradient; исходный ViT. В численном G1 используется NLP-вариант с реальными текстами.",
+      "source_access_audit": {
+        "method_id": "M21",
+        "status": "resolved",
+        "paper_id": "P30",
+        "data_access_at_use": "none",
+        "variant_scope": "DSS: synaptic saliency, исходный ViT",
+        "use_requirements": "Случайные веса; искусственный вход из единиц. NLP-адаптации сюда не перенесены.",
+        "setup_requirements": "Обучение по историческим качествам для формулы не требуется.",
+        "locator": "§3.2–3.4, implementation",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2203.12217",
+        "source_version": "2203.12217v1",
+        "source_sha256": "e3c114d63f0f82426207f49c0bc40faca9982bc3fb5df77410c3bb95746067c7",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M22",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P27"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X без downstream-разметки, attention statistics",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M23",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P28"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Head importance: Electra/FlexiBERT реализация LPZero",
+      "note": "Electra/FlexiBERT: weight × gradient суммы hidden states.",
+      "source_access_audit": {
+        "method_id": "M23",
+        "status": "resolved",
+        "paper_id": "P28",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "Head importance: Electra/FlexiBERT реализация LPZero",
+        "use_requirements": "Реальные тексты; градиент суммы hidden states; weight × gradient.",
+        "setup_requirements": "Отдельный predictor fit для применения фиксированной формулы не нужен.",
+        "locator": "lpzero/runner/eval_rank_bert.py:154–175; attention_head_importance.py",
+        "reviewed_on": "2026-10-13",
+        "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/runner/eval_rank_bert.py",
+        "source_version": "876432761a2ff67a77194018ebc88bdc42869974",
+        "source_sha256": null,
+        "evidence_type": "author_implementation_review"
+      }
+    },
+    {
+      "method_id": "M24",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P27"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X, forward",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M25",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "search",
+      "representation": "none",
+      "evidence": [
+        "P28",
+        "LPZ_HEAD"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "LPZero: найденная FlexiBERT формула head + act",
+      "note": "FlexiBERT: head и activation получаются forward hooks. GPT-2 weight/gradient formula - другой вариант.",
+      "source_access_audit": {
+        "method_id": "M25",
+        "status": "resolved",
+        "paper_id": "P28",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "LPZero: найденная FlexiBERT формула head + act",
+        "use_requirements": "Реальные тексты; head/activation tensors; targets не используются.",
+        "setup_requirements": "Эволюционный поиск формулы по историческим GLUE-качествам.",
+        "locator": "lpzero/runner/eval_searched_bert.py:263–272; operators/zc_inputs.py",
+        "reviewed_on": "2026-10-13",
+        "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/runner/eval_searched_bert.py",
+        "source_version": "876432761a2ff67a77194018ebc88bdc42869974",
+        "source_sha256": null,
+        "evidence_type": "author_implementation_review"
+      }
+    },
+    {
+      "method_id": "M26",
+      "signal_profile": "W",
+      "operation": "weights",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "calibration",
+      "representation": "none",
+      "evidence": [
+        "P29"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Alpha калибруется по H; веса кандидата могут быть случайными либо готовыми.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M27",
+      "signal_profile": "W",
+      "operation": "weights",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "distribution",
+      "representation": "none",
+      "evidence": [
+        "P29"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Alpha по согласованности компонент и размера на выборке архитектур, без H; W0 или Wp.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M29",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P32"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X без меток, sample-wise activation patterns",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M30",
+      "signal_profile": "GA",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "distribution",
+      "representation": "none",
+      "evidence": [
+        "P32"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "SWAP плюс prior числа параметров; настройки распределения размеров по выборке G.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M32",
+      "signal_profile": "AD",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P49",
+        "DEXTR_CODE"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Реальный пример для feature SVD; синтетическая кривая для curvature. Код использует autograd первого и второго порядка.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M33",
+      "signal_profile": "AD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P50",
+        "WRCOR_CODE",
+        "WRCOR_LOADER",
+        "WRCOR_RUNNER"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": "U → T; author loss/targets call chain",
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Авторский NB101/NB201: корреляции активаций и градиентов cross-entropy с targets из dataloader. Исправление U → T.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M34",
+      "signal_profile": "WAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P50",
+        "WRCOR_CODE",
+        "WRCOR_LOADER",
+        "WRCOR_RUNNER"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": "U → T; author loss/targets call chain",
+      "variant_scope": "WRCor voting: SJW и SPW",
+      "note": "SJW/SPW включают WRCor с cross-entropy/targets: исправление U → T. SynFlow добавляет синтетику; baseline с SNIP не включён.",
+      "source_access_audit": {
+        "method_id": "M34",
+        "status": "resolved",
+        "paper_id": "P50",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "WRCor voting: SJW и SPW",
+        "use_requirements": "Реальный batch без меток для WRCor/JacCor/PNorm; SynFlow — синтетический вход.",
+        "setup_requirements": "Фиксированное голосование; не смешивать с baseline SynFlow+JacCor+SNIP.",
+        "locator": "§3.3.3",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2507.08841",
+        "source_version": "2507.08841v2",
+        "source_sha256": "d4034a4eb9e0629a9ac0b1c7a56e8a19240c5ac4c5e69f8b734c1531c0c9c629",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M35",
+      "signal_profile": "AD",
+      "operation": "derivatives",
+      "use_inputs": "synthetic",
+      "synthetic_component": true,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P36"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "InTrain, опубликованный CV-протокол",
+      "note": "Синтетические targets не означают реальные размеченные примеры.",
+      "source_access_audit": {
+        "method_id": "M35",
+        "status": "resolved",
+        "paper_id": "P36",
+        "data_access_at_use": "none",
+        "variant_scope": "InTrain, опубликованный CV-протокол",
+        "use_requirements": "Gaussian input и случайные targets; градиентный расчёт не требует реальных меток.",
+        "setup_requirements": "Фиксированная оценка geometry и gradient health; без обучения кандидата.",
+        "locator": "§3.2–3.3; §4.1–4.2",
+        "reviewed_on": "2026-10-13",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Zhou_InTrain_Intrinsic_Trainability_for_Zero-Cost_Neural_Architecture_Search_CVPR_2026_paper.pdf",
+        "source_version": "official_pdf",
+        "source_sha256": "c6889b0edb8bbbde0d9791bc176871d57c6e7e87b7ca96b606390093838e18f8",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M51",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": true,
+      "setup": "distribution",
+      "representation": "none",
+      "evidence": [
+        "P38"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "CoRA, NB101/NB201/NATS-SSS classification",
+      "note": "Target-free gate по согласованности proxy на наборе архитектур; fixed rank consensus.",
+      "source_access_audit": {
+        "method_id": "M51",
+        "status": "resolved",
+        "paper_id": "P38",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "CoRA, NB101/NB201/NATS-SSS classification",
+        "use_requirements": "Реальный batch без меток для jacov; остальные признаки графовые/синтетические. TransNAS с synthetic input — другой вариант.",
+        "setup_requirements": "Фиксированный rank prior и target-free gate; качества архитектур не нужны для gate.",
+        "locator": "§3.2–3.3; §5 limitations",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2609.11884",
+        "source_version": "2609.11884v1",
+        "source_sha256": "ccf1247e12fa05519ddde83eca56fe5cbb267c5364c9dd9c758815b18fe3cce4",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M68",
+      "signal_profile": "A",
+      "operation": "forward",
+      "use_inputs": "unlabeled",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P27"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "W0 + X; covariance скрытых состояний RNN; NAS-Bench-NLP",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M70",
+      "signal_profile": "W",
+      "operation": "weights",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01",
+        "LPZ_L2"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Сумма layer-wise L2-норм весов в авторской реализации; forward не нужен.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M71",
+      "signal_profile": "WD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": false,
+      "setup": "fixed",
+      "representation": "none",
+      "evidence": [
+        "P01"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Plain: сумма weight × gradient",
+      "note": "Применение: Случайные веса, реальные входы и градиент loss. Подготовка: Историческое обучение предиктора не требуется.",
+      "source_access_audit": {
+        "method_id": "M71",
+        "status": "resolved",
+        "paper_id": "P01",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "Plain: сумма weight × gradient",
+        "use_requirements": "Случайные веса, реальные входы и градиент loss.",
+        "setup_requirements": "Историческое обучение предиктора не требуется.",
+        "locator": "Zero-cost proxies, baseline plain; P46 Table 1",
+        "reviewed_on": "2026-10-13",
+        "url": "https://github.com/pprp/LPZero/blob/876432761a2ff67a77194018ebc88bdc42869974/lpzero/predictor/measures/plain.py",
+        "source_version": "876432761a2ff67a77194018ebc88bdc42869974",
+        "source_sha256": null,
+        "evidence_type": "author_implementation_review"
+      }
+    },
+    {
+      "method_id": "M31",
+      "signal_profile": "WAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P33"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "ParZC с loss-based node-wise статистиками",
+      "note": "MABN по node-wise ZCP; optional PINAT fusion не входит в эту строку. Fisher добавляет A.",
+      "source_access_audit": {
+        "method_id": "M31",
+        "status": "resolved",
+        "paper_id": "P33",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "ParZC с loss-based node-wise статистиками",
+        "use_requirements": "Batch X и целевая функция для градиентных статистик (включая Fisher/GradNorm).",
+        "setup_requirements": "MABN обучается по историческим качествам архитектур; DiffKendall.",
+        "locator": "§3.1–3.3; Appendix, node-wise statistics",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2402.02105",
+        "source_version": "2402.02105v1",
+        "source_sha256": "55cb80cc5c965905ad309bee9af006c0da00c25059429c3c281631cbad5a2580",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M36",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P12"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "G при применении; H для RF",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M37",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P12"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Полный набор 13 ZCP; RF / XGB, с GRAF либо без",
+      "note": "Полный ZCP-вектор содержит в том числе params/FLOPs; G относится и к этому варианту без GRAF.",
+      "source_access_audit": {
+        "method_id": "M37",
+        "status": "resolved",
+        "paper_id": "P12",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "Полный набор 13 ZCP; RF / XGB, с GRAF либо без",
+        "use_requirements": "Для нового кандидата получение ZCP включает X и loss/targets; GRAF — признаки графа.",
+        "setup_requirements": "H для обучения RF/XGB. Готовый benchmark кэширует затраты получения ZCP.",
+        "locator": "§3; Appendix C.3, список 13 ZCP",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2404.16551v2",
+        "source_version": "2404.16551v2",
+        "source_sha256": "854e1aae601796c93f5a775148d2cbd6d2c4a10624dde8ad3fae5a40eda58f25",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M38",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P12"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Полный набор 13 ZCP; RF / XGB, с GRAF либо без",
+      "note": "Применение: Для нового кандидата получение ZCP включает X и loss/targets; GRAF — признаки графа. Подготовка: H для обучения RF/XGB. Готовый benchmark кэширует затраты получения ZCP.",
+      "source_access_audit": {
+        "method_id": "M38",
+        "status": "resolved",
+        "paper_id": "P12",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "Полный набор 13 ZCP; RF / XGB, с GRAF либо без",
+        "use_requirements": "Для нового кандидата получение ZCP включает X и loss/targets; GRAF — признаки графа.",
+        "setup_requirements": "H для обучения RF/XGB. Готовый benchmark кэширует затраты получения ZCP.",
+        "locator": "§3; Appendix C.3, список 13 ZCP",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2404.16551v2",
+        "source_version": "2404.16551v2",
+        "source_sha256": "854e1aae601796c93f5a775148d2cbd6d2c4a10624dde8ad3fae5a40eda58f25",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M39",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P12"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "Полный набор 13 ZCP; RF / XGB, с GRAF либо без",
+      "note": "Применение: Для нового кандидата получение ZCP включает X и loss/targets; GRAF — признаки графа. Подготовка: H для обучения RF/XGB. Готовый benchmark кэширует затраты получения ZCP.",
+      "source_access_audit": {
+        "method_id": "M39",
+        "status": "resolved",
+        "paper_id": "P12",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "Полный набор 13 ZCP; RF / XGB, с GRAF либо без",
+        "use_requirements": "Для нового кандидата получение ZCP включает X и loss/targets; GRAF — признаки графа.",
+        "setup_requirements": "H для обучения RF/XGB. Готовый benchmark кэширует затраты получения ZCP.",
+        "locator": "§3; Appendix C.3, список 13 ZCP",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2404.16551v2",
+        "source_version": "2404.16551v2",
+        "source_sha256": "854e1aae601796c93f5a775148d2cbd6d2c4a10624dde8ad3fae5a40eda58f25",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M41",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P15"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "G; H для регрессора",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M42",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P16"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "G; H преобразуются в пары/отношения",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M43",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P17"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "structural/path encoding G; H для ансамбля",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M44",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "architecture_pretrain",
+      "evidence": [
+        "P18"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Предобучение представления на архитектурах; H нужен для prediction head.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M45",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "architecture_pretrain",
+      "evidence": [
+        "P19"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Unsupervised graph representation; H нужен для prediction head.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M46",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "finetuned_lm",
+      "evidence": [
+        "P14"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Предобученный LM дообучается на H. Его forward не является forward оцениваемой архитектуры.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M47",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "prompt",
+      "representation": "frozen_lm",
+      "evidence": [
+        "P14"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Готовый LM и исторические пары в prompt; fit весов на этих парах не требуется.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M48",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "trained_lm",
+      "evidence": [
+        "P34"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Обученный LM по ONNX-тексту архитектуры; внешний pretrained checkpoint не объявляется обязательным.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M49",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "frozen_lm",
+      "evidence": [
+        "P35"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "Готовый замороженный LM; PCA не требует quality labels, supervised ranker требует H.",
+      "source_access_audit": null
+    },
+    {
+      "method_id": "M50",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P37"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "ZAPS, набор 13 ZCP",
+      "note": "Offline H и активное получение качеств; полный ZCP-вектор включает все четыре источника.",
+      "source_access_audit": {
+        "method_id": "M50",
+        "status": "resolved",
+        "paper_id": "P37",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "ZAPS, набор 13 ZCP",
+        "use_requirements": "Получение полного ZCP-вектора требует X и loss/targets; топология G.",
+        "setup_requirements": "Offline H для ProxyFit; затем активное получение качеств выбранных кандидатов.",
+        "locator": "§3 ProxyFit; §4.1 proxies",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2609.14184",
+        "source_version": "2609.14184v1",
+        "source_sha256": "6c7469267ec72bf7cc1fbf8a95d65b3bc7fdbea35d84198e29403ef7843ec7a0",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M52",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "unlabeled",
+      "synthetic_component": true,
+      "setup": "curves",
+      "representation": "none",
+      "evidence": [
+        "P38"
+      ],
+      "status": "included",
+      "data_access_at_use": "unlabeled",
+      "access_correction": null,
+      "variant_scope": "CoRA, NB101/NB201/NATS-SSS classification",
+      "note": "Validation-кривые обученных anchors относятся к подготовке; новая архитектура оценивается по статическим proxy.",
+      "source_access_audit": {
+        "method_id": "M52",
+        "status": "resolved",
+        "paper_id": "P38",
+        "data_access_at_use": "unlabeled",
+        "variant_scope": "CoRA, NB101/NB201/NATS-SSS classification",
+        "use_requirements": "Реальный batch без меток для jacov; остальные признаки графовые/синтетические. TransNAS с synthetic input — другой вариант.",
+        "setup_requirements": "Обучение anchors на малом бюджете и validation-кривые; подгонка residual model. Полное обучение всех кандидатов не требуется.",
+        "locator": "§3.2–3.3; §5 limitations",
+        "reviewed_on": "2026-10-13",
+        "url": "https://arxiv.org/html/2609.11884",
+        "source_version": "2609.11884v1",
+        "source_sha256": "ccf1247e12fa05519ddde83eca56fe5cbb267c5364c9dd9c758815b18fe3cce4",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M54",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "curves",
+      "representation": "none",
+      "evidence": [
+        "P21"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "LC-Net: предсказание по конфигурации x и эпохе t",
+      "note": "Вход x,t; частичная кривая новой архитектуры не требуется.",
+      "source_access_audit": {
+        "method_id": "M54",
+        "status": "resolved",
+        "paper_id": "P21",
+        "data_access_at_use": "none",
+        "variant_scope": "LC-Net: предсказание по конфигурации x и эпохе t",
+        "use_requirements": "Конфигурация и номер эпохи; частичная кривая нового кандидата не является входом сети.",
+        "setup_requirements": "Обучение на кривых других конфигураций; получение кривых требует данных и objective.",
+        "locator": "§2.4, Eq.7; §3.3, footnote 2",
+        "reviewed_on": "2026-10-13",
+        "url": "https://aaronkl.github.io/assets/pdf/lcnet.pdf",
+        "source_version": "official_pdf",
+        "source_sha256": "48fa8c30f640c36485bb576113f61cee029ce7217a23161466f3f95e6c88d462",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M67",
+      "signal_profile": "GWAD",
+      "operation": "derivatives",
+      "use_inputs": "objective",
+      "synthetic_component": true,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P47"
+      ],
+      "status": "included",
+      "data_access_at_use": "labeled_or_objective",
+      "access_correction": null,
+      "variant_scope": "RF clean/robustness: все ZCP, с GRAF либо без",
+      "note": "Все ZCP; добавление GRAF не меняет профиль источников. Атаки - дополнительные операции robustness-варианта.",
+      "source_access_audit": {
+        "method_id": "M67",
+        "status": "resolved",
+        "paper_id": "P47",
+        "data_access_at_use": "labeled_or_objective",
+        "variant_scope": "RF clean/robustness: все ZCP, с GRAF либо без",
+        "use_requirements": "Полный ZCP-вектор требует X и loss/targets; perturbed-input вариант также требует генерации атак.",
+        "setup_requirements": "Исторические clean/robustness accuracies для обучения RF.",
+        "locator": "§4.2, Tables 1–3; Tables 6–7",
+        "reviewed_on": "2026-10-13",
+        "url": "https://link.springer.com/article/10.1007/s11263-024-02265-7",
+        "source_version": "version_not_detected",
+        "source_sha256": "111427fb4ae7461bba9f6465df3a5c950e1ccb74ac0ce9e91e25f9de73bb81af",
+        "evidence_type": "primary_source_review"
+      }
+    },
+    {
+      "method_id": "M69",
+      "signal_profile": "G",
+      "operation": "graph",
+      "use_inputs": "no_examples",
+      "synthetic_component": false,
+      "setup": "fit",
+      "representation": "none",
+      "evidence": [
+        "P12"
+      ],
+      "status": "included",
+      "data_access_at_use": "none",
+      "access_correction": null,
+      "variant_scope": "Определение метода в исходном корпусе",
+      "note": "G; H для RF, контрольный encoding baseline",
+      "source_access_audit": null
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "source": "tmp/source_audit/P38.html",
+  "source_sha256": "ccf1247e12fa05519ddde83eca56fe5cbb267c5364c9dd9c758815b18fe3cce4",
+  "id": "S4.T10",
+  "caption": "Table 10 : Zero-cost ranking on a transformer space (ViT-Bench-101). Spearman correlation with true accuracy over seven targets ( n{=}200 evaluated AutoFormer-Tiny subnets). CoRA-Rank’s mean is approximately 0.03 below L-SWAG’s; it leads on CIFAR-100 (KD) and has a higher mean than AZ-NAS. We do not claim to beat L-SWAG overall. L-SWAG uses sample labels, while LIBRA is target-aware (soft upper bound). Bold dark-blue cells mark the best per row, excluding LIBRA. Details in Section 4.3 .",
+  "rows": [
+    [
+      "ViT-Bench-101 target",
+      "CoRA-Rank",
+      "L-SWAG",
+      "AZ-NAS",
+      "#Params",
+      "jacov",
+      "LIBRA UB"
+    ],
+    [
+      "",
+      "label-free",
+      "labels",
+      "",
+      "",
+      "",
+      "target-aware"
+    ],
+    [
+      "CIFAR-100 (base)",
+      "0.328",
+      "0.451",
+      "0.142",
+      "0.472",
+      "0.434",
+      "0.475"
+    ],
+    [
+      "CIFAR-100 (KD)",
+      "0.889",
+      "0.371",
+      "0.755",
+      "0.619",
+      "0.545",
+      "0.768"
+    ],
+    [
+      "Flowers (base)",
+      "0.256",
+      "0.480",
+      "0.086",
+      "0.451",
+      "0.383",
+      "0.448"
+    ],
+    [
+      "Flowers (KD)",
+      "0.669",
+      "0.764",
+      "0.347",
+      "0.855",
+      "0.810",
+      "0.839"
+    ],
+    [
+      "Chaoyang (base)",
+      "0.090",
+      "0.116",
+      "0.029",
+      "0.060",
+      "0.115",
+      "0.119"
+    ],
+    [
+      "Chaoyang (KD)",
+      "0.323",
+      "0.363",
+      "0.195",
+      "0.429",
+      "0.415",
+      "0.413"
+    ],
+    [
+      "ImageNet",
+      "0.002",
+      "0.219",
+      "0.003",
+      "0.225",
+      "0.217",
+      "0.321"
+    ],
+    [
+      "mean",
+      "0.365",
+      "0.395",
+      "0.222",
+      "0.445",
+      "0.417",
+      "0.483"
+    ],
+    [
+      "worst-case",
+      "0.002",
+      "0.116",
+      "0.003",
+      "0.060",
+      "0.115",
+      "0.119"
+    ]
+  ]
+}

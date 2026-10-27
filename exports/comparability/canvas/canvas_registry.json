@@ -1,0 +1,2186 @@
+{
+  "records": [
+    {
+      "protocol": "old_G1",
+      "method_id": "M12",
+      "variant": "LogSynflow",
+      "name": "LogSynFlow",
+      "metrics": {
+        "kendall_tau": 0.334,
+        "spearman_rho": 0.491
+      },
+      "source_row": "G1_011",
+      "category": "derivatives",
+      "access_at_use": "unlabeled",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G1",
+      "method_id": "M15",
+      "variant": "EZNAS",
+      "name": "EZNAS discovered proxy",
+      "metrics": {
+        "kendall_tau": 0.483,
+        "spearman_rho": 0.698
+      },
+      "source_row": "G1_014",
+      "category": "derivatives",
+      "access_at_use": "unlabeled",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G4",
+      "method_id": "M03",
+      "variant": "#FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "spearman_rho": 0.652
+      },
+      "source_row": "G4_038",
+      "category": "static",
+      "access_at_use": "none",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M38",
+      "variant": "RF, ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "spearman_rho": 0.663,
+        "kendall_tau": 0.514
+      },
+      "source_row": "G6_052",
+      "category": "learned_dynamic",
+      "access_at_use": "labeled_or_objective",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "old_G6",
+      "method_id": "M39",
+      "variant": "XGBRegressor, ZCP + GRAF",
+      "name": "GRAF + ZCP + XGB/XGB+",
+      "metrics": {
+        "spearman_rho": 0.6,
+        "kendall_tau": 0.449
+      },
+      "source_row": "G6_053",
+      "category": "learned_dynamic",
+      "access_at_use": "labeled_or_objective",
+      "origin": "existing_audited_observation"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "kendall_tau": 0.578,
+        "spearman_rho": 0.753
+      },
+      "source_row": [
+        "FLOPs",
+        "A",
+        "–",
+        "0.578",
+        "0.753",
+        "93.71 \\pm 0.17",
+        "0.551",
+        "0.727",
+        "70.73 \\pm 0.36",
+        "0.519",
+        "0.691",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "static",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "name": "TE-NAS: NTK condition + linear regions",
+      "metrics": {
+        "kendall_tau": 0.539,
+        "spearman_rho": 0.735
+      },
+      "source_row": [
+        "TE-NAS",
+        "B+F",
+        "400.6",
+        "0.539",
+        "0.735",
+        "92.15 \\pm 0.16",
+        "0.526",
+        "0.717",
+        "69.92 \\pm 1.99",
+        "0.494",
+        "0.685",
+        "44.55 \\pm 0.96"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 400.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "kendall_tau": 0.588,
+        "spearman_rho": 0.783
+      },
+      "source_row": [
+        "ZiCo",
+        "B",
+        "167.1",
+        "0.588",
+        "0.783",
+        "93.71 \\pm 0.17",
+        "0.603",
+        "0.797",
+        "70.73 \\pm 0.36",
+        "0.596",
+        "0.789",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 167.1,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "name": "Dextr",
+      "metrics": {
+        "kendall_tau": 0.72,
+        "spearman_rho": 0.898
+      },
+      "source_row": [
+        "Dextr",
+        "F",
+        "557.6",
+        "0.720",
+        "0.898",
+        "93.31 \\pm 0.14",
+        "0.700",
+        "0.880",
+        "70.48 \\pm 1.03",
+        "0.667",
+        "0.845",
+        "42.66 \\pm 0.70"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 557.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_0",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "name": "CoRA-Refine",
+      "metrics": {
+        "kendall_tau": 0.793,
+        "spearman_rho": 0.942
+      },
+      "source_row": [
+        "CoRA-Refine (Stage 2)",
+        "A+B+F+LC †",
+        "+1k \\times 30ep",
+        "0.793",
+        "0.942",
+        "94.24 \\pm 0.25",
+        "0.810",
+        "0.951",
+        "73.32 \\pm 0.29",
+        "0.802",
+        "0.946",
+        "46.28 \\pm 0.24"
+      ],
+      "category": "learned_dynamic",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "kendall_tau": 0.551,
+        "spearman_rho": 0.727
+      },
+      "source_row": [
+        "FLOPs",
+        "A",
+        "–",
+        "0.578",
+        "0.753",
+        "93.71 \\pm 0.17",
+        "0.551",
+        "0.727",
+        "70.73 \\pm 0.36",
+        "0.519",
+        "0.691",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "static",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "name": "TE-NAS: NTK condition + linear regions",
+      "metrics": {
+        "kendall_tau": 0.526,
+        "spearman_rho": 0.717
+      },
+      "source_row": [
+        "TE-NAS",
+        "B+F",
+        "400.6",
+        "0.539",
+        "0.735",
+        "92.15 \\pm 0.16",
+        "0.526",
+        "0.717",
+        "69.92 \\pm 1.99",
+        "0.494",
+        "0.685",
+        "44.55 \\pm 0.96"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 400.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "kendall_tau": 0.603,
+        "spearman_rho": 0.797
+      },
+      "source_row": [
+        "ZiCo",
+        "B",
+        "167.1",
+        "0.588",
+        "0.783",
+        "93.71 \\pm 0.17",
+        "0.603",
+        "0.797",
+        "70.73 \\pm 0.36",
+        "0.596",
+        "0.789",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 167.1,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "name": "Dextr",
+      "metrics": {
+        "kendall_tau": 0.7,
+        "spearman_rho": 0.88
+      },
+      "source_row": [
+        "Dextr",
+        "F",
+        "557.6",
+        "0.720",
+        "0.898",
+        "93.31 \\pm 0.14",
+        "0.700",
+        "0.880",
+        "70.48 \\pm 1.03",
+        "0.667",
+        "0.845",
+        "42.66 \\pm 0.70"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 557.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_1",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "name": "CoRA-Refine",
+      "metrics": {
+        "kendall_tau": 0.81,
+        "spearman_rho": 0.951
+      },
+      "source_row": [
+        "CoRA-Refine (Stage 2)",
+        "A+B+F+LC †",
+        "+1k \\times 30ep",
+        "0.793",
+        "0.942",
+        "94.24 \\pm 0.25",
+        "0.810",
+        "0.951",
+        "73.32 \\pm 0.29",
+        "0.802",
+        "0.946",
+        "46.28 \\pm 0.24"
+      ],
+      "category": "learned_dynamic",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "kendall_tau": 0.519,
+        "spearman_rho": 0.691
+      },
+      "source_row": [
+        "FLOPs",
+        "A",
+        "–",
+        "0.578",
+        "0.753",
+        "93.71 \\pm 0.17",
+        "0.551",
+        "0.727",
+        "70.73 \\pm 0.36",
+        "0.519",
+        "0.691",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "static",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M13",
+      "variant": "TE-NAS",
+      "name": "TE-NAS: NTK condition + linear regions",
+      "metrics": {
+        "kendall_tau": 0.494,
+        "spearman_rho": 0.685
+      },
+      "source_row": [
+        "TE-NAS",
+        "B+F",
+        "400.6",
+        "0.539",
+        "0.735",
+        "92.15 \\pm 0.16",
+        "0.526",
+        "0.717",
+        "69.92 \\pm 1.99",
+        "0.494",
+        "0.685",
+        "44.55 \\pm 0.96"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 400.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "kendall_tau": 0.596,
+        "spearman_rho": 0.789
+      },
+      "source_row": [
+        "ZiCo",
+        "B",
+        "167.1",
+        "0.588",
+        "0.783",
+        "93.71 \\pm 0.17",
+        "0.603",
+        "0.797",
+        "70.73 \\pm 0.36",
+        "0.596",
+        "0.789",
+        "42.80 \\pm 1.60"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 167.1,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M32",
+      "variant": "Dextr",
+      "name": "Dextr",
+      "metrics": {
+        "kendall_tau": 0.667,
+        "spearman_rho": 0.845
+      },
+      "source_row": [
+        "Dextr",
+        "F",
+        "557.6",
+        "0.720",
+        "0.898",
+        "93.31 \\pm 0.14",
+        "0.700",
+        "0.880",
+        "70.48 \\pm 1.03",
+        "0.667",
+        "0.845",
+        "42.66 \\pm 0.70"
+      ],
+      "category": "derivatives",
+      "runtime_ms": 557.6,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "cora_nb201_2",
+      "method_id": "M52",
+      "variant": "CoRA-Refine (Stage 2)",
+      "name": "CoRA-Refine",
+      "metrics": {
+        "kendall_tau": 0.802,
+        "spearman_rho": 0.946
+      },
+      "source_row": [
+        "CoRA-Refine (Stage 2)",
+        "A+B+F+LC †",
+        "+1k \\times 30ep",
+        "0.793",
+        "0.942",
+        "94.24 \\pm 0.25",
+        "0.810",
+        "0.951",
+        "73.32 \\pm 0.29",
+        "0.802",
+        "0.946",
+        "46.28 \\pm 0.24"
+      ],
+      "category": "learned_dynamic",
+      "runtime_ms": null,
+      "origin": "primary_table_live"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M70",
+      "variant": "PNorm",
+      "name": "L2-norm baseline",
+      "metrics": {
+        "spearman_rho": 0.684
+      },
+      "source_row": [
+        "PNorm",
+        "0.684",
+        "0.684",
+        "0.000",
+        "0.00"
+      ],
+      "category": "weights",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M17",
+      "variant": "ZiCo",
+      "name": "ZiCo",
+      "metrics": {
+        "spearman_rho": 0.8
+      },
+      "source_row": [
+        "ZiCo",
+        "-",
+        "0.800",
+        "-",
+        "-"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M03",
+      "variant": "FLOPs",
+      "name": "FLOPs как baseline качества",
+      "metrics": {
+        "spearman_rho": 0.73
+      },
+      "source_row": [
+        "FLOPs",
+        "-",
+        "0.730",
+        "-",
+        "-"
+      ],
+      "category": "static",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M33",
+      "variant": "WRCor (Ours)",
+      "name": "WRCor",
+      "metrics": {
+        "spearman_rho": 0.812
+      },
+      "source_row": [
+        "WRCor (Ours)",
+        "0.811",
+        "0.812",
+        "-0.001",
+        "-0.12"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M34",
+      "variant": "SPW (Ours)",
+      "name": "WRCor voting",
+      "metrics": {
+        "spearman_rho": 0.78
+      },
+      "source_row": [
+        "SPW (Ours)",
+        "0.789",
+        "0.780",
+        "0.009",
+        "1.15"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "wrcor_nb201_full",
+      "method_id": "M34",
+      "variant": "SJW (Ours)",
+      "name": "WRCor voting",
+      "metrics": {
+        "spearman_rho": 0.799
+      },
+      "source_row": [
+        "SJW (Ours)",
+        "0.851",
+        "0.799",
+        "0.052",
+        "6.51"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.24
+      },
+      "source_row": [
+        "OH",
+        "0.24^{0.09}",
+        "0.40^{0.06}",
+        "0.60^{0.02}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.09
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.54
+      },
+      "source_row": [
+        "GRAF",
+        "0.54^{0.08}",
+        "0.63^{0.04}",
+        "0.71^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.08
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.48
+      },
+      "source_row": [
+        "ZCP",
+        "0.48^{0.05}",
+        "0.56^{0.02}",
+        "0.63^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.05
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.56^{0.07}}",
+        "\\mathbf{0.66^{0.04}}",
+        "0.73^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.07
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.4
+      },
+      "source_row": [
+        "OH",
+        "0.24^{0.09}",
+        "0.40^{0.06}",
+        "0.60^{0.02}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "GRAF",
+        "0.54^{0.08}",
+        "0.63^{0.04}",
+        "0.71^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.04
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "ZCP",
+        "0.48^{0.05}",
+        "0.56^{0.02}",
+        "0.63^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.66
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.56^{0.07}}",
+        "\\mathbf{0.66^{0.04}}",
+        "0.73^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.04
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.6
+      },
+      "source_row": [
+        "OH",
+        "0.24^{0.09}",
+        "0.40^{0.06}",
+        "0.60^{0.02}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.71
+      },
+      "source_row": [
+        "GRAF",
+        "0.54^{0.08}",
+        "0.63^{0.04}",
+        "0.71^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "ZCP",
+        "0.48^{0.05}",
+        "0.56^{0.02}",
+        "0.63^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-101_CIFAR-10_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.73
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.56^{0.07}}",
+        "\\mathbf{0.66^{0.04}}",
+        "0.73^{0.01}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.39
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.69
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.7
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.54
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.76
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.78
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.83
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.81
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.39
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.05
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.65
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.69
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.7
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.76
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.77
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.82
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.81
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-100_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.4
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.63
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.65
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.67
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.56
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.73
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.72
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.75
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M69",
+      "variant": "OH",
+      "name": "One-hot architecture + RF",
+      "metrics": {
+        "kendall_tau": 0.74
+      },
+      "source_row": [
+        "OH",
+        "0.39^{0.06}",
+        "0.54^{0.03}",
+        "0.74^{0.01}",
+        "0.39^{0.05}",
+        "0.56^{0.03}",
+        "0.74^{0.01}",
+        "0.40^{0.06}",
+        "0.56^{0.03}",
+        "0.74^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M36",
+      "variant": "GRAF",
+      "name": "GRAF + RF",
+      "metrics": {
+        "kendall_tau": 0.81
+      },
+      "source_row": [
+        "GRAF",
+        "0.63^{0.03}",
+        "0.74^{0.01}",
+        "0.83^{0.01}",
+        "0.65^{0.03}",
+        "0.74^{0.01}",
+        "0.82^{0.01}",
+        "0.63^{0.03}",
+        "0.73^{0.02}",
+        "0.81^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M37",
+      "variant": "ZCP",
+      "name": "ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.79
+      },
+      "source_row": [
+        "ZCP",
+        "0.69^{0.03}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "\\mathbf{0.69^{0.03}}",
+        "0.76^{0.01}",
+        "0.81^{0.00}",
+        "0.65^{0.02}",
+        "0.72^{0.01}",
+        "0.79^{0.00}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M38",
+      "variant": "ZCP + GRAF",
+      "name": "GRAF + ZCP + RF",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "ZCP + GRAF",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.78^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.70^{0.03}}",
+        "\\mathbf{0.77^{0.01}}",
+        "0.84^{0.00}",
+        "\\mathbf{0.67^{0.03}}",
+        "\\mathbf{0.75^{0.02}}",
+        "\\mathbf{0.84^{0.00}}"
+      ],
+      "category": "learned_dynamic",
+      "sd": {
+        "kendall_tau": 0.0
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M12",
+      "variant": "WikiText-103 implementation: LogSynflow [ 42 ]",
+      "name": "LogSynFlow",
+      "metrics": {
+        "kendall_tau": 0.324,
+        "spearman_rho": 0.476
+      },
+      "source_row": [
+        "LogSynflow [ 42 ]",
+        "0.334",
+        "0.491",
+        "0.324",
+        "0.476",
+        "7.491",
+        "manual",
+        "A",
+        "Y",
+        "1",
+        "backward",
+        "P"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table",
+      "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+    },
+    {
+      "protocol": "old_G2",
+      "method_id": "M15",
+      "variant": "WikiText-103 implementation: EZNAS [ 9 ]",
+      "name": "EZNAS discovered proxy",
+      "metrics": {
+        "kendall_tau": 0.479,
+        "spearman_rho": 0.696
+      },
+      "source_row": [
+        "EZNAS [ 9 ]",
+        "0.483",
+        "0.698",
+        "0.479",
+        "0.696",
+        "6.680",
+        "auto-find",
+        "R,A",
+        "Y",
+        "2+",
+        "backward",
+        "Z"
+      ],
+      "category": "derivatives",
+      "origin": "primary_table",
+      "requirements_basis": "P29 Table I Requirement Comparison; source-reported operation, no inheritance from G1"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M15",
+      "variant": "GPT-2: EZNAS",
+      "name": "EZNAS discovered proxy",
+      "metrics": {
+        "spearman_rho": 0.602,
+        "kendall_tau": 0.439
+      },
+      "source_row": [
+        "EZNAS",
+        "-0.602",
+        "-0.439",
+        "240.3"
+      ],
+      "category": "derivatives",
+      "raw_metrics": {
+        "spearman_rho": -0.602,
+        "kendall_tau": -0.439
+      },
+      "sign_transform": "negate_due_to_PPL_target",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M12",
+      "variant": "GPT-2: LogSynflow",
+      "name": "LogSynFlow",
+      "metrics": {
+        "spearman_rho": 0.914,
+        "kendall_tau": 0.753
+      },
+      "source_row": [
+        "LogSynflow",
+        "-0.914",
+        "-0.753",
+        "231.0"
+      ],
+      "category": "derivatives",
+      "raw_metrics": {
+        "spearman_rho": -0.914,
+        "kendall_tau": -0.753
+      },
+      "sign_transform": "negate_due_to_PPL_target",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "gpt2_wikitext",
+      "method_id": "M02",
+      "variant": "GPT-2: #Decoder.Params",
+      "name": "Decoder-only parameter count (LTS)",
+      "metrics": {
+        "spearman_rho": 0.967,
+        "kendall_tau": 0.847
+      },
+      "source_row": [
+        "#Decoder.Params",
+        "-0.967",
+        "-0.847",
+        "-"
+      ],
+      "category": "static",
+      "raw_metrics": {
+        "spearman_rho": -0.967,
+        "kendall_tau": -0.847
+      },
+      "sign_transform": "negate_due_to_PPL_target",
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_32",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.48
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.05
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_128",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.58
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.04
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_CIFAR-10_1024",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.8
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.02
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_32",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.48
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.06
+      },
+      "H": 32,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_128",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.61
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.03
+      },
+      "H": 128,
+      "origin": "primary_table"
+    },
+    {
+      "protocol": "graf_NAS-Bench-201_ImageNet16-120_1024",
+      "method_id": "M42",
+      "variant": "BRP-NAS / no added features",
+      "name": "BRP pairwise GCN",
+      "metrics": {
+        "kendall_tau": 0.84
+      },
+      "source_row": [
+        "None (BRP-NAS)",
+        "0.48^{0.05}",
+        "0.58^{0.04}",
+        "0.80^{0.02}",
+        "0.48^{0.06}",
+        "0.61^{0.03}",
+        "0.84^{0.01}",
+        "0.37^{0.05}",
+        "0.48^{0.02}",
+        "0.58^{0.01}"
+      ],
+      "category": "learned_static",
+      "sd": {
+        "kendall_tau": 0.01
+      },
+      "H": 1024,
+      "origin": "primary_table"
+    }
+  ],
+  "excluded_category": "language_model",
+  "excluded_method_ids": [
+    "M46",
+    "M48"
+  ],
+  "groups": [
+    {
+      "protocols": [
+        "old_G1",
+        "old_G2"
+      ]
+    },
+    {
+      "protocols": [
+        "old_G4"
+      ]
+    },
+    {
+      "protocols": [
+        "old_G6"
+      ]
+    },
+    {
+      "protocols": [
+        "cora_nb201_0",
+        "cora_nb201_1",
+        "cora_nb201_2"
+      ]
+    },
+    {
+      "protocols": [
+        "wrcor_nb201_full"
+      ]
+    },
+    {
+      "protocols": [
+        "graf_NAS-Bench-101_CIFAR-10_32",
+        "graf_NAS-Bench-101_CIFAR-10_128",
+        "graf_NAS-Bench-101_CIFAR-10_1024",
+        "graf_NAS-Bench-201_CIFAR-100_1024"
+      ]
+    },
+    {
+      "protocols": [
+        "graf_NAS-Bench-201_CIFAR-10_32",
+        "graf_NAS-Bench-201_CIFAR-10_128",
+        "graf_NAS-Bench-201_ImageNet16-120_32"
+      ]
+    },
+    {
+      "protocols": [
+        "graf_NAS-Bench-201_CIFAR-10_1024",
+        "graf_NAS-Bench-201_ImageNet16-120_128"
+      ]
+    },
+    {
+      "protocols": [
+        "graf_NAS-Bench-201_CIFAR-100_32",
+        "graf_NAS-Bench-201_CIFAR-100_128"
+      ]
+    },
+    {
+      "protocols": [
+        "graf_NAS-Bench-201_ImageNet16-120_1024"
+      ]
+    },
+    {
+      "protocols": [
+        "gpt2_wikitext"
+      ]
+    }
+  ],
+  "pages": 1,
+  "size_mm": [
+    859.9999999999999,
+    819.6141239316239
+  ],
+  "panels": 11,
+  "panel_heights_mm": [
+    117.90354700854701,
+    96.98720085470084,
+    103.91027777777778,
+    166.51220085470084,
+    154.85888888888888,
+    168.96700854700853,
+    166.51220085470084,
+    152.51893162393162,
+    140.9804700854701,
+    140.39499999999998,
+    115.4487393162393
+  ]
+}

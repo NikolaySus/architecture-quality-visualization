@@ -1,0 +1,10 @@
+{
+  "protocols": 31,
+  "records": 235,
+  "scope": 56,
+  "grouped_table_rows": 10,
+  "outputs": [
+    "06_promising_methods.pdf",
+    "07_comparability_tables.pdf"
+  ]
+}

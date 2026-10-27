@@ -1,0 +1,88 @@
+[
+  {
+    "condition": "BERT; реальные тексты; без H для подготовки",
+    "method_ids": [
+      "M22",
+      "M29"
+    ],
+    "protocols": [
+      "old_G1",
+      "old_G2",
+      "old_G4"
+    ],
+    "evidence": "Attention confidence: ρ=0.666/0.714/0.666 в трёх отдельных протоколах. SWAP-Score: 0.711 в P32.",
+    "caution": "M22 - устойчивый кандидат среди этих протоколов; M29 - лидер одной таблицы. Нет прямого основания объявить SWAP лучше LPZero из другой статьи."
+  },
+  {
+    "condition": "GPT-2; дешёвый контроль без запуска сети",
+    "method_ids": [
+      "M02"
+    ],
+    "protocols": [
+      "gpt2_wikitext"
+    ],
+    "evidence": "Число decoder-параметров: ρ=0.967, τ=0.847 с -PPL. LPZero: 0.980/0.886.",
+    "caution": "M02 - обязательный простой baseline; близость средних не доказывает статистическую эквивалентность. LPZero требует другого варианта формулы и вычислений."
+  },
+  {
+    "condition": "CNN; нет исторических качеств H",
+    "method_ids": [
+      "M51",
+      "M18"
+    ],
+    "protocols": [
+      "cora_nb201_0",
+      "cora_nb201_1",
+      "cora_nb201_2"
+    ],
+    "evidence": "CoRA-Rank лидирует среди вариантов без коротких обучающих кривых на трёх NB201 targets. AZ-NAS - сильная альтернатива.",
+    "caution": "Для CoRA нужны реальные X и производные; gate согласуется на наборе архитектур. Успех не переносится автоматически на ViT."
+  },
+  {
+    "condition": "CNN; допустимо обучение anchors",
+    "method_ids": [
+      "M52"
+    ],
+    "protocols": [
+      "cora_nb201_0",
+      "cora_nb201_1",
+      "cora_nb201_2"
+    ],
+    "evidence": "CoRA-Refine повышает корреляции относительно Rank.",
+    "caution": "1000 anchors × 30 эпох - дополнительный бюджет. Выбирать только при допустимой подготовке по validation-кривым."
+  },
+  {
+    "condition": "Есть H; важна оценка без запуска кандидата",
+    "method_ids": [
+      "M36",
+      "M38"
+    ],
+    "protocols": [
+      "graf_NAS-Bench-101_CIFAR-10_32",
+      "graf_NAS-Bench-101_CIFAR-10_128",
+      "graf_NAS-Bench-101_CIFAR-10_1024",
+      "graf_NAS-Bench-201_CIFAR-10_32",
+      "graf_NAS-Bench-201_CIFAR-10_128",
+      "graf_NAS-Bench-201_CIFAR-10_1024",
+      "graf_NAS-Bench-201_CIFAR-100_32",
+      "graf_NAS-Bench-201_CIFAR-100_128",
+      "graf_NAS-Bench-201_CIFAR-100_1024",
+      "graf_NAS-Bench-201_ImageNet16-120_32",
+      "graf_NAS-Bench-201_ImageNet16-120_128",
+      "graf_NAS-Bench-201_ImageNet16-120_1024"
+    ],
+    "evidence": "GRAF + RF использует граф; GRAF + ZCP + RF обычно повышает среднее τ.",
+    "caution": "M38 требует proxy, включая X, objective и производные. BRP-NAS даёт ничью 0.84 на IM16/H=1024; строгого универсального лидера нет."
+  },
+  {
+    "condition": "einspace; есть обучающие пары и готовый LM",
+    "method_ids": [
+      "M46"
+    ],
+    "protocols": [
+      "old_G6"
+    ],
+    "evidence": "ModernBERT-large + augmentation: ρ=0.769, τ=0.628; лучшие значения в этой группе.",
+    "caution": "Дообучение LM по H, затем описание новой архитектуры. Проверено на CV-цели CIFAR-10, а не на NLP-моделях."
+  }
+]

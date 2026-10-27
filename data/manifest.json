@@ -1,0 +1,12 @@
+{
+  "version": "0.2-import.1",
+  "source": "architecture_quality_visualization_handoff.md",
+  "source_sha256": "fa28cb584c2cd6efcdce353f99abc4fa20589b56fd74d338e34349a14c9996b2",
+  "literature_cutoff": "2026-09-29",
+  "counts": {
+    "papers": 50,
+    "methods": 72,
+    "observations": 68
+  },
+  "authors_status": "Full author lists not extracted; original display names retained"
+}
