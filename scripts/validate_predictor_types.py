@@ -3,6 +3,7 @@ import json,subprocess,hashlib
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from pypdf import PdfReader
+from report_runtime import pdftotext_path
 ROOT=Path(__file__).resolve().parents[1]
 source=json.loads((ROOT/'data/comparability/records.json').read_text())
 ps=json.loads((ROOT/'data/comparability/protocols.json').read_text());codes={p['id']:f'C{i+1:02}' for i,p in enumerate(ps)}
@@ -67,7 +68,7 @@ assert 'Тип оценщика' in ''.join(texts)
 for r in expected:
  hit=[t for t in texts if codes[r['protocol']] in t and r['method_id'] in t]
  assert any(all(f'{v:.3f}' in t for v in r['metrics'].values()) for t in hit),r
-xml=subprocess.check_output(['/usr/bin/pdftotext','-bbox',str(file),'-']);bad=[]
+xml=subprocess.check_output([pdftotext_path(),'-bbox',str(file),'-']);bad=[]
 for i,p in enumerate(ET.fromstring(xml).findall('.//{*}page')):
  w,h=float(p.attrib['width']),float(p.attrib['height'])
  for x in p.findall('.//{*}word'):

@@ -3,6 +3,7 @@ import json, hashlib, subprocess
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from pypdf import PdfReader
+from report_runtime import pdftotext_path
 ROOT=Path(__file__).resolve().parents[1]
 base=ROOT/'exports/comparability/predictor_types';out=ROOT/'exports/comparability/canvas'
 old=json.loads((base/'global_filtered_registry.json').read_text())
@@ -22,7 +23,7 @@ for i,g in enumerate(a['groups'],1):
   if r['protocol'] not in g['protocols']:continue
   assert r['method_id'] in t
   for v in r['metrics'].values():assert f'{v:.3f}' in t,(i,r)
-xml=subprocess.check_output(['/usr/bin/pdftotext','-bbox',str(pdf),'-'])
+xml=subprocess.check_output([pdftotext_path(),'-bbox',str(pdf),'-'])
 for p in ET.fromstring(xml).findall('.//{*}page'):
  w,h=float(p.attrib['width']),float(p.attrib['height'])
  for x in p.findall('.//{*}word'):
