@@ -226,3 +226,6 @@ tmp/
 /exports/**/*.svg
 /exports/**/*.pdf
 /output/playwright/
+
+# Generated PDF documents (existing tracked reports remain in history)
+*.pdf
