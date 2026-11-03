@@ -1,0 +1,4 @@
+# Generated reports, intermediate documents and visual checks.
+/output/
+/.venv/
+__pycache__/

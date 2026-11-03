@@ -1,0 +1,2 @@
+# Keep historical source snapshots byte-for-byte, including upstream whitespace.
+evidence/** -text -whitespace

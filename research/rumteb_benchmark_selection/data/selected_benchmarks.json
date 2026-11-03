@@ -1,0 +1,121 @@
+[
+  {
+    "name": "MIRACLRetrievalHardNegatives.v2",
+    "kind": "Поиск",
+    "rev": "d7d94fa4",
+    "data": "https://huggingface.co/datasets/mteb/MIRACLRetrievalHardNegatives/tree/d7d94fa4b946cec4a27c84653aa0cf6b33f74a3c",
+    "code": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/tasks/retrieval/multilingual/miracl_retrieval.py",
+    "stats": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/descriptive_stats/Retrieval/MIRACLRetrievalHardNegatives.v2.json",
+    "cols": [
+      [
+        "Оценка ru/dev: 1 000 запросов; 219 114 пассажей; 2 833 положительные пары — в среднем 2,833 релевантного пассажа на запрос.",
+        "Исходный MIRACL ru: 9 543 918 пассажей из 1 476 045 статей; dev: 1 252 запроса и 13 100 оценок 0/1."
+      ],
+      [
+        "Сокращённый корпус MIRACL: пул top-250 от BM25, multilingual-e5-large и e5-mistral-instruct. Пассаж содержит ID, заголовок статьи и текст.",
+        "Версия v2 меняет инструкцию к запросу, а не ревизию данных."
+      ],
+      [
+        "Осн. nDCG@10; лидер¹: 0,76200.",
+        "Оценка проводится на сокращённом корпусе HardNegatives.v2; результат не тождествен оценке поиска по полному MIRACL."
+      ],
+      [
+        "Метки 0/1: один носитель языка на пару. Ежедневный автоматический контроль и независимая проверка случайной части.",
+        "Среднее согласие >80% по всему исследованию, не отдельно ru. Валидация именно пула HardNegatives.v2 не установлена."
+      ]
+    ],
+    "validation_link": [
+      "MIRACL, §4.2–4.3",
+      "https://aclanthology.org/2023.tacl-1.63.pdf"
+    ]
+  },
+  {
+    "name": "MIRACLReranking",
+    "kind": "Переранжирование",
+    "rev": "d11a14c7",
+    "data": "https://huggingface.co/datasets/mteb/MIRACLReranking/tree/d11a14c74e8bd448cedab0c1d9a720040535f228",
+    "code": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/tasks/reranking/multilingual/miracl_reranking.py",
+    "stats": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/descriptive_stats/Reranking/MIRACLReranking.json",
+    "cols": [
+      [
+        "Оценка ru/dev: 1 247 запросов × 100 кандидатов = 124 700 пар; 2 436 положительных пар — в среднем 1,953 релевантного кандидата на запрос.",
+        "В корпусе кандидатов 113 624 уникальных текста. Это не поиск по 9,54 млн пассажей исходного MIRACL."
+      ],
+      [
+        "Для каждого запроса в top_ranked зафиксировано ровно 100 кандидатов. Метки релевантности наследуются от исходного MIRACL."
+      ],
+      [
+        "Осн. nDCG@10; лидер¹: 0,68174.",
+        "Оцениваются первые 10 позиций после упорядочения 100 кандидатов каждого запроса."
+      ],
+      [
+        "Те же человеческие метки и контроль MIRACL; >80% — общее согласие, не точность модели и не Cohen κ.",
+        "Проверка разметки не валидирует заново отбор 100 кандидатов. Результат не измеряет полноту первого этапа поиска или качество ответа RAG."
+      ]
+    ],
+    "validation_link": [
+      "MIRACL, §4.3",
+      "https://aclanthology.org/2023.tacl-1.63.pdf"
+    ]
+  },
+  {
+    "name": "RuBQRetrieval",
+    "kind": "Поиск",
+    "rev": "e19b6ffa",
+    "data": "https://huggingface.co/datasets/ai-forever/rubq-retrieval/tree/e19b6ffa60b3bc248e0b41f4cc37c26a55c2a67b",
+    "code": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/tasks/retrieval/rus/ru_bq_retrieval.py",
+    "stats": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/descriptive_stats/Retrieval/RuBQRetrieval.json",
+    "cols": [
+      [
+        "MTEB/test: 1 692 запроса; 56 826 записей корпуса; 2 845 положительных связей; 1–7 релевантных абзацев на запрос, в среднем 1,681 абзаца на запрос.",
+        "RuBQ 2.0: 2 910 вопросов = 580 dev + 2 330 test. Число 2 845 в статье ruMTEB не равно числу уникальных запросов."
+      ],
+      [
+        "Корпус составлен из абзацев RuBQ 2.0. В исходнике также есть ответ, SPARQL, списки связанных абзацев и абзацев с ответом.",
+        "В адаптации положительные связи имеют score=1. SPARQL при оценке MTEB не исполняется."
+      ],
+      [
+        "Осн. nDCG@10; лидер¹: 0,81004.",
+        "В этой ревизии ignore_identical_ids=True: совпадающие ID запроса и документа исключаются из выдачи."
+      ],
+      [
+        "Краудсорсинг и внутренняя разметка. По спецификации SPARQL возвращает эталон на поставляемом срезе Wikidata.",
+        "Проверены файлы: 1 692 ID запросов, 2 845 связей, все score=1. Это проверка структуры; коэффициент согласия для MTEB-адаптации не установлен."
+      ]
+    ],
+    "validation_link": [
+      "RuBQ: спецификация",
+      "https://github.com/vladislavneon/RuBQ/blob/master/RuBQ_2.0/specification_v2.0.md"
+    ]
+  },
+  {
+    "name": "RuBQReranking",
+    "kind": "Переранжирование",
+    "rev": "e8233e22",
+    "data": "https://huggingface.co/datasets/mteb/RuBQReranking/tree/e8233e2234f8b24ab47f203b69d1161c3c0bc5a1",
+    "code": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/tasks/reranking/rus/ru_bq_reranking.py",
+    "stats": "https://github.com/embeddings-benchmark/mteb/blob/46003a16451d7221b9df6c435311480a3b5d6ebd/mteb/descriptive_stats/Reranking/RuBQReranking.json",
+    "cols": [
+      [
+        "MTEB/test: 1 551 запрос; 37 447 пар с кандидатами; 2 602 положительные пары — в среднем 1,678 релевантного кандидата на запрос.",
+        "На запрос 10–29 кандидатов, в среднем 24,144 кандидата на запрос. Всего 34 845 отрицательных пар; доля положительных — 6,95%."
+      ],
+      [
+        "Из test RuBQ 2.0 выбраны вопросы с положительным абзацем и ≥9 отрицательными. Позитив содержит ответ; негатив связан с темой, но без ответа.",
+        "Отбор воспроизводится по with_answer и all_related: 1 551 вопрос и 37 447 пар."
+      ],
+      [
+        "Осн. MAP@1000; лидер¹: 0,80881.",
+        "Поскольку кандидатов не более 29, отсечение k = 1000 охватывает весь список: здесь MAP@1000 совпадает с MAP без отсечения."
+      ],
+      [
+        "Наследуются QA-метки RuBQ. Подсчёт по исходному test подтверждает также 2 602 положительные пары; with_answer ⊆ all_related для всех 2 330 записей.",
+        "Условие ≥9 негативов меняет выборку. Отдельная проверка внешней валидности этого отбора или переноса результата на RAG не установлена."
+      ]
+    ],
+    "validation_link": [
+      "RuBQ 2.0; отбор ruMTEB",
+      "https://arxiv.org/html/2408.12503v1#A3.SS6"
+    ]
+  }
+]
