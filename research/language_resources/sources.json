@@ -1,0 +1,32 @@
+{
+  "ud": {
+    "title": "Universal Dependencies · русский",
+    "repositories": ["UniversalDependencies/UD_Russian-SynTagRus", "UniversalDependencies/UD_Russian-Taiga", "UniversalDependencies/UD_Russian-GSD", "UniversalDependencies/UD_Russian-PUD", "UniversalDependencies/UD_Russian-Poetry"],
+    "url": "https://universaldependencies.org/ru/",
+    "license": "См. LICENSE каждого корпуса, включая CC BY-NC-SA 4.0 для SynTagRus"
+  },
+  "ruwordnet": {
+    "title": "RuWordNet 2.0",
+    "url": "https://github.com/avidale/python-ruwordnet/releases/download/0.0.4/ruwordnet-2021.db",
+    "license": "Лицензия данных RuWordNet; https://www.labinform.ru/pub/ruwordnet/index.htm"
+  },
+  "framebank": {
+    "title": "Russian FrameBank",
+    "repositories": ["olesar/framebank"],
+    "url": "https://github.com/olesar/framebank",
+    "examples_url": "https://cloud.mail.ru/public/5448/GWbqFPnwN",
+    "license": "GPL-3.0 в репозитории; права на тексты принадлежат их авторам, см. README источника"
+  },
+  "semontocor": {
+    "title": "SemOntoCor",
+    "url": "https://drive.google.com/drive/folders/1fkCLqNTaTIowyBjP1rNoTKEYdfjcUhei",
+    "license": "Условия авторов SemOntoCor; https://rscf.ru/project/24-18-00988/"
+  },
+  "amr": {
+    "title": "MASSIVE-AMR · русский",
+    "repositories": ["amazon-science/MASSIVE-AMR"],
+    "url": "https://github.com/amazon-science/MASSIVE-AMR",
+    "massive_url": "https://amazon-massive-nlu-dataset.s3.amazonaws.com/amazon-massive-dataset-1.1.tar.gz",
+    "license": "CC BY-NC 4.0; см. также LICENSE выгрузки MASSIVE"
+  }
+}
