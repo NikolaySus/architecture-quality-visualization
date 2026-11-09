@@ -12,6 +12,7 @@ import penman
 from penman.models.amr import model as amr_model
 
 from .downloads import files_named
+from .text import write_words, write_massive_words
 
 
 def relative(path, payload):
@@ -49,6 +50,8 @@ def read_ud(payload, writer):
                     nodes[identifier] = node
                     writer.edge(sentence_node, "text:contains", node, file, record)
                     writer.lexeme(node, token.get("lemma"), file, record, token.get("upos"))
+                    if writer.word_index is not None and isinstance(token["id"], int):
+                        writer.word_index.observe(token["form"], token.get("lemma"), token.get("upos"), file, record)
                 for token in sentence:
                     identifier = token_id(token["id"])
                     record = f"{local_id}/token/{identifier}"
@@ -203,12 +206,15 @@ def read_semontocor(payload, writer):
             label = " ".join(element.text or "" for element in group.findall(".//s:text", ns)).strip()
             writer.edge(nodes[endpoints[0]], "semontocor:" + (label or "unlabeled"), nodes[endpoints[1]],
                         file, group.attrib.get("id", title), attributes={"raw": {"title": title, "label": label}})
+        fragments = []
         for group in graph.findall(".//s:g[@class='cluster']", ns):
             title = group.findtext("s:title", namespaces=ns) or group.attrib["id"]
-            label = " ".join(element.text or "" for element in group.findall(".//s:text", ns))
+            label = " ".join(element.text or "" for element in group.findall("s:text", ns))
             fragment = writer.entity(namespace, "surface_fragment", file + "#" + title, label or title,
                                      {"raw": {"title": title, "label": label}}, file, title)
             writer.edge(sentence, "semontocor:surface_fragment", fragment, file, title)
+            fragments.append({"id": fragment, "text": label})
+        write_words(writer, namespace, sentence, file, text, file, "graph", fragments)
 
 
 def jsonl_rows(path):
@@ -294,6 +300,8 @@ def read_amr(payload, writer):
              "localized_amr": localized, "rule": "massive-authors-localization-v1"}, russian_file, russian_line)
         writer.edge(translated, "amr:parallel_source_id", owner, russian_file, russian_line,
                     "massive-id-alignment-v1", {"source_id": identifier})
+        write_massive_words(writer, translated, identifier + ":ru-RU", russian["utt"],
+                            russian.get("annot_utt", ""), russian_file, russian_line)
         if localized:
             # Both the Russian sentence and the source graph contribute provenance.
             writer.evidence.append((translated, writer.source, file, line, "massive-authors-localization-v1"))

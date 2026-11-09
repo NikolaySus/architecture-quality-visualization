@@ -10,7 +10,7 @@ from .storage import CATALOG, MODULE, atomic_json, digest_file, json_text, utc_n
 
 
 SCHEMA_VERSION = 1
-RULE_VERSION = "explicit-and-lexical-v1"
+RULE_VERSION = "explicit-lexical-and-words-v2"
 SCHEMA = """
 PRAGMA journal_mode=DELETE;
 PRAGMA cache_size=-262144;
@@ -47,9 +47,10 @@ def lexical_key(text):
 class GraphWriter:
     """Adapters write bounded batches. Source-local identifiers survive rebuilds."""
 
-    def __init__(self, connection, source):
+    def __init__(self, connection, source, word_index=None):
         self.connection = connection
         self.source = source
+        self.word_index = word_index
         self.entities = []
         self.evidence = []
         self.relations = []
@@ -75,15 +76,15 @@ class GraphWriter:
         if len(self.entities) + len(self.relations) >= 10000:
             self.flush()
 
-    def lexeme(self, owner, lemma, file, record, pos=None):
+    def lexeme(self, owner, lemma, file, record, pos=None, rule="lexical-anchor-v1", attributes=None):
         if not lemma or lemma == "_":
             return
         key = lexical_key(lemma)
         node = self.entity("lexicon:ru", "lexeme", key, key,
                            {"language": "ru", "normalization": "NFC-casefold-whitespace"},
-                           file, record, "lexical-anchor-v1", shared=True)
+                           file, record, rule, shared=True)
         self.edge(owner, "lexical:lemma_match", node, file, record,
-                  "lexical-anchor-v1", {"lemma": lemma, "pos": pos})
+                  rule, {"lemma": lemma, "pos": pos, **(attributes or {})})
 
     def flush(self):
         self.connection.executemany("INSERT INTO input_entity VALUES(?,?,?,?,?,?,?)", self.entities)
@@ -95,7 +96,7 @@ class GraphWriter:
 
 
 def input_signature(workspace, snapshots=None):
-    implementation = {name: digest_file(MODULE / name) for name in ["adapters.py", "warehouse.py"]}
+    implementation = {name: digest_file(MODULE / name) for name in ["adapters.py", "warehouse.py", "text.py"]}
     inputs = {"snapshots": workspace.active() if snapshots is None else snapshots, "schema": SCHEMA_VERSION,
               "rules": RULE_VERSION, "implementation": implementation}
     return stable_id(inputs), inputs
@@ -129,6 +130,7 @@ def _publish_generation(workspace, connection, database, generation_id, signatur
 
 def rebuild(workspace, force=False):
     from .adapters import ADAPTERS
+    from .text import WordIndex
 
     with workspace.lock():
         signature, inputs = input_signature(workspace)
@@ -158,9 +160,11 @@ def rebuild(workspace, force=False):
             for source, (_, manifest) in snapshots.items():
                 connection.execute("INSERT INTO source_snapshot VALUES(?,?,?)",
                                    (source, manifest["id"], json_text(manifest)))
-            for source, (directory, _) in snapshots.items():
+            word_index = WordIndex()
+            for source in sorted(snapshots, key=lambda name: (name != "ud", name)):
+                directory, _ = snapshots[source]
                 print(f"ETL {source}", flush=True)
-                writer = GraphWriter(input_connection, source)
+                writer = GraphWriter(input_connection, source, word_index)
                 ADAPTERS[source](directory / "payload", writer)
                 writer.flush()
                 input_connection.commit()

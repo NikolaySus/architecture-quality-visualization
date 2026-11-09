@@ -103,12 +103,89 @@ def test_all_adapters_and_provenance(built):
         shared = connection.execute("SELECT id FROM entity WHERE source IS NULL AND label='язык'").fetchall()
         assert len(shared) == 1
         assert connection.execute("SELECT count(DISTINCT source) FROM fact_relation WHERE object_id=?",
-                                  (shared[0][0],)).fetchone()[0] == 3
+                                  (shared[0][0],)).fetchone()[0] == 4
         assert not connection.execute("SELECT 1 FROM fact_relation WHERE rule='' OR file='' OR record='' LIMIT 1").fetchone()
         with pytest.raises(sqlite3.OperationalError):
             connection.execute("DELETE FROM entity")
     assert {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG} == before
     assert lexical_key("  ЕЛЬ\t ЁЛКА ") == "ель ёлка"
+
+
+def test_word_occurrences_use_smallest_fragments_and_slot_offsets(tmp_path):
+    sources = make_sources(tmp_path / "inputs")
+    write(sources["semontocor"] / "example.svg", """<svg xmlns="http://www.w3.org/2000/svg">
+      <g class="graph"><text>Они видят язык.</text>
+        <g class="cluster"><title>wide</title><text>[Видят] язык</text>
+          <g class="cluster"><title>small</title><text>ЯЗЫК</text></g>
+        </g>
+      </g></svg>""")
+    write(sources["semontocor"] / "repeat.svg", """<svg xmlns="http://www.w3.org/2000/svg">
+      <g class="graph"><text>Язык язык.</text>
+        <g class="cluster"><title>ambiguous</title><text>язык</text></g>
+      </g></svg>""")
+    annotation = '[item: «язык»] и [item: язык]'
+    russian = {"id": "1", "utt": "«язык» и язык", "annot_utt": annotation}
+    write(sources["amr"] / "ru-RU.jsonl", json.dumps(russian, ensure_ascii=False) + "\n")
+    workspace = Workspace(tmp_path / "work")
+    for source, directory in sources.items():
+        pipeline.import_local(workspace, source, directory, complete=True)
+    before = {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG}
+    first = rebuild(workspace)
+    with queries.connect(workspace.database()) as connection:
+        parents = connection.execute("""
+          SELECT w.label,p.kind,p.label,w.id,w.attributes,p.attributes
+          FROM entity w JOIN fact_relation f ON f.object_id=w.id AND f.predicate='text:contains_word'
+          JOIN entity p ON p.id=f.subject_id
+          WHERE w.source='semontocor' AND w.local_id LIKE 'example.svg/word/%'
+        """).fetchall()
+        assert {(r[0], r[1], r[2]) for r in parents} == {
+            ("Они", "sentence", "Они видят язык."),
+            ("видят", "surface_fragment", "[Видят] язык"),
+            ("язык", "surface_fragment", "ЯЗЫК")}
+        assert len(parents) == 3
+        stable_ids = {row[3] for row in parents}
+        assert all(json.loads(row[4])["lemma_status"] == "ud_form" for row in parents)
+        assert connection.execute("""
+          SELECT count(*) FROM entity w JOIN fact_relation f ON f.object_id=w.id
+          JOIN entity p ON p.id=f.subject_id
+          WHERE w.local_id LIKE 'repeat.svg/word/%' AND f.predicate='text:contains_word' AND p.kind='sentence'
+        """).fetchone()[0] == 2
+        slots = connection.execute("""
+          SELECT w.id,w.attributes,p.attributes FROM entity w
+          JOIN fact_relation f ON f.object_id=w.id AND f.predicate='text:contains_word'
+          JOIN entity p ON p.id=f.subject_id
+          WHERE w.source='amr' AND w.label='язык'
+          ORDER BY json_extract(w.attributes,'$.position')
+        """).fetchall()
+        assert len(slots) == 2 and slots[0][0] != slots[1][0]
+        assert [json.loads(row[2])["raw"]["annotation_start"] for row in slots] == [0, annotation.rfind('[')]
+        for word_id, attributes, _ in slots:
+            span = json.loads(attributes)
+            assert russian["utt"][span["start"]:span["end"]] == "язык"
+            evidence = queries.entity_card(workspace.database(), word_id)["evidence"]
+            assert {item["source"] for item in evidence} == {"amr", "ud"}
+        assert not connection.execute("PRAGMA foreign_key_check").fetchall()
+    repeated = rebuild(workspace, force=True)
+    assert repeated["counts"] == first["counts"]
+    with queries.connect(workspace.database()) as connection:
+        assert {row[0] for row in connection.execute(
+            "SELECT id FROM entity WHERE source='semontocor' AND local_id LIKE 'example.svg/word/%'")} == stable_ids
+    assert {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG} == before
+
+
+def test_ud_word_index_keeps_ambiguity_and_yo_distinction():
+    from research.language_resources.text import WordIndex, word_matches
+    index = WordIndex()
+    index.observe("стали", "стать", "VERB", "ud.conllu", "1")
+    index.observe("Стали", "сталь", "NOUN", "ud.conllu", "2")
+    index.observe("стали", "стать", "VERB", "ud.conllu", "3")
+    assert index.lookup("стали") is None
+    index.observe("все", "весь", "DET", "ud.conllu", "4")
+    index.observe("всё", "всё", "PRON", "ud.conllu", "5")
+    assert index.lookup("ВСЕ")[0] == "весь"
+    assert index.lookup("ВСЁ")[0] == "всё"
+    assert index.lookup("неизвестно") is None
+    assert [match.group() for match in word_matches("Все\u0308-таки, всё!")] == ["Все\u0308-таки", "всё"]
 
 
 def test_rebuild_skip_force_update_and_failed_publish(built):
