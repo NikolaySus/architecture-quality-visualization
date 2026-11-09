@@ -12,7 +12,11 @@ import penman
 from penman.models.amr import model as amr_model
 
 from .downloads import files_named
-from .text import write_words, write_massive_words
+from .text import write_words, write_massive_words, write_ruwordnet_text
+
+
+FRAMEBANK_LEXEME = re.compile(r"(?P<lemma>[А-Яа-яЁё]+(?:(?:\s+|-)[А-Яа-яЁё]+)*)(?P<homonym_index>[0-9]+)?")
+FRAMEBANK_LEMMA_RULE = "framebank-key-lexeme-v2"
 
 
 def relative(path, payload):
@@ -51,7 +55,8 @@ def read_ud(payload, writer):
                     writer.edge(sentence_node, "text:contains", node, file, record)
                     writer.lexeme(node, token.get("lemma"), file, record, token.get("upos"))
                     if writer.word_index is not None and isinstance(token["id"], int):
-                        writer.word_index.observe(token["form"], token.get("lemma"), token.get("upos"), file, record)
+                        writer.word_index.observe(token["form"], token.get("lemma"), token.get("upos"), file, record,
+                                                  typo=(token.get("feats") or {}).get("Typo") == "Yes")
                 for token in sentence:
                     identifier = token_id(token["id"])
                     record = f"{local_id}/token/{identifier}"
@@ -91,6 +96,9 @@ def read_ruwordnet(payload, writer):
                 node = writer.entity(namespace, kind, local_id,
                     row.get("name") or row.get("title") or row.get("definition") or local_id,
                     {"raw": row}, file, record)
+                if table == "synset":
+                    for field in ["title", "definition"]:
+                        write_ruwordnet_text(writer, node, local_id, field, row.get(field), file, record)
                 if table in {"sense", "wn_sense"}:
                     target_kind = "synset" if table == "sense" else "external_synset"
                     target = writer.entity(namespace, target_kind, row["synset_id"],
@@ -166,10 +174,22 @@ def read_framebank(payload, writer):
                             value = writer.entity(namespace, "role" if field == "Role" else "semantic_constraint",
                                 field + ":" + row[field], row[field], file=file, record=record)
                             writer.edge(element, "framebank:" + field, value, file, record)
-                for lemma in row.get("KeyLexemes", "").split(","):
-                    lemma = lemma.strip()
-                    if construction and re.fullmatch(r"[А-Яа-яЁё]+(?:[ -][А-Яа-яЁё]+)*", lemma):
-                        writer.lexeme(construction, lemma, file, record)
+                for raw_key in row.get("KeyLexemes", "").split(","):
+                    raw_key = raw_key.strip()
+                    if not raw_key:
+                        continue
+                    match = FRAMEBANK_LEXEME.fullmatch(raw_key)
+                    if not construction or match is None:
+                        writer.counts["framebank_keys_skipped"] += 1
+                        writer.skipped_keys.append({"key": raw_key, "file": file, "record": record,
+                            "reason": "missing_construction" if not construction else "unsupported_key_format"})
+                        continue
+                    index = match.group("homonym_index")
+                    writer.lexeme(construction, match.group("lemma"), file, record, rule=FRAMEBANK_LEMMA_RULE,
+                                  attributes={"raw_key": raw_key, "homonym_index": int(index) if index else None})
+                    writer.counts["framebank_keys_linked"] += 1
+                    if index:
+                        writer.counts["framebank_indexed_keys_linked"] += 1
                 if len(writer.entities) >= 10000:
                     writer.flush()
                 if int(record) % 50000 == 0:

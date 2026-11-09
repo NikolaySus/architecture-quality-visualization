@@ -1,6 +1,6 @@
 """Derived word occurrences attached to the smallest aligned text fragment."""
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 import re
 
 from .warehouse import lexical_key
@@ -9,7 +9,8 @@ from .warehouse import lexical_key
 WORD_PART = r"[^\W_](?:[^\W_]|[\u0300-\u036f])*"
 WORD_PATTERN = re.compile(rf"{WORD_PART}(?:[-'’]{WORD_PART})*", re.UNICODE)
 WORD_RULE = "smallest-text-container-v1"
-LEMMA_RULE = "unambiguous-ud-form-v1"
+LEMMA_RULE = "unambiguous-clean-ud-form-v2"
+RUWORDNET_TEXT_RULE = "ruwordnet-text-fields-v1"
 
 
 class WordIndex:
@@ -17,11 +18,20 @@ class WordIndex:
 
     def __init__(self):
         self.forms = {}
+        self.typo_forms = set()
+        self.observations = Counter()
 
-    def observe(self, form, lemma, pos, file, record):
-        if not form or not lemma or lemma == "_":
+    def observe(self, form, lemma, pos, file, record, *, typo=False):
+        if not form:
             return
         key = lexical_key(form)
+        if typo:
+            self.typo_forms.add(key)
+            self.observations["excluded_typo_observations"] += 1
+            return
+        if not lemma or lemma == "_":
+            return
+        self.observations["clean_observations"] += 1
         lemma = lexical_key(lemma)
         if key not in self.forms:
             self.forms[key] = (lemma, pos, file, record)
@@ -35,12 +45,26 @@ class WordIndex:
     def lookup(self, form):
         return self.forms.get(lexical_key(form))
 
+    def reason(self, form):
+        key = lexical_key(form)
+        if key in self.forms:
+            return "unique_lemma" if self.forms[key] else "ambiguous_form"
+        return "typo_only" if key in self.typo_forms else "absent_form"
+
+    def summary(self):
+        return {"clean_observations": self.observations["clean_observations"],
+                "excluded_typo_observations": self.observations["excluded_typo_observations"],
+                "unique_forms": sum(value is not None for value in self.forms.values()),
+                "ambiguous_forms": sum(value is None for value in self.forms.values()),
+                "typo_only_forms": sum(key not in self.forms for key in self.typo_forms)}
+
 
 def word_matches(text):
     return list(WORD_PATTERN.finditer(text))
 
 
-def write_words(writer, namespace, sentence, local_id, text, file, record, fragments=(), matches=None):
+def write_words(writer, namespace, sentence, local_id, text, file, record, fragments=(), matches=None,
+                *, container_attribute="sentence_id", context=None):
     matches = word_matches(text) if matches is None else matches
     keys = [lexical_key(match.group()) for match in matches]
     positions = defaultdict(list)
@@ -64,7 +88,8 @@ def write_words(writer, namespace, sentence, local_id, text, file, record, fragm
             continue
         start = aligned[0]
         end = start + len(fragment_keys)
-        width = matches[end - 1].end() - matches[start].start()
+        bounds = fragment.get("container_span", (matches[start].start(), matches[end - 1].end()))
+        width = bounds[1] - bounds[0]
         for index in range(start, end):
             if not owners[index] or width < owners[index][0][0]:
                 owners[index] = [(width, fragment["id"])]
@@ -73,8 +98,11 @@ def write_words(writer, namespace, sentence, local_id, text, file, record, fragm
     for index, match in enumerate(matches):
         word_record = f"{record}/word/{match.start()}:{match.end()}"
         lemma = writer.word_index.lookup(match.group()) if writer.word_index else None
-        attributes = {"sentence_id": sentence, "start": match.start(), "end": match.end(),
-                      "position": index, "lemma_status": "ud_form" if lemma else "unresolved"}
+        reason = writer.word_index.reason(match.group()) if writer.word_index else "ud_unavailable"
+        writer.counts[f"word_{reason}"] += 1
+        attributes = {**(context or {}), container_attribute: sentence, "start": match.start(), "end": match.end(),
+                      "position": index, "lemma_status": "ud_form" if lemma else "unresolved",
+                      "lemma_reason": reason}
         node = writer.entity(namespace, "word_occurrence",
             f"{local_id}/word/{match.start()}:{match.end()}", match.group(), attributes,
             file, word_record, WORD_RULE)
@@ -84,9 +112,62 @@ def write_words(writer, namespace, sentence, local_id, text, file, record, fragm
         if lemma:
             value, pos, ud_file, ud_record = lemma
             writer.lexeme(node, value, file, word_record, pos, rule=LEMMA_RULE,
-                          attributes={"basis": "unique_lemma_for_ud_form", "ud_file": ud_file,
+                          attributes={"basis": "unique_lemma_for_non_typo_ud_form", "ud_file": ud_file,
                                       "ud_record": ud_record})
             writer.evidence.append((node, "ud", ud_file, ud_record, LEMMA_RULE))
+
+
+def parenthetical_spans(text):
+    """Return balanced parenthesis interiors in outer-to-inner source order."""
+    stack = []
+    spans = []
+    for position, character in enumerate(text):
+        if character == "(":
+            stack.append(position)
+        elif character == ")" and stack:
+            spans.append((stack.pop() + 1, position))
+    return sorted(spans)
+
+
+def write_ruwordnet_text(writer, owner, synset_id, field, text, file, record):
+    """Keep titles, definitions and parenthetical context as source-local mentions."""
+    if not text or not text.strip():
+        return
+    local_id = f"synset:{synset_id}/{field}"
+    field_record = f"{record}/{field}"
+    container = writer.entity("ruwordnet", "surface_fragment", local_id, text,
+        {"source_entity_id": owner, "field": field, "role": "source_field", "raw": {"text": text}},
+        file, field_record, RUWORDNET_TEXT_RULE)
+    writer.edge(owner, f"ruwordnet:{field}_text", container, file, field_record, RUWORDNET_TEXT_RULE)
+    writer.counts[f"ruwordnet_{field}_fields"] += 1
+    fragments = []
+    parents = []
+    spans = parenthetical_spans(text)
+    writer.counts["ruwordnet_unmatched_parentheses"] += text.count("(") + text.count(")") - 2 * len(spans)
+    for start, end in spans:
+        label = text[start:end]
+        if not label.strip():
+            continue
+        while parents and start >= parents[-1][1]:
+            parents.pop()
+        parent = parents[-1][2] if parents else container
+        fragment_record = f"{field_record}/parenthetical/{start}:{end}"
+        fragment = writer.entity("ruwordnet", "surface_fragment",
+            f"{local_id}/parenthetical/{start}:{end}", label,
+            {"source_entity_id": owner, "text_container_id": container, "field": field,
+             "role": "parenthetical", "start": start, "end": end, "raw": {"text": label}},
+            file, fragment_record, RUWORDNET_TEXT_RULE)
+        writer.edge(parent, "text:contains_fragment", fragment, file, fragment_record, RUWORDNET_TEXT_RULE)
+        parents.append((start, end, fragment))
+        matches = word_matches(label)
+        word_span = (start + matches[0].start(), start + matches[-1].end()) if matches else (start, end)
+        fragments.append({"id": fragment, "text": label, "span": word_span, "container_span": (start, end)})
+        writer.counts["ruwordnet_parenthetical_fragments"] += 1
+    matches = word_matches(text)
+    write_words(writer, "ruwordnet", container, local_id, text, file, field_record, fragments, matches=matches,
+                container_attribute="text_container_id",
+                context={"source_entity_id": owner, "source_record": record, "source_field": field})
+    writer.counts[f"ruwordnet_{field}_words"] += len(matches)
 
 
 def write_massive_words(writer, sentence, local_id, text, annotation, file, record):

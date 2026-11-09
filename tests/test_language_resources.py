@@ -188,6 +188,233 @@ def test_ud_word_index_keeps_ambiguity_and_yo_distinction():
     assert [match.group() for match in word_matches("Все\u0308-таки, всё!")] == ["Все\u0308-таки", "всё"]
 
 
+@pytest.mark.parametrize("typo_first", [True, False])
+def test_ud_word_index_excludes_typos_regardless_of_order(typo_first):
+    from research.language_resources.text import WordIndex
+    index = WordIndex()
+    observations = [("из", "typo", True), ("и", "clean", False)]
+    if not typo_first:
+        observations.reverse()
+    for lemma, record, typo in observations:
+        index.observe("И", lemma, "CCONJ", "ud.conllu", record, typo=typo)
+    assert index.lookup("и") == ("и", "CCONJ", "ud.conllu", "clean")
+    assert index.reason("И") == "unique_lemma"
+    index.observe("опичатка", "опечатка", "NOUN", "ud.conllu", "3", typo=True)
+    assert index.lookup("опичатка") is None
+    assert index.reason("опичатка") == "typo_only"
+    index.observe("стали", "стать", "VERB", "ud.conllu", "4")
+    index.observe("стали", "сталь", "NOUN", "ud.conllu", "5")
+    assert index.lookup("стали") is None
+    assert index.reason("стали") == "ambiguous_form"
+    assert index.reason("неизвестно") == "absent_form"
+    assert index.summary() == {"clean_observations": 3, "excluded_typo_observations": 2,
+                               "unique_forms": 1, "ambiguous_forms": 1, "typo_only_forms": 1}
+
+
+def test_clean_lemmas_homonym_keys_and_multiword_components(tmp_path):
+    sources = make_sources(tmp_path / "inputs")
+    ud_file = sources["ud"] / "ru_syntagrus-ud-test.conllu"
+    write(ud_file, ud_file.read_text(encoding="utf-8") + """# sent_id = lexical-rules
+# text = И и рядом рядом опичатка
+1	И	и	CCONJ	_	_	0	root	_	_
+2	и	из	ADP	_	Typo=Yes	1	dep	_	_
+3	рядом	рядом	ADV	_	_	1	dep	_	_
+4	рядом	ряд	NOUN	_	_	1	dep	_	_
+5	опичатка	опечатка	NOUN	_	Typo=Yes	1	dep	_	_
+
+""")
+    svg = sources["semontocor"] / "example.svg"
+    write(svg, svg.read_text(encoding="utf-8").replace("Язык действует.", "И рядом опичатка неизвестно язык."))
+    write(sources["framebank"] / "framebank_dict_cx.txt",
+          "ConstrIndex\tConstr\tConstrName\tKeyLexemes\n"
+          "1\tS V\tязык действует\tязык\n"
+          "2\tхватать1\tхватать1\tхватать1\n"
+          "3\tхватать2\tхватать2\tхватать2,хватить2\n"
+          "4\tphrase\tphrase\tсеверо-западный язык,Abrev,напасть (сущ.)\n")
+    phrase = "  СЕВЕРО-ЗАПАДНЫЙ\t ЯЗЫК ЯЗЫК  "
+    with sqlite3.connect(sources["ruwordnet"] / "ruwordnet-2021.db") as connection:
+        connection.execute("INSERT INTO sense VALUES('phrase','название',?,'language')", (phrase,))
+    workspace = Workspace(tmp_path / "work")
+    for source, directory in sources.items():
+        pipeline.import_local(workspace, source, directory, complete=True)
+    before = {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG}
+    generation = rebuild(workspace)
+    with queries.connect(workspace.database()) as connection:
+        words = {row["label"]: json.loads(row["attributes"]) for row in connection.execute(
+            "SELECT label,attributes FROM entity WHERE source='semontocor' AND kind='word_occurrence'")}
+        assert {key: value["lemma_reason"] for key, value in words.items()} == {
+            "И": "unique_lemma", "рядом": "ambiguous_form", "опичатка": "typo_only",
+            "неизвестно": "absent_form", "язык": "unique_lemma"}
+        edge = connection.execute("""
+          SELECT f.* FROM fact_relation f JOIN entity e ON e.id=f.subject_id
+          WHERE e.source='semontocor' AND e.label='И' AND f.predicate='lexical:lemma_match'
+        """).fetchone()
+        assert json.loads(edge["attributes"])["ud_record"] == "lexical-rules/token/1"
+        assert edge["rule"] == "unambiguous-clean-ud-form-v2"
+        # Typo filtering affects the lookup dictionary, while native annotations remain inspectable.
+        native = connection.execute("SELECT attributes FROM entity WHERE local_id='lexical-rules/2'").fetchone()
+        assert json.loads(native[0])["raw"]["feats"]["Typo"] == "Yes"
+        assert connection.execute("""
+          SELECT l.label FROM entity t JOIN fact_relation f ON f.subject_id=t.id
+          JOIN entity l ON l.id=f.object_id
+          WHERE t.local_id='lexical-rules/2' AND f.predicate='lexical:lemma_match'
+        """).fetchone()[0] == "из"
+        keys = connection.execute("""
+          SELECT e.id,e.local_id,l.label,f.attributes FROM fact_relation f
+          JOIN entity e ON e.id=f.subject_id JOIN entity l ON l.id=f.object_id
+          WHERE e.source='framebank' AND e.local_id IN ('2','3') AND f.predicate='lexical:lemma_match'
+        """).fetchall()
+        assert len({row["id"] for row in keys}) == 2
+        assert {(row["local_id"], row["label"], json.loads(row["attributes"])["homonym_index"])
+                for row in keys} == {("2", "хватать", 1), ("3", "хватать", 2), ("3", "хватить", 2)}
+        assert not connection.execute("SELECT 1 FROM entity WHERE source IS NULL AND label='хватать2'").fetchone()
+        components = connection.execute("""
+          SELECT f.*,l.label FROM fact_relation f JOIN entity e ON e.id=f.subject_id
+          JOIN entity l ON l.id=f.object_id
+          WHERE f.source='ruwordnet' AND e.label='северо-западный язык язык'
+            AND f.predicate='lexical:has_component'
+          ORDER BY json_extract(f.attributes,'$.position')
+        """).fetchall()
+        assert [row["label"] for row in components] == ["северо-западный", "язык", "язык"]
+        for position, row in enumerate(components):
+            attributes = json.loads(row["attributes"])
+            assert attributes["position"] == position
+            assert attributes["lemma"] == phrase
+            assert phrase[attributes["start"]:attributes["end"]] == attributes["component"]
+            assert row["rule"] == "published-lemma-components-v1"
+            assert row["record"] == "sense:phrase"
+        assert not connection.execute("PRAGMA foreign_key_check").fetchall()
+        stable_edges = {row["id"] for row in components}
+    diagnostics = generation["diagnostics"]
+    assert diagnostics["ud_word_index"]["excluded_typo_observations"] == 2
+    framebank = diagnostics["sources"]["framebank"]
+    assert framebank["counts"]["framebank_indexed_keys_linked"] == 3
+    assert framebank["counts"]["framebank_keys_skipped"] == 2
+    assert {item["key"] for item in framebank["skipped_keys"]} == {"Abrev", "напасть (сущ.)"}
+    assert all(item["reason"] == "unsupported_key_format" and item["file"] and item["record"]
+               for item in framebank["skipped_keys"])
+    assert rebuild(workspace)["skipped"]
+    repeated = rebuild(workspace, force=True)
+    assert repeated["counts"] == generation["counts"]
+    assert repeated["diagnostics"] == diagnostics
+    with queries.connect(workspace.database()) as connection:
+        assert all(connection.execute("SELECT 1 FROM fact_relation WHERE id=?", (edge,)).fetchone()
+                   for edge in stable_edges)
+    assert {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG} == before
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("слово (контекст)", [(7, 15)]),
+    ("а (б (в))", [(3, 8), (6, 7)]),
+    ("а (б) (б)", [(3, 4), (7, 8)]),
+    ("а (б", []),
+    ("а ) б", []),
+])
+def test_balanced_parenthetical_spans(text, expected):
+    from research.language_resources.text import parenthetical_spans
+    assert parenthetical_spans(text) == expected
+
+
+def test_ruwordnet_text_mentions_keep_fields_context_and_native_senses(tmp_path, monkeypatch):
+    sources = make_sources(tmp_path / "inputs")
+    ud_file = sources["ud"] / "ru_syntagrus-ud-test.conllu"
+    write(ud_file, ud_file.read_text(encoding="utf-8") + """# sent_id = dictionary-mentions
+1	метелка	метелка	NOUN	_	_	0	root	_	_
+2	соцветие	соцветие	NOUN	_	_	1	dep	_	_
+3	сплав	сплав	NOUN	_	_	1	dep	_	_
+4	ртути	ртуть	NOUN	_	_	1	dep	_	_
+5	амальгама	амальгама	NOUN	_	_	1	dep	_	_
+
+""")
+    title = "МЕТЕЛКА (  СОЦВЕТИЕ (ЯЗЫК)  )"
+    definition = "Язык (язык) (язык) (((ЯЗЫК)))"
+    with sqlite3.connect(sources["ruwordnet"] / "ruwordnet-2021.db") as connection:
+        connection.executemany("INSERT INTO synset VALUES(?,?,?,?)", [
+            ("botanical", title, definition, "Adj"),
+            ("chemical", "АМАЛЬГАМА (СПЛАВ РТУТИ)", "", "Adj"),
+            ("broken", "Язык (соцветие", None, "N"), ("empty", "  ", "", "N")])
+        connection.executemany("INSERT INTO sense VALUES(?,?,?,?)", [
+            ("botanical-sense", "метелочный", "метелочный", "botanical"),
+            ("chemical-sense", "амальгамный", "амальгамный", "chemical"),
+            ("other-sense", "амальгама", "амальгама", "language")])
+    workspace = Workspace(tmp_path / "work")
+    for source, directory in sources.items():
+        pipeline.import_local(workspace, source, directory, complete=True)
+    before = {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG}
+    generation = rebuild(workspace)
+    with queries.connect(workspace.database()) as connection:
+        words = connection.execute("""
+          SELECT w.id,w.label,w.attributes,p.id AS parent_id,p.label AS parent_label,p.attributes AS parent_attributes
+          FROM entity w JOIN fact_relation f ON f.object_id=w.id AND f.predicate='text:contains_word'
+          JOIN entity p ON p.id=f.subject_id
+          WHERE w.source='ruwordnet' AND w.local_id LIKE 'synset:botanical/title/word/%'
+          ORDER BY json_extract(w.attributes,'$.position')
+        """).fetchall()
+        assert [row["label"] for row in words] == ["МЕТЕЛКА", "СОЦВЕТИЕ", "ЯЗЫК"]
+        assert [json.loads(row["parent_attributes"])["role"] for row in words] == [
+            "source_field", "parenthetical", "parenthetical"]
+        assert words[1]["parent_label"] == "  СОЦВЕТИЕ (ЯЗЫК)  "
+        assert words[2]["parent_label"] == "ЯЗЫК"
+        assert connection.execute("""
+          SELECT 1 FROM fact_relation WHERE subject_id=? AND object_id=? AND predicate='text:contains_fragment'
+        """, (words[1]["parent_id"], words[2]["parent_id"])).fetchone()
+        for row in words:
+            attrs = json.loads(row["attributes"])
+            assert "sentence_id" not in attrs
+            assert attrs["source_field"] == "title" and attrs["source_record"] == "synset:botanical"
+            assert title[attrs["start"]:attrs["end"]] == row["label"]
+            assert attrs["lemma_reason"] == "unique_lemma"
+            evidence = queries.entity_card(workspace.database(), row["id"])["evidence"]
+            assert {item["source"] for item in evidence} == {"ruwordnet", "ud"}
+        repeated = connection.execute("""
+          SELECT w.id,p.id,p.label FROM entity w JOIN fact_relation f ON f.object_id=w.id
+          JOIN entity p ON p.id=f.subject_id
+          WHERE w.local_id LIKE 'synset:botanical/definition/word/%' AND f.predicate='text:contains_word'
+          ORDER BY json_extract(w.attributes,'$.position')
+        """).fetchall()
+        assert len(repeated) == 4 and len({row[0] for row in repeated}) == 4
+        assert len({row[1] for row in repeated}) == 4
+        assert repeated[-1][2] == "ЯЗЫК"
+        assert not connection.execute("SELECT 1 FROM entity WHERE local_id LIKE 'synset:empty/%'").fetchone()
+        assert not connection.execute("SELECT 1 FROM entity WHERE local_id LIKE 'synset:broken/title/parenthetical/%'").fetchone()
+        assert connection.execute("""
+          SELECT l.label FROM entity w JOIN fact_relation f ON f.subject_id=w.id
+          JOIN entity l ON l.id=f.object_id
+          WHERE w.local_id LIKE 'synset:chemical/title/word/%' AND w.label='РТУТИ'
+            AND f.predicate='lexical:lemma_match'
+        """).fetchone()[0] == "ртуть"
+        assert connection.execute("""
+          SELECT s.local_id FROM entity e JOIN fact_relation f ON f.subject_id=e.id
+          JOIN entity s ON s.id=f.object_id
+          WHERE e.local_id='other-sense' AND f.predicate='ruwordnet:sense_of'
+        """).fetchone()[0] == "language"
+        assert not connection.execute("""
+          SELECT 1 FROM fact_relation f JOIN entity e ON e.id=f.subject_id
+          WHERE e.kind='synset' AND f.predicate='lexical:lemma_match'
+        """).fetchone()
+        assert not connection.execute("PRAGMA foreign_key_check").fetchall()
+        stable = {row[0] for row in connection.execute(
+            "SELECT id FROM entity WHERE source='ruwordnet' AND kind IN ('surface_fragment','word_occurrence')")}
+    counts = generation["diagnostics"]["sources"]["ruwordnet"]["counts"]
+    assert counts["ruwordnet_title_fields"] == 5 and counts["ruwordnet_definition_fields"] == 3
+    assert counts["ruwordnet_parenthetical_fragments"] == 8
+    assert counts["ruwordnet_unmatched_parentheses"] == 1
+    assert rebuild(workspace)["skipped"]
+    repeated_generation = rebuild(workspace, force=True)
+    assert repeated_generation["counts"] == generation["counts"]
+    with queries.connect(workspace.database()) as connection:
+        assert {row[0] for row in connection.execute(
+            "SELECT id FROM entity WHERE source='ruwordnet' AND kind IN ('surface_fragment','word_occurrence')")} == stable
+    monkeypatch.setenv("LANGUAGE_RESOURCES_HOME", str(workspace.root))
+    app = AppTest.from_file(str(MODULE / "app.py"), default_timeout=30).run()
+    app.sidebar.radio[0].set_value("Карточка объекта").run()
+    app.text_input[0].set_value(words[2]["id"]).run()
+    assert not app.exception
+    app.sidebar.radio[0].set_value("Граф").run()
+    assert not app.exception
+    assert {source: inventory(workspace.snapshot(source)[0] / "payload") for source in CATALOG} == before
+
+
 def test_rebuild_skip_force_update_and_failed_publish(built):
     workspace, sources, _, first = built
     assert rebuild(workspace)["skipped"]
@@ -257,6 +484,7 @@ def test_search_card_bounds_and_gui(built, monkeypatch):
     monkeypatch.setenv("LANGUAGE_RESOURCES_HOME", str(workspace.root))
     app = AppTest.from_file(str(MODULE / "app.py"), default_timeout=30).run()
     assert not app.exception
+    assert any(expander.label == "Диагностика обработки" for expander in app.expander)
     app.sidebar.radio[0].set_value("Поиск").run()
     app.text_input[0].set_value("язык").run()
     assert not app.exception
@@ -322,6 +550,10 @@ def test_empty_and_partial_gui(tmp_path, monkeypatch):
     generation = rebuild(workspace)
     assert sum(source["available"] for source in generation["sources"].values()) == 1
     assert not generation["sources"]["semontocor"]["complete"]
+    with queries.connect(workspace.database()) as connection:
+        reasons = {json.loads(row[0])["lemma_reason"] for row in connection.execute(
+            "SELECT attributes FROM entity WHERE kind='word_occurrence'")}
+        assert reasons == {"ud_unavailable"}
 
 
 def test_localization_rules():

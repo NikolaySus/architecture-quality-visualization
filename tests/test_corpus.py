@@ -8,6 +8,20 @@ from charts import chart, export, map_chart, interactive_svg
 import matplotlib.pyplot as plt
 
 
+def test_json_load_uses_utf8_with_ansi_system_default(tmp_path, monkeypatch):
+    import corpus
+    from pathlib import Path
+    directory = tmp_path / 'data'
+    directory.mkdir()
+    (directory / 'sample.json').write_text('{"text":"И язык"}', encoding='utf-8')
+    original = Path.read_text
+    def ansi_default(path, encoding=None, errors=None):
+        return original(path, encoding=encoding or 'cp1251', errors=errors)
+    monkeypatch.setattr(corpus, 'ROOT', tmp_path)
+    monkeypatch.setattr(Path, 'read_text', ansi_default)
+    assert load('sample') == {'text': 'И язык'}
+
+
 def test_import_counts_references_and_schema():
     papers=load('papers'); methods=load('methods'); obs=load('observations')
     assert [len(papers),len(methods),len(obs)]==[50,72,68]

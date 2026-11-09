@@ -4,7 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 
 def load(name):
-    records=json.loads((ROOT/'data'/f'{name}.json').read_text())
+    records=json.loads((ROOT/'data'/f'{name}.json').read_text(encoding='utf-8'))
     if name=='methods' and (ROOT/'data/access_audit.json').exists():
         audit={r['method_id']:r for r in load('access_audit')}
         for m in records:

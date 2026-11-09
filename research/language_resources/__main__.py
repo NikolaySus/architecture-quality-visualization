@@ -27,6 +27,8 @@ def main(argv=None):
     builder = commands.add_parser("rebuild")
     builder.add_argument("--force", action="store_true")
     commands.add_parser("status")
+    component_parser = commands.add_parser("components", help="Компоненты слабой связности и доли источников в крупнейшей")
+    component_parser.add_argument("--details", action="store_true", help="Состав, связи и происхождение остальных компонент")
     args = parser.parse_args(argv)
     workspace = Workspace(args.home)
     try:
@@ -41,6 +43,10 @@ def main(argv=None):
             failed = not result["complete"]
         elif args.command == "rebuild":
             result = rebuild(workspace, args.force)
+            failed = False
+        elif args.command == "components":
+            from .connectivity import components
+            result = components(workspace, details=args.details)
             failed = False
         else:
             result = pipeline.status(workspace)

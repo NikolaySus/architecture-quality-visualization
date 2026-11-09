@@ -108,6 +108,9 @@ def main():
             with st.expander(row["title"]):
                 st.json(row)
                 st.link_button("Страница источника", CATALOG[row["source"]]["url"])
+        if generation and generation.get("diagnostics"):
+            with st.expander("Диагностика обработки"):
+                st.json(generation["diagnostics"])
         return
     database = workspace.database(generation) if generation else None
     if database is None or not database.exists():

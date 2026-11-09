@@ -1,6 +1,7 @@
 """Star-shaped assertion storage and atomic publication of complete SQLite generations."""
 
 import hashlib
+from collections import Counter
 import json
 import sqlite3
 import unicodedata
@@ -10,7 +11,8 @@ from .storage import CATALOG, MODULE, atomic_json, digest_file, json_text, utc_n
 
 
 SCHEMA_VERSION = 1
-RULE_VERSION = "explicit-lexical-and-words-v2"
+RULE_VERSION = "explicit-lexical-and-words-v4"
+COMPONENT_RULE = "published-lemma-components-v1"
 SCHEMA = """
 PRAGMA journal_mode=DELETE;
 PRAGMA cache_size=-262144;
@@ -55,6 +57,8 @@ class GraphWriter:
         self.evidence = []
         self.relations = []
         self.shared_entities = set()
+        self.counts = Counter()
+        self.skipped_keys = []
 
     def entity(self, namespace, kind, local_id, label, attributes=None,
                file="", record="", rule="source", shared=False):
@@ -76,15 +80,33 @@ class GraphWriter:
         if len(self.entities) + len(self.relations) >= 10000:
             self.flush()
 
+    def _lexeme_node(self, lemma, file, record, rule):
+        key = lexical_key(lemma)
+        return self.entity("lexicon:ru", "lexeme", key, key,
+                           {"language": "ru", "normalization": "NFC-casefold-whitespace"},
+                           file, record, rule, shared=True)
+
     def lexeme(self, owner, lemma, file, record, pos=None, rule="lexical-anchor-v1", attributes=None):
         if not lemma or lemma == "_":
             return
-        key = lexical_key(lemma)
-        node = self.entity("lexicon:ru", "lexeme", key, key,
-                           {"language": "ru", "normalization": "NFC-casefold-whitespace"},
-                           file, record, rule, shared=True)
+        node = self._lexeme_node(lemma, file, record, rule)
         self.edge(owner, "lexical:lemma_match", node, file, record,
                   rule, {"lemma": lemma, "pos": pos, **(attributes or {})})
+        if len(lemma.split()) < 2:
+            return
+        # Local import keeps the shared tokenizer in text.py without an import cycle.
+        from .text import word_matches
+
+        matches = word_matches(lemma)
+        if len(matches) < 2:
+            return
+        self.counts["multiword_lemma_observations"] += 1
+        for position, match in enumerate(matches):
+            component = self._lexeme_node(match.group(), file, record, COMPONENT_RULE)
+            self.edge(node, "lexical:has_component", component, file, record, COMPONENT_RULE,
+                      {"lemma": lemma, "component": match.group(), "position": position,
+                       "start": match.start(), "end": match.end()})
+            self.counts["component_assertions"] += 1
 
     def flush(self):
         self.connection.executemany("INSERT INTO input_entity VALUES(?,?,?,?,?,?,?)", self.entities)
@@ -102,7 +124,7 @@ def input_signature(workspace, snapshots=None):
     return stable_id(inputs), inputs
 
 
-def _publish_generation(workspace, connection, database, generation_id, signature, inputs, snapshots):
+def _publish_generation(workspace, connection, database, generation_id, signature, inputs, snapshots, diagnostics):
     # Keep the parent-key working set in cache during reference validation.
     connection.execute("PRAGMA cache_size=-1048576")
     print("ETL check references", flush=True)
@@ -116,6 +138,7 @@ def _publish_generation(workspace, connection, database, generation_id, signatur
               for name in ["entity", "fact_relation", "entity_evidence"]}
     result = {"id": generation_id, "database": database.name, "signature": signature,
               "inputs": inputs, "created_at": utc_now(), "counts": counts,
+              "diagnostics": diagnostics,
               "validation": {"foreign_keys": "pass", "sqlite_quick_check": "pass"},
               "sources": {source: {"available": source in snapshots,
                   "complete": snapshots[source][1]["complete"] if source in snapshots else False}
@@ -160,7 +183,8 @@ def rebuild(workspace, force=False):
             for source, (_, manifest) in snapshots.items():
                 connection.execute("INSERT INTO source_snapshot VALUES(?,?,?)",
                                    (source, manifest["id"], json_text(manifest)))
-            word_index = WordIndex()
+            word_index = WordIndex() if "ud" in snapshots else None
+            diagnostics = {"sources": {}}
             for source in sorted(snapshots, key=lambda name: (name != "ud", name)):
                 directory, _ = snapshots[source]
                 print(f"ETL {source}", flush=True)
@@ -168,6 +192,9 @@ def rebuild(workspace, force=False):
                 ADAPTERS[source](directory / "payload", writer)
                 writer.flush()
                 input_connection.commit()
+                diagnostics["sources"][source] = {"counts": dict(writer.counts), "skipped_keys": writer.skipped_keys}
+            diagnostics["ud_word_index"] = word_index.summary() if word_index else None
+            print("ETL diagnostics " + json_text(diagnostics), flush=True)
             input_connection.close()
             connection.execute("ATTACH DATABASE ? AS staging", (str(input_database),))
             print("ETL merge entities", flush=True)
@@ -211,7 +238,7 @@ def rebuild(workspace, force=False):
                 INSERT INTO entity_fts(entity_fts) VALUES('rebuild');
             """)
             return _publish_generation(workspace, connection, database, generation_id,
-                                       signature, inputs, snapshots)
+                                       signature, inputs, snapshots, diagnostics)
         except Exception as error:
             input_connection.close()
             connection.close()

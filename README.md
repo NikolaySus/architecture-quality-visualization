@@ -5,11 +5,23 @@
 ## Запуск через uv
 
 ```bash
-uv sync --locked
-uv run streamlit run app.py --server.address 127.0.0.1
+uv sync --locked --group language-resources
+uv run --group language-resources python -m streamlit run app.py --server.address 127.0.0.1 --server.port 8503
 ```
 
-Проект закрепляет Python 3.12 в `.python-version`, зависимости - в `uv.lock`. Откройте http://localhost:8501. После установки зависимостей приложение работает без обращения к внешним сервисам; ссылки на статьи открываются по запросу пользователя.
+Проект закрепляет Python 3.12 в `.python-version`, зависимости - в `uv.lock`. Откройте http://localhost:8503. После установки зависимостей приложение работает без обращения к внешним сервисам; ссылки на статьи открываются по запросу пользователя.
+
+Для исследования объединённого графа UD, RuWordNet, FrameBank, SemOntoCor и AMR
+запускайте отдельный GUI из корня репозитория.
+
+```powershell
+uv sync --locked --group language-resources
+uv run --group language-resources python -m streamlit run research/language_resources/app.py --server.address 127.0.0.1 --server.port 8502
+```
+
+Он доступен по адресу http://localhost:8502 и открывает собранную локальную базу.
+Команды загрузки и обновления описаны в [README языковых ресурсов](research/language_resources/README.md).
+JSON-файлы основного приложения читаются в UTF-8 независимо от системной кодировки Windows.
 
 Готовый отчёт: [output/pdf/architecture_quality_report.pdf](output/pdf/architecture_quality_report.pdf).
 
