@@ -4,14 +4,16 @@ import hashlib
 from collections import Counter
 import json
 import sqlite3
+import sys
 import unicodedata
 import uuid
+from importlib.metadata import version
 
 from .storage import CATALOG, MODULE, atomic_json, digest_file, json_text, utc_now
 
 
-SCHEMA_VERSION = 1
-RULE_VERSION = "explicit-lexical-and-words-v4"
+SCHEMA_VERSION = 2
+RULE_VERSION = "explicit-lexical-and-words-v5"
 COMPONENT_RULE = "published-lemma-components-v1"
 SCHEMA = """
 PRAGMA journal_mode=DELETE;
@@ -34,6 +36,25 @@ CREATE TABLE fact_relation(
  source TEXT NOT NULL REFERENCES source_snapshot(source), file TEXT NOT NULL,
  record TEXT NOT NULL, rule TEXT NOT NULL, attributes TEXT NOT NULL
 );
+CREATE TABLE source_relation(
+ id TEXT PRIMARY KEY, subject_id TEXT NOT NULL REFERENCES entity(id),
+ predicate TEXT NOT NULL, object_id TEXT NOT NULL REFERENCES entity(id),
+ source TEXT NOT NULL REFERENCES source_snapshot(source), file TEXT NOT NULL,
+ record TEXT NOT NULL, rule TEXT NOT NULL, attributes TEXT NOT NULL
+);
+CREATE TABLE relation_origin(
+ relation_id TEXT NOT NULL REFERENCES fact_relation(id),
+ source_relation_id TEXT NOT NULL REFERENCES source_relation(id),
+ mapping_rule TEXT NOT NULL, attributes TEXT NOT NULL,
+ PRIMARY KEY(relation_id,source_relation_id,mapping_rule)
+) WITHOUT ROWID;
+CREATE INDEX relation_origin_source ON relation_origin(source_relation_id);
+CREATE VIEW original_fact_relation AS
+ SELECT * FROM source_relation
+ UNION ALL
+ SELECT f.* FROM fact_relation f
+ WHERE NOT EXISTS(SELECT 1 FROM source_relation s WHERE s.id=f.id)
+   AND NOT EXISTS(SELECT 1 FROM relation_origin o WHERE o.relation_id=f.id);
 CREATE TABLE metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);
 """
 
@@ -49,10 +70,11 @@ def lexical_key(text):
 class GraphWriter:
     """Adapters write bounded batches. Source-local identifiers survive rebuilds."""
 
-    def __init__(self, connection, source, word_index=None):
+    def __init__(self, connection, source, word_index=None, table_prefix="input_"):
         self.connection = connection
         self.source = source
         self.word_index = word_index
+        self.table_prefix = table_prefix
         self.entities = []
         self.evidence = []
         self.relations = []
@@ -79,6 +101,7 @@ class GraphWriter:
                                file, str(record), rule, attributes))
         if len(self.entities) + len(self.relations) >= 10000:
             self.flush()
+        return relation_id
 
     def _lexeme_node(self, lemma, file, record, rule):
         key = lexical_key(lemma)
@@ -109,22 +132,32 @@ class GraphWriter:
             self.counts["component_assertions"] += 1
 
     def flush(self):
-        self.connection.executemany("INSERT INTO input_entity VALUES(?,?,?,?,?,?,?)", self.entities)
-        self.connection.executemany("INSERT INTO input_entity_evidence VALUES(?,?,?,?,?)", self.evidence)
-        self.connection.executemany("INSERT INTO input_fact_relation VALUES(?,?,?,?,?,?,?,?,?)", self.relations)
+        self.connection.executemany(f"INSERT INTO {self.table_prefix}entity VALUES(?,?,?,?,?,?,?)", self.entities)
+        self.connection.executemany(f"INSERT INTO {self.table_prefix}entity_evidence VALUES(?,?,?,?,?)", self.evidence)
+        self.connection.executemany(f"INSERT INTO {self.table_prefix}fact_relation VALUES(?,?,?,?,?,?,?,?,?)", self.relations)
         self.entities.clear()
         self.evidence.clear()
         self.relations.clear()
 
 
 def input_signature(workspace, snapshots=None):
-    implementation = {name: digest_file(MODULE / name) for name in ["adapters.py", "warehouse.py", "text.py"]}
+    implementation = {name: digest_file(MODULE / name) for name in [
+        "adapters.py", "warehouse.py", "text.py", "storage.py", "downloads.py",
+        "normalization.py", "semantic_normalization.json"]}
+    project = MODULE.parents[1]
+    environment = {name: digest_file(project / name) for name in ["uv.lock", "pyproject.toml", ".python-version"]}
+    environment.update({"python": list(sys.version_info[:3]), "sqlite": sqlite3.sqlite_version,
+                        "platform": sys.platform,
+                        "unicode": unicodedata.unidata_version,
+                        "packages": {name: version(name) for name in ["conllu", "penman"]}})
     inputs = {"snapshots": workspace.active() if snapshots is None else snapshots, "schema": SCHEMA_VERSION,
-              "rules": RULE_VERSION, "implementation": implementation}
+              "rules": RULE_VERSION, "implementation": implementation, "environment": environment}
     return stable_id(inputs), inputs
 
 
 def _publish_generation(workspace, connection, database, generation_id, signature, inputs, snapshots, diagnostics):
+    from .normalization import logical_fingerprints
+
     # Keep the parent-key working set in cache during reference validation.
     connection.execute("PRAGMA cache_size=-1048576")
     print("ETL check references", flush=True)
@@ -135,11 +168,20 @@ def _publish_generation(workspace, connection, database, generation_id, signatur
     if connection.execute("PRAGMA quick_check").fetchone()[0] != "ok":
         raise ValueError("Warehouse structural integrity check failed")
     counts = {name: connection.execute(f"SELECT count(*) FROM {name}").fetchone()[0]
-              for name in ["entity", "fact_relation", "entity_evidence"]}
+              for name in ["entity", "fact_relation", "entity_evidence", "source_relation", "relation_origin"]}
+    print("ETL logical fingerprints", flush=True)
+    fingerprints = logical_fingerprints(connection)
+    print("ETL recheck build inputs", flush=True)
+    if input_signature(workspace)[0] != signature:
+        raise ValueError("Build inputs changed during ETL. Run rebuild again")
+    for source in snapshots:
+        workspace.verify(source)
     result = {"id": generation_id, "database": database.name, "signature": signature,
               "inputs": inputs, "created_at": utc_now(), "counts": counts,
               "diagnostics": diagnostics,
-              "validation": {"foreign_keys": "pass", "sqlite_quick_check": "pass"},
+              "fingerprints": fingerprints,
+              "validation": {"foreign_keys": "pass", "sqlite_quick_check": "pass",
+                             "build_inputs_unchanged": "pass", "snapshot_hashes": "pass"},
               "sources": {source: {"available": source in snapshots,
                   "complete": snapshots[source][1]["complete"] if source in snapshots else False}
                   for source in CATALOG}}
@@ -154,6 +196,7 @@ def _publish_generation(workspace, connection, database, generation_id, signatur
 def rebuild(workspace, force=False):
     from .adapters import ADAPTERS
     from .text import WordIndex
+    from .normalization import normalize
 
     with workspace.lock():
         signature, inputs = input_signature(workspace)
@@ -232,7 +275,13 @@ def rebuild(workspace, force=False):
                 CREATE INDEX entity_local_id ON entity(local_id);
                 CREATE INDEX relation_subject ON fact_relation(subject_id,predicate);
                 CREATE INDEX relation_object ON fact_relation(object_id,predicate);
-                CREATE INDEX relation_source ON fact_relation(source);
+                CREATE INDEX relation_source ON fact_relation(source,predicate);
+            """)
+            print("ETL semantic normalization", flush=True)
+            diagnostics["semantic_normalization"] = normalize(connection)
+            connection.commit()
+            print("ETL text search", flush=True)
+            connection.executescript("""
                 CREATE VIRTUAL TABLE entity_fts USING fts5(label,local_id,id,
                     content='entity',content_rowid='rowid', tokenize='unicode61 remove_diacritics 0');
                 INSERT INTO entity_fts(entity_fts) VALUES('rebuild');

@@ -65,6 +65,20 @@ def entity_card(database, entity_id, limit=200):
         """, (entity_id, entity_id, limit + 1)).fetchall()
         result["evidence"] = [dict(item) for item in evidence[:limit]]
         result["relations"] = [dict(item) for item in relations[:limit]]
+        result["relation_origins"] = []
+        if connection.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='relation_origin'").fetchone():
+            identifiers = [item["id"] for item in relations[:limit]]
+            for offset in range(0, len(identifiers), 1000):
+                batch = identifiers[offset:offset + 1000]
+                placeholders = ",".join("?" for _ in batch)
+                rows = connection.execute(f"""
+                  SELECT p.relation_id,p.mapping_rule,p.attributes AS mapping_attributes,
+                         o.*,s.label AS original_subject_label,t.label AS original_object_label
+                  FROM relation_origin p JOIN source_relation o ON o.id=p.source_relation_id
+                  JOIN entity s ON s.id=o.subject_id JOIN entity t ON t.id=o.object_id
+                  WHERE p.relation_id IN ({placeholders}) ORDER BY p.relation_id,o.id
+                """, batch)
+                result["relation_origins"].extend(dict(item) for item in rows)
         result["truncated"] = len(evidence) > limit or len(relations) > limit
         return result
 

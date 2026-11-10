@@ -120,7 +120,7 @@ def main():
         text = st.text_input("Текст, лемма или идентификатор", key="search_text")
         filters = st.columns(3)
         source = filters[0].selectbox("Источник", [None, "shared", *CATALOG],
-            format_func=lambda value: "Все" if value is None else "Общие лексемы" if value == "shared" else CATALOG[value]["title"])
+            format_func=lambda value: "Все" if value is None else "Общие объекты" if value == "shared" else CATALOG[value]["title"])
         kind = filters[1].selectbox("Тип объекта", [None, *available_kinds(str(database))],
                                     format_func=lambda value: value or "Все")
         page = filters[2].number_input("Страница", min_value=1, value=1, step=1)
@@ -167,6 +167,12 @@ def main():
                            "predicate": st.column_config.TextColumn("Отношение", width="medium"),
                            "object_label": st.column_config.TextColumn("Объект", width="medium")},
             hide_index=True, width="stretch")
+        if card["relation_origins"]:
+            st.write("Основания преобразования отношений")
+            st.dataframe(pd.DataFrame(card["relation_origins"]).reindex(columns=[
+                "relation_id", "mapping_rule", "original_subject_label", "predicate", "original_object_label",
+                "source", "file", "record", "rule", "id", "mapping_attributes", "attributes"]),
+                hide_index=True, width="stretch")
         if card["truncated"]:
             st.info("Показаны первые 200 записей происхождения и связей.")
         st.button("Исследовать граф", on_click=select_entity, args=(entity_id, "Граф"))

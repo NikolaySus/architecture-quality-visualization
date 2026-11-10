@@ -96,7 +96,8 @@ def test_all_adapters_and_provenance(built):
         empty = connection.execute("SELECT attributes FROM entity WHERE local_id='test-1/3.1'").fetchone()
         assert empty and json.loads(empty[0])["raw"]["id"] == [3, ".", 1]
         assert connection.execute("SELECT count(*) FROM fact_relation WHERE predicate='ud-enhanced:obj'").fetchone()[0] == 2
-        assert connection.execute("SELECT count(*) FROM fact_relation WHERE predicate='semontocor:hasAgent'").fetchone()[0] == 1
+        assert connection.execute("SELECT count(*) FROM fact_relation WHERE source='semontocor' AND predicate='core:agent'").fetchone()[0] == 1
+        assert connection.execute("SELECT count(*) FROM original_fact_relation WHERE predicate='semontocor:hasAgent'").fetchone()[0] == 1
         assert connection.execute("SELECT count(*) FROM fact_relation WHERE predicate='amr:ARG1'").fetchone()[0] == 2
         assert connection.execute("SELECT count(*) FROM fact_relation WHERE predicate='amr:consist-of'").fetchone()[0] == 2
         assert not connection.execute("SELECT 1 FROM fact_relation WHERE predicate='amr:consist'").fetchone()

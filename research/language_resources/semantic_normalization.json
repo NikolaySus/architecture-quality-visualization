@@ -1,0 +1,1147 @@
+{
+  "amr": {
+    "age": "core:age",
+    "beneficiary": "core:beneficiary",
+    "degree": "core:degree",
+    "duration": "core:duration",
+    "frequency": "core:frequency",
+    "instrument": "core:instrument",
+    "location": "core:location",
+    "manner": "core:manner",
+    "name": "core:name",
+    "poss": "core:possessor",
+    "purpose": "core:purpose",
+    "time": "core:time",
+    "topic": "core:topic"
+  },
+  "core_roles": {
+    "Age": "age",
+    "Agent": "agent",
+    "Beneficiary": "beneficiary",
+    "Degree": "degree",
+    "Duration": "duration",
+    "Frequency": "frequency",
+    "Goal": "purpose",
+    "Instrument": "instrument",
+    "Length": "duration",
+    "Location": "location",
+    "Manner": "manner",
+    "MomentOfTime": "time",
+    "Name": "name",
+    "PeriodOfTime": "time",
+    "Possessor": "possessor",
+    "Purpose": "purpose",
+    "Time": "time",
+    "Topic": "topic",
+    "TopicOfSpeech": "topic",
+    "TopicOfThought": "topic"
+  },
+  "framebank_projection": "role_assignment_and_slot_edges",
+  "framebank_roles": {
+    "support": {
+      "definition": "Used in nominal constructions with support (light) verbs, e.g. _make a decision_.",
+      "role": "SupportWord"
+    },
+    "агенс": {
+      "definition": "Refers to the initiator of an event",
+      "role": "Agent"
+    },
+    "агенс социального взаимодействия": {
+      "definition": "",
+      "role": "AgentOfSocialInteraction"
+    },
+    "адресат": {
+      "definition": "Refers to the one who is addressed to in a speech situation",
+      "role": "Addressee"
+    },
+    "аспект": {
+      "definition": "",
+      "role": "Aspect"
+    },
+    "атрибут": {
+      "definition": "Used for adjectives in attributive constructions",
+      "role": "Feature"
+    },
+    "аудитория": {
+      "definition": "",
+      "role": "Audience"
+    },
+    "бенефициант": {
+      "definition": "Refers to a referent which is advantaged by an event.",
+      "role": "Beneficiary"
+    },
+    "вес": {
+      "definition": "",
+      "role": "Weight"
+    },
+    "возраст": {
+      "definition": "",
+      "role": "Age"
+    },
+    "говорящий": {
+      "definition": "",
+      "role": "Speaker"
+    },
+    "детерминант пропозиции": {
+      "definition": "",
+      "role": "DeterminerOfPreposition"
+    },
+    "длительность": {
+      "definition": "",
+      "role": "Length"
+    },
+    "заместитель": {
+      "definition": "",
+      "role": "Deputy"
+    },
+    "запах": {
+      "definition": "",
+      "role": "Smell"
+    },
+    "звук": {
+      "definition": "",
+      "role": "Sound"
+    },
+    "значение параметра": {
+      "definition": "",
+      "role": "Value"
+    },
+    "инструмент": {
+      "definition": "",
+      "role": "Instrument"
+    },
+    "источник": {
+      "definition": "",
+      "role": "Source"
+    },
+    "источник вещества": {
+      "definition": "",
+      "role": "SourceOfSubstance"
+    },
+    "источник денежных средств": {
+      "definition": "",
+      "role": "SourceOfFinance"
+    },
+    "источник запаха": {
+      "definition": "",
+      "role": "SourceOfSmell"
+    },
+    "источник звука": {
+      "definition": "",
+      "role": "SourceOfSound"
+    },
+    "источник информации": {
+      "definition": "",
+      "role": "SourceOfInformation"
+    },
+    "источник света": {
+      "definition": "",
+      "role": "SourceOfLight"
+    },
+    "исходный посессор": {
+      "definition": "",
+      "role": "InitialPossessor"
+    },
+    "каузатор": {
+      "definition": "Refers to the referent which instigates an event rather than actually doing it.",
+      "role": "Causer"
+    },
+    "квазиинструмент": {
+      "definition": "",
+      "role": "Quasiinstrument"
+    },
+    "количество": {
+      "definition": "",
+      "role": "Quantity"
+    },
+    "комитатив": {
+      "definition": "Used in comitative construction",
+      "role": "Associated"
+    },
+    "конечная точка": {
+      "definition": "",
+      "role": "FinalDestination"
+    },
+    "конечное состояние": {
+      "definition": "",
+      "role": "FinalState"
+    },
+    "конечный посессор": {
+      "definition": "Refers to a referent that is conscious of being affected by the state or action identified by the verb.",
+      "role": "Recipient"
+    },
+    "контрагент": {
+      "definition": "Refers to a protagonist, general agent-like participant.",
+      "role": "Counteragent"
+    },
+    "контрагент социального взаимодействия": {
+      "definition": "",
+      "role": "CounteragentOfSocialInteraction"
+    },
+    "контрагент социального отношения": {
+      "definition": "",
+      "role": "CounteragentOfSocialAttitude"
+    },
+    "малефициант": {
+      "definition": "Refers to a referent which is disadvantaged by an event.",
+      "role": "Maleficiary"
+    },
+    "мера": {
+      "definition": "Notes the quantification of an event.",
+      "role": "Measure"
+    },
+    "место": {
+      "definition": "Refers to the location or spatial orientation of a state or action. It does not imply any motion.",
+      "role": "Location"
+    },
+    "место наблюдателя": {
+      "definition": "",
+      "role": "LocationOfObserver"
+    },
+    "множество": {
+      "definition": "Refers to a group of units which share a characteristic.",
+      "role": "Set"
+    },
+    "момент времени": {
+      "definition": "",
+      "role": "MomentOfTime"
+    },
+    "мотивировка": {
+      "definition": "",
+      "role": "Motivation"
+    },
+    "направление": {
+      "definition": "",
+      "role": "Direction"
+    },
+    "начальная точка": {
+      "definition": "",
+      "role": "InitialPoint"
+    },
+    "носитель информации": {
+      "definition": "",
+      "role": "Media"
+    },
+    "носитель признака": {
+      "definition": "",
+      "role": "CarrierOfAttribute"
+    },
+    "носитель свойства": {
+      "definition": "",
+      "role": "CarrierOfProperty"
+    },
+    "опора": {
+      "definition": "",
+      "role": "Support"
+    },
+    "ориентир": {
+      "definition": "",
+      "role": "ReferencePoint"
+    },
+    "оценка": {
+      "definition": "",
+      "role": "Evaluation"
+    },
+    "параметр": {
+      "definition": "",
+      "role": "Parameter"
+    },
+    "пациенс": {
+      "definition": "Refers to the surface object of the verb in a sentence.",
+      "role": "Patient"
+    },
+    "пациенс перемещения": {
+      "definition": "",
+      "role": "PatientOfMotion"
+    },
+    "пациенс социального взаимодействия": {
+      "definition": "",
+      "role": "PatientOfSocialInteraction"
+    },
+    "пациенс социального отношения": {
+      "definition": "",
+      "role": "PatientOfSocialAttitude"
+    },
+    "период времени": {
+      "definition": "",
+      "role": "PeriodOfTime"
+    },
+    "подвергающаяся воздействию часть пациенса": {
+      "definition": "",
+      "role": "PartOfPatient"
+    },
+    "порядок": {
+      "definition": "",
+      "role": "Order"
+    },
+    "посессор": {
+      "definition": "",
+      "role": "Possessor"
+    },
+    "последовательность": {
+      "definition": "Role of conjunction in phrase constructions",
+      "role": "Succession"
+    },
+    "потенциальная ситуация": {
+      "definition": "",
+      "role": "PotentialSituation"
+    },
+    "потенциальная угроза": {
+      "definition": "",
+      "role": "PotentialThreat"
+    },
+    "потенциальный агенс": {
+      "definition": "",
+      "role": "PotentialAgent"
+    },
+    "потенциальный контрагент": {
+      "definition": "",
+      "role": "PotentialCounteragent"
+    },
+    "потенциальный пациенс": {
+      "definition": "",
+      "role": "PotentialPatient"
+    },
+    "потенциальный посессор": {
+      "definition": "",
+      "role": "PotentialPossessor"
+    },
+    "потенциальный результат": {
+      "definition": "",
+      "role": "PotentialResult"
+    },
+    "потенциальный участник": {
+      "definition": "",
+      "role": "PotentialParticipant"
+    },
+    "потенциальный эффектор": {
+      "definition": "",
+      "role": "PotentialEffector"
+    },
+    "предел": {
+      "definition": "",
+      "role": "Limit"
+    },
+    "предмет высказывания": {
+      "definition": "",
+      "role": "TopicOfSpeech"
+    },
+    "предмет мысли": {
+      "definition": "",
+      "role": "TopicOfThought"
+    },
+    "препаративный указатель": {
+      "definition": "",
+      "role": "Placeholder"
+    },
+    "признак": {
+      "definition": "",
+      "role": "Attribute"
+    },
+    "признак действия": {
+      "definition": "",
+      "role": "AttributeOfAction"
+    },
+    "причина": {
+      "definition": "",
+      "role": "Cause"
+    },
+    "причина фоновой ситуации": {
+      "definition": "",
+      "role": "CauseOfBackgroundSituation"
+    },
+    "противопоставление": {
+      "definition": "Role of conjunction in phrase constructions",
+      "role": "Contrast"
+    },
+    "расстояние": {
+      "definition": "",
+      "role": "Distance"
+    },
+    "результат": {
+      "definition": "",
+      "role": "Result"
+    },
+    "ресурс": {
+      "definition": "",
+      "role": "Resource"
+    },
+    "свойство": {
+      "definition": "",
+      "role": "Property"
+    },
+    "свойство причины": {
+      "definition": "",
+      "role": "PropertyOfCause"
+    },
+    "ситуация в фокусе": {
+      "definition": "",
+      "role": "SituationInFocus"
+    },
+    "скорость": {
+      "definition": "",
+      "role": "Speed"
+    },
+    "содержание высказывания": {
+      "definition": "",
+      "role": "ContentOfSpeech"
+    },
+    "содержание действия": {
+      "definition": "",
+      "role": "ContentOfAction"
+    },
+    "содержание мысли": {
+      "definition": "",
+      "role": "ContentOfThought"
+    },
+    "содержимое": {
+      "definition": "",
+      "role": "Content"
+    },
+    "состояние": {
+      "definition": "",
+      "role": "State"
+    },
+    "социальная среда": {
+      "definition": "",
+      "role": "SocialEnvironment"
+    },
+    "способ": {
+      "definition": "Notes how the action, experience, or process of an event is carried out.",
+      "role": "Manner"
+    },
+    "среда": {
+      "definition": "",
+      "role": "Environment"
+    },
+    "средство": {
+      "definition": "",
+      "role": "Means"
+    },
+    "срок": {
+      "definition": "",
+      "role": "Term"
+    },
+    "статус": {
+      "definition": "",
+      "role": "Status"
+    },
+    "степень": {
+      "definition": "",
+      "role": "Degree"
+    },
+    "стимул": {
+      "definition": "",
+      "role": "Stimulus"
+    },
+    "субъект": {
+      "definition": "",
+      "role": "Subject"
+    },
+    "субъект восприятия": {
+      "definition": "",
+      "role": "Perceiver"
+    },
+    "субъект ментального состояния": {
+      "definition": "",
+      "role": "Cognizer"
+    },
+    "субъект модальности": {
+      "definition": "",
+      "role": "SubjectOfModality"
+    },
+    "субъект оценки": {
+      "definition": "",
+      "role": "Assessor"
+    },
+    "субъект перемещения": {
+      "definition": "",
+      "role": "Goer"
+    },
+    "субъект поведения": {
+      "definition": "",
+      "role": "Behaver"
+    },
+    "субъект психологического состояния": {
+      "definition": "",
+      "role": "SubjectOfPsychologicalState"
+    },
+    "субъект психологической реакции": {
+      "definition": "",
+      "role": "SubjectOfPsychologicalReaction"
+    },
+    "субъект ситуации в фокусе": {
+      "definition": "",
+      "role": "SubjectOfSituationInFocus"
+    },
+    "субъект социального отношения": {
+      "definition": "",
+      "role": "SubjectOfSocialAttitude"
+    },
+    "субъект физиологического ощущения": {
+      "definition": "",
+      "role": "SubjectOfPhysiologicalFeeling"
+    },
+    "субъект физиологического состояния": {
+      "definition": "",
+      "role": "SubjectOfPhysiologicalState"
+    },
+    "субъект физиологической деятельности": {
+      "definition": "",
+      "role": "SubjectOfPhysiologicalActivity"
+    },
+    "субъект физиологической реакции": {
+      "definition": "",
+      "role": "SubjectOfPhysiologicalReaction"
+    },
+    "сфера": {
+      "definition": "",
+      "role": "Field"
+    },
+    "тема": {
+      "definition": "",
+      "role": "Theme"
+    },
+    "точка контакта": {
+      "definition": "",
+      "role": "ContactPoint"
+    },
+    "траектория": {
+      "definition": "",
+      "role": "Path"
+    },
+    "уровень": {
+      "definition": "",
+      "role": "Level"
+    },
+    "условие": {
+      "definition": "",
+      "role": "Condition"
+    },
+    "фоновая ситуация": {
+      "definition": "",
+      "role": "BackgroundSituation"
+    },
+    "целое": {
+      "definition": "",
+      "role": "Whole"
+    },
+    "цель": {
+      "definition": "",
+      "role": "Goal"
+    },
+    "цена": {
+      "definition": "",
+      "role": "Price"
+    },
+    "часть": {
+      "definition": "",
+      "role": "Part"
+    },
+    "часть адресата": {
+      "definition": "",
+      "role": "PartOfAddressee"
+    },
+    "часть каузатора в фокусе внимания": {
+      "definition": "",
+      "role": "PartOfCauser"
+    },
+    "часть контрагента в фокусе внимания": {
+      "definition": "",
+      "role": "PartOfCounteragent"
+    },
+    "часть носителя признака": {
+      "definition": "",
+      "role": "PartOfCarrierOfAttribute"
+    },
+    "часть субъекта восприятия": {
+      "definition": "",
+      "role": "PartOfPerceiver"
+    },
+    "часть субъекта ментального состояния": {
+      "definition": "",
+      "role": "PartOfCognizer"
+    },
+    "часть субъекта психологического состояния": {
+      "definition": "",
+      "role": "PartOfSubjectOfPsychologicalState"
+    },
+    "часть субъекта физиологического ощущения": {
+      "definition": "",
+      "role": "PartOfSubjectOfPhysiologicalFeeling"
+    },
+    "часть субъекта физиологической реакции": {
+      "definition": "",
+      "role": "PartOfSubjectOfPhysiologicalReaction"
+    },
+    "часть темы в фокусе внимания": {
+      "definition": "",
+      "role": "PartOfTheme"
+    },
+    "эвиденциальность": {
+      "definition": "",
+      "role": "Evidentiality"
+    },
+    "экспериенцер": {
+      "definition": "Refers to an entity that receives a sensory impression, or in some other way is the locus of some event or activity that involves neither volition nor a change of state. A general role fore experientive functions.",
+      "role": "Experiencer"
+    },
+    "элемент": {
+      "definition": "",
+      "role": "Element"
+    },
+    "эталон": {
+      "definition": "Base of comparison.",
+      "role": "Standard"
+    },
+    "эффектор": {
+      "definition": "",
+      "role": "Effector"
+    }
+  },
+  "missing_role_labels": [
+    "",
+    "-",
+    "null",
+    "none",
+    "n/a"
+  ],
+  "references": {
+    "amr": "https://github.com/amrisi/amr-guidelines/blob/master/amr.md",
+    "framebank_roles": {
+      "sha256": "d030cf3af3ed47856cf5fbb9a2a4a5d53732a6a8146522a142727f8ef4773297",
+      "url": "https://github.com/olesar/framebank/blob/e60da2a38f645db21c55aa0e7ff9730e92e7e2ca/framebank_roles_ru_eng.md"
+    },
+    "semontocor": "https://dialogue-conf.org/media/5885/boguslavskyimplusetal083.pdf"
+  },
+  "reviewed_framebank_aliases": {
+    "время": {
+      "basis": "general temporal role. keeps the source label and schema context",
+      "role": "Time"
+    },
+    "образ действия": {
+      "basis": "manner of an action. keeps the source label and schema context",
+      "role": "Manner"
+    },
+    "частота": {
+      "basis": "frequency role. keeps the source label and schema context",
+      "role": "Frequency"
+    }
+  },
+  "role_parents": {
+    "Goal": "Purpose",
+    "Length": "Duration",
+    "MomentOfTime": "Time",
+    "PeriodOfTime": "Time",
+    "TopicOfSpeech": "Topic",
+    "TopicOfThought": "Topic"
+  },
+  "semontocor": {
+    "after": {
+      "inverse": true,
+      "predicate": "core:before",
+      "role": null
+    },
+    "before": {
+      "inverse": false,
+      "predicate": "core:before",
+      "role": null
+    },
+    "hasAboutness": {
+      "inverse": false,
+      "predicate": "soc:aboutness",
+      "role": null
+    },
+    "hasAge": {
+      "inverse": false,
+      "predicate": "core:age",
+      "role": "Age"
+    },
+    "hasAgent": {
+      "inverse": false,
+      "predicate": "core:agent",
+      "role": "Agent"
+    },
+    "hasAgent2": {
+      "inverse": false,
+      "predicate": "soc:agent2",
+      "role": null
+    },
+    "hasAspect": {
+      "inverse": false,
+      "predicate": "soc:aspect",
+      "role": null
+    },
+    "hasAttribute": {
+      "inverse": false,
+      "predicate": "soc:attribute",
+      "role": null
+    },
+    "hasBeneficiary": {
+      "inverse": false,
+      "predicate": "core:beneficiary",
+      "role": "Beneficiary"
+    },
+    "hasCardinality": {
+      "inverse": false,
+      "predicate": "soc:cardinality",
+      "role": null
+    },
+    "hasCause": {
+      "inverse": false,
+      "predicate": "soc:cause",
+      "role": null
+    },
+    "hasChief": {
+      "inverse": false,
+      "predicate": "soc:chief",
+      "role": null
+    },
+    "hasDegree": {
+      "inverse": false,
+      "predicate": "core:degree",
+      "role": "Degree"
+    },
+    "hasDifference": {
+      "inverse": false,
+      "predicate": "soc:difference",
+      "role": null
+    },
+    "hasDuration": {
+      "inverse": false,
+      "predicate": "core:duration",
+      "role": "Duration"
+    },
+    "hasElement": {
+      "inverse": false,
+      "predicate": "soc:element",
+      "role": null
+    },
+    "hasElementType": {
+      "inverse": false,
+      "predicate": "soc:element_type",
+      "role": null
+    },
+    "hasExperiencer": {
+      "inverse": false,
+      "predicate": "soc:experiencer",
+      "role": null
+    },
+    "hasFrequency": {
+      "inverse": false,
+      "predicate": "core:frequency",
+      "role": "Frequency"
+    },
+    "hasFunction": {
+      "inverse": false,
+      "predicate": "soc:function",
+      "role": null
+    },
+    "hasImplication": {
+      "inverse": false,
+      "predicate": "soc:implication",
+      "role": null
+    },
+    "hasInstrument": {
+      "inverse": false,
+      "predicate": "core:instrument",
+      "role": "Instrument"
+    },
+    "hasLocation": {
+      "inverse": false,
+      "predicate": "core:location",
+      "role": "Location"
+    },
+    "hasLoser": {
+      "inverse": false,
+      "predicate": "soc:loser",
+      "role": null
+    },
+    "hasManner": {
+      "inverse": false,
+      "predicate": "core:manner",
+      "role": "Manner"
+    },
+    "hasMaterial": {
+      "inverse": false,
+      "predicate": "soc:material",
+      "role": null
+    },
+    "hasMember": {
+      "inverse": false,
+      "predicate": "soc:member",
+      "role": null
+    },
+    "hasMethod": {
+      "inverse": false,
+      "predicate": "soc:method",
+      "role": null
+    },
+    "hasName": {
+      "inverse": false,
+      "predicate": "core:name",
+      "role": "Name"
+    },
+    "hasObject": {
+      "inverse": false,
+      "predicate": "soc:object",
+      "role": null
+    },
+    "hasObject2": {
+      "inverse": false,
+      "predicate": "soc:object2",
+      "role": null
+    },
+    "hasOwner": {
+      "inverse": false,
+      "predicate": "core:possessor",
+      "role": "Possessor"
+    },
+    "hasPart": {
+      "inverse": false,
+      "predicate": "soc:part",
+      "role": null
+    },
+    "hasPrecondition": {
+      "inverse": false,
+      "predicate": "soc:precondition",
+      "role": null
+    },
+    "hasQuantity": {
+      "inverse": false,
+      "predicate": "soc:quantity",
+      "role": null
+    },
+    "hasRecipient": {
+      "inverse": false,
+      "predicate": "soc:recipient",
+      "role": null
+    },
+    "hasResult": {
+      "inverse": false,
+      "predicate": "soc:result",
+      "role": null
+    },
+    "hasRole": {
+      "inverse": false,
+      "predicate": "soc:role",
+      "role": null
+    },
+    "hasScopeOver": {
+      "inverse": false,
+      "predicate": "soc:scope_over",
+      "role": null
+    },
+    "hasSource": {
+      "inverse": false,
+      "predicate": "soc:source",
+      "role": null
+    },
+    "hasStartingPoint": {
+      "inverse": false,
+      "predicate": "soc:starting_point",
+      "role": null
+    },
+    "hasStimulus": {
+      "inverse": false,
+      "predicate": "soc:stimulus",
+      "role": null
+    },
+    "hasSubEvent": {
+      "inverse": false,
+      "predicate": "soc:sub_event",
+      "role": null
+    },
+    "hasSubset": {
+      "inverse": false,
+      "predicate": "soc:subset",
+      "role": null
+    },
+    "hasTerminalPoint": {
+      "inverse": false,
+      "predicate": "soc:terminal_point",
+      "role": null
+    },
+    "hasTime": {
+      "inverse": false,
+      "predicate": "core:time",
+      "role": "Time"
+    },
+    "hasTopic": {
+      "inverse": false,
+      "predicate": "core:topic",
+      "role": "Topic"
+    },
+    "hasTrajectory": {
+      "inverse": false,
+      "predicate": "soc:trajectory",
+      "role": null
+    },
+    "hasTruthValue": {
+      "inverse": false,
+      "predicate": "soc:truth_value",
+      "role": null
+    },
+    "hasUser": {
+      "inverse": false,
+      "predicate": "soc:user",
+      "role": null
+    },
+    "hasValue": {
+      "inverse": false,
+      "predicate": "soc:value",
+      "role": null
+    },
+    "inOrderTo": {
+      "inverse": false,
+      "predicate": "core:purpose",
+      "role": "Purpose"
+    },
+    "isAboutnessOf": {
+      "inverse": true,
+      "predicate": "soc:aboutness",
+      "role": null
+    },
+    "isAgent2Of": {
+      "inverse": true,
+      "predicate": "soc:agent2",
+      "role": null
+    },
+    "isAgentOf": {
+      "inverse": true,
+      "predicate": "core:agent",
+      "role": "Agent"
+    },
+    "isAspectOf": {
+      "inverse": true,
+      "predicate": "soc:aspect",
+      "role": null
+    },
+    "isAttributeOf": {
+      "inverse": true,
+      "predicate": "soc:attribute",
+      "role": null
+    },
+    "isBeneficiaryOf": {
+      "inverse": true,
+      "predicate": "core:beneficiary",
+      "role": "Beneficiary"
+    },
+    "isCardinalityOf": {
+      "inverse": true,
+      "predicate": "soc:cardinality",
+      "role": null
+    },
+    "isCauseOf": {
+      "inverse": true,
+      "predicate": "soc:cause",
+      "role": null
+    },
+    "isChiefOf": {
+      "inverse": true,
+      "predicate": "soc:chief",
+      "role": null
+    },
+    "isDegreeOf": {
+      "inverse": true,
+      "predicate": "core:degree",
+      "role": "Degree"
+    },
+    "isDifferenceOf": {
+      "inverse": true,
+      "predicate": "soc:difference",
+      "role": null
+    },
+    "isDurationOf": {
+      "inverse": true,
+      "predicate": "core:duration",
+      "role": "Duration"
+    },
+    "isElementOf": {
+      "inverse": true,
+      "predicate": "soc:element",
+      "role": null
+    },
+    "isElementTypeOf": {
+      "inverse": true,
+      "predicate": "soc:element_type",
+      "role": null
+    },
+    "isExperiencerOf": {
+      "inverse": true,
+      "predicate": "soc:experiencer",
+      "role": null
+    },
+    "isFrequencyOf": {
+      "inverse": true,
+      "predicate": "core:frequency",
+      "role": "Frequency"
+    },
+    "isFunctionOf": {
+      "inverse": true,
+      "predicate": "soc:function",
+      "role": null
+    },
+    "isImplicationOf": {
+      "inverse": true,
+      "predicate": "soc:implication",
+      "role": null
+    },
+    "isInOrderToOf": {
+      "inverse": true,
+      "predicate": "core:purpose",
+      "role": "Purpose"
+    },
+    "isInstrumentOf": {
+      "inverse": true,
+      "predicate": "core:instrument",
+      "role": "Instrument"
+    },
+    "isLocationOf": {
+      "inverse": true,
+      "predicate": "core:location",
+      "role": "Location"
+    },
+    "isLoserOf": {
+      "inverse": true,
+      "predicate": "soc:loser",
+      "role": null
+    },
+    "isMannerOf": {
+      "inverse": true,
+      "predicate": "core:manner",
+      "role": "Manner"
+    },
+    "isMaterialOf": {
+      "inverse": true,
+      "predicate": "soc:material",
+      "role": null
+    },
+    "isMemberOf": {
+      "inverse": true,
+      "predicate": "soc:member",
+      "role": null
+    },
+    "isMethodOf": {
+      "inverse": true,
+      "predicate": "soc:method",
+      "role": null
+    },
+    "isNameOf": {
+      "inverse": true,
+      "predicate": "core:name",
+      "role": "Name"
+    },
+    "isObject2Of": {
+      "inverse": true,
+      "predicate": "soc:object2",
+      "role": null
+    },
+    "isObjectOf": {
+      "inverse": true,
+      "predicate": "soc:object",
+      "role": null
+    },
+    "isOwnerOf": {
+      "inverse": true,
+      "predicate": "core:possessor",
+      "role": "Possessor"
+    },
+    "isPartOf": {
+      "inverse": true,
+      "predicate": "soc:part",
+      "role": null
+    },
+    "isPreconditionOf": {
+      "inverse": true,
+      "predicate": "soc:precondition",
+      "role": null
+    },
+    "isQuantityOf": {
+      "inverse": true,
+      "predicate": "soc:quantity",
+      "role": null
+    },
+    "isRecipientOf": {
+      "inverse": true,
+      "predicate": "soc:recipient",
+      "role": null
+    },
+    "isResultOf": {
+      "inverse": true,
+      "predicate": "soc:result",
+      "role": null
+    },
+    "isRoleOf": {
+      "inverse": true,
+      "predicate": "soc:role",
+      "role": null
+    },
+    "isScopeOverOf": {
+      "inverse": true,
+      "predicate": "soc:scope_over",
+      "role": null
+    },
+    "isSourceOf": {
+      "inverse": true,
+      "predicate": "soc:source",
+      "role": null
+    },
+    "isStartingPointOf": {
+      "inverse": true,
+      "predicate": "soc:starting_point",
+      "role": null
+    },
+    "isStimulusOf": {
+      "inverse": true,
+      "predicate": "soc:stimulus",
+      "role": null
+    },
+    "isSubEventOf": {
+      "inverse": true,
+      "predicate": "soc:sub_event",
+      "role": null
+    },
+    "isSubsetOf": {
+      "inverse": true,
+      "predicate": "soc:subset",
+      "role": null
+    },
+    "isTerminalPointOf": {
+      "inverse": true,
+      "predicate": "soc:terminal_point",
+      "role": null
+    },
+    "isTimeOf": {
+      "inverse": true,
+      "predicate": "core:time",
+      "role": "Time"
+    },
+    "isTopicOf": {
+      "inverse": true,
+      "predicate": "core:topic",
+      "role": "Topic"
+    },
+    "isTrajectoryOf": {
+      "inverse": true,
+      "predicate": "soc:trajectory",
+      "role": null
+    },
+    "isTruthValueOf": {
+      "inverse": true,
+      "predicate": "soc:truth_value",
+      "role": null
+    },
+    "isUserOf": {
+      "inverse": true,
+      "predicate": "soc:user",
+      "role": null
+    },
+    "isValueOf": {
+      "inverse": true,
+      "predicate": "soc:value",
+      "role": null
+    }
+  },
+  "version": "semantic-unification-v1"
+}
